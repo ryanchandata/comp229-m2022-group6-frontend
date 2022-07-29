@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from './team_logo.jpg';
-import AuthService from '../services/auth-service';
 
 console.log(logo);
 
@@ -55,9 +54,12 @@ function Header()
           <li className="nav-item">
             <NavLink to={"/contact"} className="nav-link" aria-current="page"><i className="fa-solid fa-envelope fa-lg"></i> Contact Us</NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to={"/login"} className="nav-link" aria-current="page" ><i className="fa-solid fa-right-to-bracket fa-lg"></i> Login</NavLink>
+          </li>
 
-          { toggleLogin() }
-
+          { toggleLogin }
+          
         </ul>
       </div>
     </div>
