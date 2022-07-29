@@ -5,7 +5,7 @@ import UserModel from '../models/User';
 
 function Login()
 {
-    const [username, setUsername] = useState(''); // [getter, setter]
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate(); // alias for useNavigate
 
@@ -39,8 +39,8 @@ function Login()
         // use the auth service to perform login
         AuthService.login(UserData.username, UserData.password)
         .then(() => {
-            // navigate to the survey-list page
-            //TODO: Change this link to "survey-list";
+            // navigate to the movie-list page
+            //TODO: Change this link to "movie-list";
             navigate("/home"); // temporarily link to home page 
             window.location.reload();
         }, error =>{
