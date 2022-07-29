@@ -41,8 +41,8 @@ function App() {
           <Route path="/edit" element={<Edit />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<Register />} /> 
+          <Route path="/login" element={<Logout />} />
+          <Route path="/login" element={<Register />} /> 
         </Routes>
 
         <Footer></Footer>

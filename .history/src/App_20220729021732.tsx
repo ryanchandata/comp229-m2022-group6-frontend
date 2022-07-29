@@ -16,8 +16,6 @@ import PageNotFound from './content/PageNotFound';
 
 // Authentication Components
 import Login from './authentication/login';
-import Logout from './authentication/logout';
-import Register from './authentication/register';
 
 // Styles and Fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
