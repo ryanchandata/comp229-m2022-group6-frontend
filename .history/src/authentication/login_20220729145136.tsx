@@ -39,8 +39,8 @@ function Login()
         // use the auth service to perform login
         AuthService.login(UserData.username, UserData.password)
         .then(() => {
-            // navigate to the survey-list page
-            //TODO: Change this link to "survey-list";
+            // navigate to the movie-list page
+            //TODO: Change this link to "movie-list";
             navigate("/home"); // temporarily link to home page 
             window.location.reload();
         }, error =>{
@@ -86,8 +86,8 @@ function Login()
                         <div className="text-end">
                         <button id="loginButton" type="submit" className="btn btn-primary btn-lg">
                             <i className="fas fa-sign-in-alt"></i> Login</button>
-                            <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
-                            <i className="fas fa-undo"></i> Cancel</button></Link>
+                            <button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
+                            <i className="fas fa-undo"></i> Cancel</button>
                         </div>
                     </form>
                 <br/>    

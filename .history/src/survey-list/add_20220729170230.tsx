@@ -34,7 +34,8 @@ function Add()
                     <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options4" value="" ></input>
                 </div>
                 <div className="text-end mt-2">
-                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-plus"></i> Create</button>
+                        <button id="submitButton" type="submit" className="btn btn-primary">
+                            <i className="fas fa-user-plus"></i> Create</button>
                         <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
                             <i className="fas fa-undo"></i> Cancel</button></Link>
                         </div>

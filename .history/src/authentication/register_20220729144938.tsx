@@ -147,8 +147,8 @@ function Register()
                         <div className="text-end mt-2">
                         <button id="submitButton" type="submit" className="btn btn-primary btn-lg">
                             <i className="fas fa-user-plus"></i> Register</button>
-                        <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
-                            <i className="fas fa-undo"></i> Cancel</button></Link>
+                        <button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
+                            <i className="fas fa-undo"></i> Cancel</button>
                         </div>
                     </form>
                     

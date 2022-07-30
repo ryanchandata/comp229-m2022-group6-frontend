@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Common Components
@@ -24,7 +25,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
 
 function App() {
-
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  
   return (
     <div className="App">
       <BrowserRouter>
