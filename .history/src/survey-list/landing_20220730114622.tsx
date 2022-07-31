@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ISurveyData from '../models/Survey';
 
 function Survey()
 {   
     document.title = "My Surveys";
+
+    function renderSurvey(survey: ISurveyData)
+    {
+        return 
+    }
+        
     
-        return (
+    const [survey, setSurvey] = useState([] as ISurveyData[]);
+    useEffect(()=>{
+        fetch("https://comp229-m2022-project-group6.herokuapp.com/api/survey")
+        .then (response => response.json() as Promise<ISurveyData[]>)
+        .then (data => setSurvey(data));
+    }, []); 
+        
+        return <>
             <div className="container">
                 <h1>My Surveys</h1>
                 <hr />
@@ -47,9 +61,7 @@ function Survey()
                     </table>
                 </div>
             </div>
-        )
+        </>
 }
 
 export default Survey;
-
-

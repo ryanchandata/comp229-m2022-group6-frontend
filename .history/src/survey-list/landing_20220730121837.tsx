@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component, constructor } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Survey()
 {   

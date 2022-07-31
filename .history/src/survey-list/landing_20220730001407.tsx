@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Survey()
 {   
-    document.title = "My Surveys";
-    
-        return (
+    function renderSurvey(survey: any)
+    {
+        return <tr key={survey.name}>
+            <td>{survey.start}</td>
+            <td>{survey.end}</td>
+            <td>{survey.response}</td>
+            <td>{survey.status}</td>
+            <td className="text-center"><Link to="/edit/<%= surveys[count]._id %>"><button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button></Link></td>
+            <td className="text-center"><Link to="/delete/<% surveys[count]._id %>"><button className="btn btn-primary"><i className="fa-solid fa-circle-minus fa-lg"></i></button></Link></td>
+        </tr>
+    }
+   
+    {
+        document.title = "My Surveys";
+        const [survey, setSurvey] = useState([] as []);
+        useEffect(()=>{
+            fetch('https://comp229-m2022-project-group6.herokuapp.com/api/survey')
+            .then (response => response.json())
+            .then (data => setSurvey(data));
+    }, []); 
+        
+        return <>
             <div className="container">
                 <h1>My Surveys</h1>
                 <hr />
@@ -27,29 +46,13 @@ function Survey()
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td></td>
-                            <td className="text-center"></td>
-                            <td className="text-center"></td>
-                            <td className="text-center"></td>
-                            <td className="text-center"></td>
-                            <td className="text-center">
-                                <Link to="/edit/<%= surveys[count]._id %>">
-                                    <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
-                                </Link></td>
-                            <td className="text-center">
-                                <Link to="/delete/<% surveys[count]._id %>">
-                                    <button className="btn btn-primary"><i className="fa-solid fa-circle-minus fa-lg"></i></button>
-                                </Link>
-                            </td>
-                        </tr>
+                            {survey.map(l=>renderSurvey(l))}                 
                         </tbody>
                     </table>
                 </div>
             </div>
-        )
+    </>
+    } 
 }
 
 export default Survey;
-
-

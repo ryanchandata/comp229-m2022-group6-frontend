@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Survey()
 {   
     document.title = "My Surveys";
-    
+        
         return (
             <div className="container">
                 <h1>My Surveys</h1>
@@ -51,5 +51,3 @@ function Survey()
 }
 
 export default Survey;
-
-
