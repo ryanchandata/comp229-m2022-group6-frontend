@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-// import ISurveyData from '../models/Survey';
-// import surveyService from '../services/survey-service';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import ISurveyData from '../models/Survey';
+import surveyService from '../services/survey-service';
+// import SurveyService from '../services/survey-service';
 // import SurveyModel from '../models/Survey';
 
 function Add()
 {
-    /* 
     const [ ID, setID ] = useState('');
     const [ Name, setName ] = useState('');
     const [ Title, setTitle ] = useState('');
@@ -62,7 +62,6 @@ function Add()
     });
     window.location.href = "/survey";
 }
-*/
 
     return(
         <div className="container">

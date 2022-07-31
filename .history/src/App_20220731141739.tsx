@@ -59,8 +59,8 @@ render(){
         <Footer></Footer>
       </BrowserRouter>
     </div>
-   );
-  }
+  );
+}
 }
 
 export default App;

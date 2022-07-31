@@ -53,14 +53,12 @@ function Survey()
         return (
             <div className="container">
                 <h1>My Surveys</h1>
-                
                 <hr />
                 <Link to="/add" >
                     <button id="addButton" className="btn btn-primary">Create Survey</button>
                 </Link>
                 <br /><br />
-                <div className="row">
-                <div className="col">
+                <div className="table-responsive">
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
@@ -99,9 +97,8 @@ function Survey()
                             }
                         </tbody>
                     </table>
-                    </div>
-                    </div>
                 </div>
+            </div>
         )
 }
 

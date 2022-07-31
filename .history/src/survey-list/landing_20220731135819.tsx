@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import surveyService from '../services/survey-service';
 import ISurveyData from '../models/Survey';
@@ -29,7 +29,7 @@ function Survey()
 
     function deleteSurvey (id: string)
     {
-        surveyService.delete(id)
+        SurveyService.delete(id)
         .then((responses: any) =>{
             refreshList();
         })
@@ -53,14 +53,12 @@ function Survey()
         return (
             <div className="container">
                 <h1>My Surveys</h1>
-                
                 <hr />
                 <Link to="/add" >
-                    <button id="addButton" className="btn btn-primary">Create Survey</button>
+                    <button className="btn btn-primary">Create Survey</button>
                 </Link>
                 <br /><br />
-                <div className="row">
-                <div className="col">
+                <div className="table-responsive">
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
@@ -87,7 +85,7 @@ function Survey()
                                             <td className="text-center">{}</td>
                                             <td className="text-center">{survey.dateActive}</td>
                                             <td className="text-center">
-                                                <Link to={`/edit/${survey._id}`}>
+                                                <Link to={`/edit/${surveys._id}`}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
                                                 </Link></td>
                                             <td className="text-center">
@@ -99,9 +97,8 @@ function Survey()
                             }
                         </tbody>
                     </table>
-                    </div>
-                    </div>
                 </div>
+            </div>
         )
 }
 
