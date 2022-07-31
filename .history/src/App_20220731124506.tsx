@@ -22,9 +22,8 @@ import Register from './authentication/register';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
-import RequireAuth from './authentication/requireAuth';
 
-function App() {
+function App(this: any) {
 
   return (
     <div className="App">
@@ -37,7 +36,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/survey" element={<RequireAuth><Survey /></RequireAuth>} />
+          <Route path="/survey" element={<Survey />} />
           <Route path="/add" element={<Add />} />
           <Route path="/edit" element={<Edit />} />
           <Route path="*" element={<PageNotFound />} />
