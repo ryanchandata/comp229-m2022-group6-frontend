@@ -6,6 +6,7 @@ import surveyService from '../services/survey-service';
 function Edit()
 {
     const [ name, setName ] = useState('');
+    const [ name, setName ] = useState('');
     const [ title, setTitle ] = useState('');
     const [ radio, setOptionType1 ] = useState('');
     const [ checkbox, setOptionType2 ] = useState('');
@@ -114,28 +115,28 @@ function Edit()
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={title} onChange={ onChangeTitle } required></input>
                     <label htmlFor="optionType">Selection Type:</label>
                     <label htmlFor="optionType">Radio
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value={radio} onChange={ onChangeOptionType1 } required></input>
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType } required></input>
                     </label>
                     <label htmlFor="optionType">Checkbox
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value={checkbox} onChange={ onChangeOptionType2 } required></input>                
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType } required></input>                
                     </label><br />
                     <label htmlFor="option1">Option 1</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options1" value = {options} onChange={ onChangeOptions } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options1" value = "" onChange={ onChangeOptions } required></input>
                     <label htmlFor="option2">Option 2</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options2" value = {options} onChange={ onChangeOptions } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options2" value = "" onChange={ onChangeOptions } required></input>
                     <label htmlFor="option3">Option 3</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options3" value = {options} onChange={ onChangeOptions } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options3" value = "" onChange={ onChangeOptions } ></input>
                     <label htmlFor="option4">Option 4</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options4" value = {options} onChange={ onChangeOptions } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options4" value = "" onChange={ onChangeOptions } ></input>
                 <br></br>
                 <label htmlFor="name">Question 2</label>
-                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question2" value = {title} onChange={ onChangeTitle } required></input>
+                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question2" value = "" onChange={ onChangeTitle } required></input>
                     <label htmlFor="optionType">Selection Type:</label>
                     <label htmlFor="optionType">Radio
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType1 } required></input>
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType } required></input>
                     </label>
                     <label htmlFor="optionType">Checkbox
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType2 } required></input>                
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType } required></input>                
                     </label><br />
                     <label htmlFor="option1">Option 1</label>
                     <input type="text" className="form-control" placeholder="Add option" id="options1" name="options5" value = "" onChange={ onChangeOptions } required></input>

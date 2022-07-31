@@ -7,13 +7,13 @@ console.log(logo);
 
 function Header()
 {
-  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-  const [ ,setValue ] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [value,setValue] = useState({});
 
     useEffect(()=>{
         setIsLoggedIn(AuthService.getCurrentUser())
         setValue({});
-    }, []);
+    });
 
   function toggleLogin()
   {
@@ -47,7 +47,7 @@ function Header()
           </li>
         );
       }
-  }
+  
 
 
     return (
@@ -77,6 +77,7 @@ function Header()
     </div>
   </nav>
     );
+  }
 }
 
 export default Header;
