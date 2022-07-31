@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Common Components
@@ -18,24 +17,15 @@ import PageNotFound from './content/PageNotFound';
 import Login from './authentication/login';
 import Logout from './authentication/logout';
 import Register from './authentication/register';
-import RequireAuth from './authentication/requireAuth';
 
 // Styles and Fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
+import RequireAuth from './authentication/requireAuth';
 
-// App Template
-class App extends React.Component {
-  
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      isLoggedIn: false
-    };
-  }
+function App() {
 
-render(){
   return (
     <div className="App">
       <BrowserRouter>
@@ -59,8 +49,7 @@ render(){
         <Footer></Footer>
       </BrowserRouter>
     </div>
-   );
-  }
+  );
 }
 
 export default App;

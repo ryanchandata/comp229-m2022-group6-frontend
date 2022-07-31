@@ -8,11 +8,9 @@ console.log(logo);
 function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-  const [ ,setValue ] = useState({});
 
   useEffect(()=>{
     setIsLoggedIn(AuthService.getCurrentUser());
-    setValue({});
   }, []);
 
   function toggleLogin()

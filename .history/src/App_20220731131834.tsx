@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Common Components
@@ -18,24 +17,14 @@ import PageNotFound from './content/PageNotFound';
 import Login from './authentication/login';
 import Logout from './authentication/logout';
 import Register from './authentication/register';
-import RequireAuth from './authentication/requireAuth';
 
 // Styles and Fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
 
-// App Template
-class App extends React.Component {
-  
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      isLoggedIn: false
-    };
-  }
+function App() {
 
-render(){
   return (
     <div className="App">
       <BrowserRouter>
@@ -48,8 +37,8 @@ render(){
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/survey" element={<RequireAuth><Survey /></RequireAuth>} />
-          <Route path="/add" element={<RequireAuth><Add /></RequireAuth>} />
-          <Route path="/edit" element={<RequireAuth><Edit /></RequireAuth>} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/edit" element={<Edit />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
@@ -59,8 +48,7 @@ render(){
         <Footer></Footer>
       </BrowserRouter>
     </div>
-   );
-  }
+  );
 }
 
 export default App;

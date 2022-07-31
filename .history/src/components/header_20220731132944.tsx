@@ -8,11 +8,9 @@ console.log(logo);
 function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-  const [ ,setValue ] = useState({});
 
   useEffect(()=>{
     setIsLoggedIn(AuthService.getCurrentUser());
-    setValue({});
   }, []);
 
   function toggleLogin()
@@ -69,7 +67,7 @@ function Header()
             <NavLink to={"/contact"} className="nav-link" aria-current="page"><i className="fa-solid fa-envelope fa-lg"></i> Contact Us</NavLink>
           </li>
 
-          { toggleSurveyList() }
+          { toggleSurveyList }
           { toggleLogin() }
 
         </ul>
