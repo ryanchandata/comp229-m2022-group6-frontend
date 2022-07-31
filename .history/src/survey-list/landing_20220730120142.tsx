@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ISurveyData from '../models/Survey';
 
 function Survey()
 {   
     document.title = "My Surveys";
-    
+        
         return (
             <div className="container">
                 <h1>My Surveys</h1>
@@ -51,5 +52,3 @@ function Survey()
 }
 
 export default Survey;
-
-

@@ -1,11 +1,33 @@
-import React from 'react';
+import { render } from '@testing-library/react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ISurveyData from '../models/Survey';
 
-function Survey()
+function Survey(this: any)
 {   
     document.title = "My Surveys";
-    
-        return (
+
+    const handleDisplay = () => {
+        let databody = 
+        {
+            "name": this.state.nameIn,
+            "dateCreated": this.state.dateCreatedIn,
+
+        }
+
+        return fetch ("https://comp229-m2022-project-group6.herokuapp.com/api/survey", {
+            method: 'POST',
+            body: JSON.stringify(databody),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then (res => res.json())
+        .then(data => console.log(data));
+    }
+
+   
+            return (
             <div className="container">
                 <h1>My Surveys</h1>
                 <hr />
@@ -14,7 +36,7 @@ function Survey()
                 </Link>
                 <br /><br />
                 <div className="table-responsive">
-                    <table className="table table-bordered table-striped table-hover">
+                    <table onProgress={ this.handleDisplay } className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>Survey Name</th>
@@ -29,7 +51,7 @@ function Survey()
                         <tbody>
                         <tr>
                             <td></td>
-                            <td className="text-center"></td>
+                            <td className="text-center"> { this.nameIn } </td>
                             <td className="text-center"></td>
                             <td className="text-center"></td>
                             <td className="text-center"></td>
@@ -47,9 +69,9 @@ function Survey()
                     </table>
                 </div>
             </div>
-        )
-}
+            )
+            
+        }
+    
 
 export default Survey;
-
-

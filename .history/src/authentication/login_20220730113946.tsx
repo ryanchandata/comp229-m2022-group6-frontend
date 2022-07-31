@@ -40,7 +40,8 @@ function Login()
         AuthService.login(UserData.username, UserData.password)
         .then(() => {
             // navigate to the survey-list page
-            navigate("/survey");
+            //TODO: Change this link to "survey-list";
+            navigate("/survey"); // temporarily link to home page 
             window.location.reload();
         }, error =>{
             // TODO: Needs a replacement for Flash messaging
