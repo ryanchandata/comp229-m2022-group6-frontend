@@ -49,7 +49,7 @@ render(){
           <Route path="/contact" element={<Contact />} />
           <Route path="/survey" element={<RequireAuth><Survey /></RequireAuth>} />
           <Route path="/add" element={<RequireAuth><Add /></RequireAuth>} />
-          <Route path="/edit" element={<RequireAuth><Edit /></RequireAuth>} />
+          <Route path="/edit/:id" element={<RequireAuth><Edit /></RequireAuth>} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
