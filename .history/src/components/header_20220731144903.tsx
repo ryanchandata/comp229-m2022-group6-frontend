@@ -10,10 +10,10 @@ function Header()
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ ,setValue ] = useState({});
 
-    useEffect(()=>{
-        setIsLoggedIn(AuthService.getCurrentUser())
-        setValue({});
-    }, []);
+  useEffect(()=>{
+    setIsLoggedIn(AuthService.getCurrentUser());
+    setValue({});
+  }, []);
 
   function toggleLogin()
   {
@@ -36,9 +36,9 @@ function Header()
       );
     }
   }
-    
-  function toggleSurveyList()
-  {
+
+    function toggleSurveyList()
+    {
       if (isLoggedIn)
       {
         return(
@@ -47,7 +47,7 @@ function Header()
           </li>
         );
       }
-  }
+    }
 
 
     return (
@@ -76,7 +76,7 @@ function Header()
       </div>
     </div>
   </nav>
-    );
+    )
 }
 
 export default Header;

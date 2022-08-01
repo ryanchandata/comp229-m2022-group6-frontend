@@ -1,23 +1,20 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
 
-function Edit()
+function Add()
 {
+    const [ ID, setID ] = useState('');
     const [ name, setName ] = useState('');
     const [ title, setTitle ] = useState('');
-    const [ radio, setOptionType1 ] = useState('');
-    const [ checkbox, setOptionType2 ] = useState('');
-    const [ options, setOptions ] = useState('');
-    // const [ response, setResponse ] = useState('');
-
-    const { id } = useParams();
+    const [ optionType, setOptionType ] = useState('');
+    const [ optionsArray, setOptions ] = useState('');
+    const [ response, setResponse ] = useState('');
 
     useEffect(()=>{
-        getSurvey(id);
-        document.title = "Edit";
-    }, [id]);
+        document.title = "Add";
+    })
 
     function onChangeName(event: ChangeEvent<HTMLInputElement>)
     {
@@ -29,13 +26,9 @@ function Edit()
         setTitle(event.target.value);
     }
 
-    function onChangeOptionType1(event: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionType(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptionType1(event.target.value);
-    }
-    function onChangeOptionType2(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptionType2(event.target.value);
+        setOptionType(event.target.value);
     }
 
     function onChangeOptions(event: ChangeEvent<HTMLInputElement>)
@@ -47,21 +40,6 @@ function Edit()
     {
         setResponse(event.target.value);
     }*/
-
-    function getSurvey(id: any)
-    {
-        surveyService.readOne(id)
-        .then((response: any) =>{
-            setName(response.data.survery.name);
-            setTitle(response.data.survey.title);
-            setOptionType1(response.data.survery.optionType1);
-            setOptionType1(response.data.survery.optionType2);
-            setOptions(response.data.survery.options);
-        })
-        .catch((e: Error)=>{
-            console.log(e);
-        });
-    }
     
     function saveSurvey(e: any)
     {
@@ -87,13 +65,13 @@ function Edit()
             }]
         }]}
 
-        surveyService.update(data, id)
+        surveyService.create(data)
         .then((response: any)=>
         {
+            setID(response.data.id)
             setName(response.data.name)
             setTitle(response.data.title)
-            setOptionType1(response.data.optiontype1)
-            setOptionType2(response.data.optiontype2)
+            setOptionType(response.data.optiontype)
             setOptions(response.data.options)
         })
         .catch((e: Error) =>{
@@ -109,33 +87,33 @@ function Edit()
             <form onSubmit={saveSurvey} className="form" method="post">
                 <div className="form-group">
                     <label htmlFor="title">Survey Title</label>
-                    <input type="text" className="form-control" placeholder="Title" id="name" name="name" value = {name} onChange={ onChangeName } required></input><br /><br />
+                    <input type="text" className="form-control" placeholder="Title" id="name" name="name" value = "" onChange={ onChangeName } required></input><br /><br />
                     <label htmlFor="name">Question 1</label>
-                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={title} onChange={ onChangeTitle } required></input>
+                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ="" onChange={ onChangeTitle } required></input>
                     <label htmlFor="optionType">Selection Type:</label>
                     <label htmlFor="optionType">Radio
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value={radio} onChange={ onChangeOptionType1 } required></input>
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType } required></input>
                     </label>
                     <label htmlFor="optionType">Checkbox
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value={checkbox} onChange={ onChangeOptionType2 } required></input>                
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType } required></input>                
                     </label><br />
                     <label htmlFor="option1">Option 1</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options1" value = {options} onChange={ onChangeOptions } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options1" value = "" onChange={ onChangeOptions } required></input>
                     <label htmlFor="option2">Option 2</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options2" value = {options} onChange={ onChangeOptions } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options2" value = "" onChange={ onChangeOptions } required></input>
                     <label htmlFor="option3">Option 3</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options3" value = {options} onChange={ onChangeOptions } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options3" value = "" onChange={ onChangeOptions } ></input>
                     <label htmlFor="option4">Option 4</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options4" value = {options} onChange={ onChangeOptions } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options4" value = "" onChange={ onChangeOptions } ></input>
                 <br></br>
                 <label htmlFor="name">Question 2</label>
-                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question2" value = {title} onChange={ onChangeTitle } required></input>
+                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question2" value = "" onChange={ onChangeTitle } required></input>
                     <label htmlFor="optionType">Selection Type:</label>
                     <label htmlFor="optionType">Radio
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType1 } required></input>
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType } required></input>
                     </label>
                     <label htmlFor="optionType">Checkbox
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType2 } required></input>                
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType } required></input>                
                     </label><br />
                     <label htmlFor="option1">Option 1</label>
                     <input type="text" className="form-control" placeholder="Add option" id="options1" name="options5" value = "" onChange={ onChangeOptions } required></input>
@@ -157,4 +135,4 @@ function Edit()
     );
 }
 
-export default Edit;
+export default Add;

@@ -1,10 +1,11 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
 
-function Edit()
+function Add()
 {
+    const [ ID, setID ] = useState('');
     const [ name, setName ] = useState('');
     const [ title, setTitle ] = useState('');
     const [ radio, setOptionType1 ] = useState('');
@@ -12,12 +13,9 @@ function Edit()
     const [ options, setOptions ] = useState('');
     // const [ response, setResponse ] = useState('');
 
-    const { id } = useParams();
-
     useEffect(()=>{
-        getSurvey(id);
-        document.title = "Edit";
-    }, [id]);
+        document.title = "Add";
+    })
 
     function onChangeName(event: ChangeEvent<HTMLInputElement>)
     {
@@ -33,6 +31,7 @@ function Edit()
     {
         setOptionType1(event.target.value);
     }
+
     function onChangeOptionType2(event: ChangeEvent<HTMLInputElement>)
     {
         setOptionType2(event.target.value);
@@ -47,21 +46,6 @@ function Edit()
     {
         setResponse(event.target.value);
     }*/
-
-    function getSurvey(id: any)
-    {
-        surveyService.readOne(id)
-        .then((response: any) =>{
-            setName(response.data.survery.name);
-            setTitle(response.data.survey.title);
-            setOptionType1(response.data.survery.optionType1);
-            setOptionType1(response.data.survery.optionType2);
-            setOptions(response.data.survery.options);
-        })
-        .catch((e: Error)=>{
-            console.log(e);
-        });
-    }
     
     function saveSurvey(e: any)
     {
@@ -87,13 +71,13 @@ function Edit()
             }]
         }]}
 
-        surveyService.update(data, id)
+        surveyService.create(data)
         .then((response: any)=>
         {
+            setID(response.data.id)
             setName(response.data.name)
             setTitle(response.data.title)
-            setOptionType1(response.data.optiontype1)
-            setOptionType2(response.data.optiontype2)
+            setOptionType(response.data.optiontype)
             setOptions(response.data.options)
         })
         .catch((e: Error) =>{
@@ -138,13 +122,13 @@ function Edit()
                     <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType2 } required></input>                
                     </label><br />
                     <label htmlFor="option1">Option 1</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options5" value = "" onChange={ onChangeOptions } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options5" value = {options} onChange={ onChangeOptions } required></input>
                     <label htmlFor="option2">Option 2</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options6" value = "" onChange={ onChangeOptions } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options6" value = {options} onChange={ onChangeOptions } required></input>
                     <label htmlFor="option3">Option 3</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options7" value = "" onChange={ onChangeOptions } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options7" value = {options} onChange={ onChangeOptions } ></input>
                     <label htmlFor="option4">Option 4</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options8" value = "" onChange={ onChangeOptions } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options8" value = {options} onChange={ onChangeOptions } ></input>
                 </div>
 
                 <div className="text-end mt-2">
@@ -157,4 +141,4 @@ function Edit()
     );
 }
 
-export default Edit;
+export default Add;
