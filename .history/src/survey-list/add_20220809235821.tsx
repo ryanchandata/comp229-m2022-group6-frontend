@@ -1,12 +1,13 @@
-import React, { ChangeEvent, ReactNode, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
 
-function Edit()
+function Add()
 {
-    const { id } = useParams();
+    const [ ID, setID ] = useState('');
     const [ name, setName ] = useState('');
+    const [ dateCreated, setDateCreated ] = useState('');
     const [ activationDate, setActivationDate ] = useState('');
     const [ expirationDate, setExpirationDate ] = useState('');
     const [ responses, setResponses ] = useState('');
@@ -28,8 +29,7 @@ function Edit()
     // const [ response, setResponse ] = useState('');
 
     useEffect(()=>{
-        getSurvey(id);
-        document.title = "Edit";
+        document.title = "Add";
     })
 
     function onChangeName(event: ChangeEvent<HTMLInputElement>)
@@ -97,41 +97,18 @@ function Edit()
         setOptiondetails2_4(event.target.value);
     }
     
-    function getSurvey(id: any)
+    /*function onResponse(event: ChangeEvent<HTMLInputElement>)
     {
-        surveyService.readOne(id)
-        .then((response: any) =>{
-            setName(response.data.survey.name);
-            setActivationDate(response.data.survey.activationDate);
-            setExpirationDate(response.data.survey.expirationDate);
-            setResponses(response.data.survey.responses);
-            
-            setQuestion1(response.data.survey.question1);
-            setOptionType1(response.data.survey.optionType1);
-            setOptiondetails1_1(response.data.survey.optiondetails1_1);
-            setOptiondetails1_2(response.data.survey.optiondetails1_2);
-            setOptiondetails1_3(response.data.survey.optiondetails1_3);
-            setOptiondetails1_4(response.data.survey.optiondetails1_4);
-            
-            setQuestion2(response.data.survey.question2);
-            setOptionType2(response.data.survey.optionType2);
-            setOptiondetails2_1(response.data.survey.optiondetails2_1);
-            setOptiondetails2_2(response.data.survey.optiondetails2_2);
-            setOptiondetails2_3(response.data.survey.optiondetails2_3);
-            setOptiondetails2_4(response.data.survey.optiondetails2_4);
-        })
-        .catch((e: Error)=>{
-            console.log(e);
-        });
-    }
-
+        setResponse(event.target.value);
+    }*/
+    
     function saveSurvey(e: any)
     {
         e.preventDefault();
         const data: ISurveyData = {
-            _id: id,
+            _id: ID,
             name: name,
-            dateCreated: '',
+            dateCreated: dateCreated,
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
             responses: Number(responses),
@@ -149,44 +126,42 @@ function Edit()
             optiondetails2_2: optiondetails2_2,
             optiondetails2_3: optiondetails2_3,
             optiondetails2_4: optiondetails2_4,
-            Date: function (activationDate: any): ReactNode {
-                throw new Error('Function not implemented.');
-            },
-            Number: function (responses: any): ReactNode {
-                throw new Error('Function not implemented.');
-            },
+           
         }
-            surveyService.update(data, id)
-            .then((response: any)=>
-            {
-                setName(response.data.survey.name);
-                setActivationDate(response.data.survey.activationDate);
-                setExpirationDate(response.data.survey.expirationDate);
-                setResponses(response.data.survey.responses);
-                
-                setQuestion1(response.data.survey.question1);
-                setOptionType1(response.data.survey.optionType1);
-                setOptiondetails1_1(response.data.survey.optiondetails1_1);
-                setOptiondetails1_2(response.data.survey.optiondetails1_2);
-                setOptiondetails1_3(response.data.survey.optiondetails1_3);
-                setOptiondetails1_4(response.data.survey.optiondetails1_4);
-                
-                setQuestion2(response.data.survey.question2);
-                setOptionType2(response.data.survey.optionType2);
-                setOptiondetails2_1(response.data.survey.optiondetails2_1);
-                setOptiondetails2_2(response.data.survey.optiondetails2_2);
-                setOptiondetails2_3(response.data.survey.optiondetails2_3);
-                setOptiondetails2_4(response.data.survey.optiondetails2_4);
-            })
-            .catch((e: Error)=>{
-                console.log(e);
-            });
-            window.location.href="/survey";
-        }
+
+        surveyService.create(data)
+        .then((response: any)=>
+        {
+            setID(response.data.id);
+            setName(response.data.name);
+            setDateCreated(response.data.dateCreated);
+            setActivationDate(response.data.activationDate);
+            setExpirationDate(response.data.expirationDate);
+            setResponses(response.data.responses);
+
+            setQuestion1(response.data.question1);
+            setOptionType1(response.data.optionType1);
+            setOptiondetails1_1(response.data.optiondetails1_1);
+            setOptiondetails1_2(response.data.optiondetails1_2);
+            setOptiondetails1_3(response.data.optiondetails1_3);
+            setOptiondetails1_4(response.data.optiondetails1_4);
+
+            setQuestion2(response.data.question2);
+            setOptionType2(response.data.optionType2);
+            setOptiondetails2_1(response.data.optiondetails2_1);
+            setOptiondetails2_2(response.data.optiondetails2_2);
+            setOptiondetails2_3(response.data.optiondetails2_3);
+            setOptiondetails2_4(response.data.optiondetails2_4);
+        })
+        .catch((e: Error) =>{
+        console.log(e);
+    });
+    window.location.href = "/survey";
+}
 
     return(
         <div className="container">
-            <h1>Editing a Surveys</h1>
+            <h1>Creating a Surveys</h1>
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
                 <div className="form-group">
@@ -235,7 +210,7 @@ function Edit()
                 </div>
 
                 <div className="text-end mt-2">
-                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-plus"></i> Edit</button>
+                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-plus"></i> Create</button>
                         <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
                             <i className="fas fa-undo"></i> Cancel</button></Link>
                         </div>
@@ -244,4 +219,4 @@ function Edit()
     );
 }
 
-export default Edit;
+export default Add;

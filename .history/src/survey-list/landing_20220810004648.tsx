@@ -47,19 +47,20 @@ function Survey()
         }
         deleteSurvey(id);
     }
-        
-    const today = Date.now();
-    const start = Number(activationDate);
-    const end = Number(expirationDate);
-    var status: string;
-        
-    if (today >= start && today <= end)
+
+    const status
     {
-        status = 'Active';
-    }
-    else
-    {
-        status = 'Inactive';
+        const today = Date.now();
+        const start = Number(activationDate);
+        const end = Number(expirationDate);
+    
+        if (today >= start && today <= end)
+        {
+            console.log('Active');
+        }
+        else{
+            console.log('Inactive');
+        }
     }
 
     document.title = "My Surveys";

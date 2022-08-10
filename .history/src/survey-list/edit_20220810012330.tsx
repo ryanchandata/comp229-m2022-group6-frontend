@@ -5,8 +5,9 @@ import surveyService from '../services/survey-service';
 
 function Edit()
 {
-    const { id } = useParams();
+    const { id } = useParams;
     const [ name, setName ] = useState('');
+    const [ dateCreated, setDateCreated ] = useState('');
     const [ activationDate, setActivationDate ] = useState('');
     const [ expirationDate, setExpirationDate ] = useState('');
     const [ responses, setResponses ] = useState('');
@@ -131,7 +132,7 @@ function Edit()
         const data: ISurveyData = {
             _id: id,
             name: name,
-            dateCreated: '',
+            dateCreated: dateCreated,
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
             responses: Number(responses),
@@ -154,7 +155,7 @@ function Edit()
             },
             Number: function (responses: any): ReactNode {
                 throw new Error('Function not implemented.');
-            },
+            }
         }
             surveyService.update(data, id)
             .then((response: any)=>

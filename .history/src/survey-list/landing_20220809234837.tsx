@@ -47,20 +47,6 @@ function Survey()
         }
         deleteSurvey(id);
     }
-        
-    const today = Date.now();
-    const start = Number(activationDate);
-    const end = Number(expirationDate);
-    var status: string;
-        
-    if (today >= start && today <= end)
-    {
-        status = 'Active';
-    }
-    else
-    {
-        status = 'Inactive';
-    }
 
     document.title = "My Surveys";
     
@@ -88,7 +74,7 @@ function Survey()
                                 <th scope="col" className="text-center">Delete</th>
                             </tr>
                         </thead>
-                        <tbody id="surveyList">
+                        <tbody id="surveryList">
                             {
                                 surveys &&
                                 surveys.map((survey: ISurveyData, index: number)=>{
@@ -96,10 +82,12 @@ function Survey()
                                         <tr key="{index}">
                                             <th scope="row" className='text-center'>{index + 1}</th>
                                             <td>{survey.name}</td>
-                                            <td className="text-center">{survey.Date(activationDate)}</td>
-                                            <td className="text-center">{survey.Date(expirationDate)}</td>
-                                            <td className="text-center">{Number(survey.responses)}</td>
-                                            <td className="text-center">{status}</td>
+                                            <td className="text-center">{survey.activationDate}</td>
+                                            <td className="text-center">{survey.expirationDate}</td>
+                                            <td className="text-center">{survey.responses}</td>
+                                            <td className="text-center">
+
+                                            </td>
                                             <td className="text-center">
                                                 <Link to={`/edit/${survey._id}`}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
@@ -121,12 +109,4 @@ function Survey()
 
 export default Survey;
 
-
-function activationDate(activationDate: any): React.ReactNode {
-    throw new Error('Function not implemented.');
-}
-
-function expirationDate(expirationDate: any): React.ReactNode {
-    throw new Error('Function not implemented.');
-}
 

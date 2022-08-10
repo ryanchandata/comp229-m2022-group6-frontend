@@ -1,14 +1,9 @@
 export default interface ISurveyData
 {
-    Number(responses: any): import("react").ReactNode;
-    Date(activationDate: any): import("react").ReactNode;
-    Date(expirationDate: any): import("react").ReactNode;
-
-    _id?: any | null;
     name: string,
     dateCreated: string,
-    activationDate: Date,
-    expirationDate: Date,
+    activationDate: Date["toString"],
+    expirationDate: Date["toString"],
     responses: Number,
 
     question1: string,
