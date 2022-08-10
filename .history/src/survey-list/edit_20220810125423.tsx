@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, ReactNode, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
@@ -149,7 +149,10 @@ function Edit()
             optiondetails2_2: optiondetails2_2,
             optiondetails2_3: optiondetails2_3,
             optiondetails2_4: optiondetails2_4,
-
+ 
+            Number: function (responses: any): ReactNode {
+                throw new Error('Function not implemented.');
+            },
         }
             surveyService.update(data, id)
             .then((response: any)=>

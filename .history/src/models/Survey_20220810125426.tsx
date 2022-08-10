@@ -1,5 +1,7 @@
 export default interface ISurveyData
 {
+    Number(responses: any): import("react").ReactNode;
+
     _id?: any | null;
     name: string,
     dateCreated: string,
