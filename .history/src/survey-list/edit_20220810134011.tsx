@@ -30,7 +30,7 @@ function Edit()
     useEffect(()=>{
         getSurvey(id);
         document.title = "Edit";
-    }, [id]);
+    })
 
     function onChangeName(event: ChangeEvent<HTMLInputElement>)
     {
@@ -196,8 +196,8 @@ function Edit()
                     <input type="text" className="form-control" id="question1" value ={question1} onChange={ onChangeQuestion1 }></input>
                     <label htmlFor="optionType1">Selection Type:</label>
                     <div onChange={onChangeOptionType1}>
-                        <input type="radio" value="radio" name="optionType1" checked={optionType1 === 'radio'} /> Radio
-                        <input type="radio" value="checkbox" name="optionType1" checked={optionType1 === 'checkbox'} /> Checkbox
+                        <input type="radio" value="radio" name="optionType1" checked/> Radio
+                        <input type="radio" value="checkbox" name="optionType1" checked/> Checkbox
                     </div>
                     <br />
                     <label htmlFor="option1_1">Option 1</label>
@@ -213,8 +213,8 @@ function Edit()
                     <input type="text" className="form-control" id="question2" value = {question2} onChange={ onChangeQuestion2 } ></input>
                     <label htmlFor="optionType2">Selection Type:</label>
                     <div onChange={onChangeOptionType2}>
-                        <input type="radio" value="radio" name="optionType2" checked={optionType2 === 'radio'} /> Radio
-                        <input type="radio" value="checkbox" name="optionType2" checked={optionType2 === 'checkbox'} /> Checkbox
+                        <input type="radio" value="radio" name="optionType2" checked /> Radio
+                        <input type="radio" value="checkbox" name="optionType2" checked /> Checkbox
                     </div>
                     <br />
                     <label htmlFor="option2_1">Option 1</label>
@@ -228,7 +228,7 @@ function Edit()
                 </div>
 
                 <div className="text-end mt-2">
-                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-file-pen"></i> Edit</button>
+                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i class="fa-solid fa-file-pen"></i> Edit</button>
                         <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
                             <i className="fas fa-undo"></i> Cancel</button></Link>
                         </div>
