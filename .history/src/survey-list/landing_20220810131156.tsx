@@ -98,8 +98,8 @@ function Survey()
                                         <tr key="{index}">
                                             <th scope="row" className='text-center'>{index + 1}</th>
                                             <td>{survey.name}</td>
-                                            <td className="text-center">{(survey.activationDate).toDateString()}</td>
-                                            <td className="text-center">{(survey.expirationDate).toDateString()}</td>
+                                            <td className="text-center">{(survey.activationDate.toString)}</td>
+                                            <td className="text-center">{(survey.expirationDate.toString)}</td>
                                             <td className="text-center">{Number(survey.responses)}</td>
                                             <td className="text-center"></td>
                                             <td className="text-center">
