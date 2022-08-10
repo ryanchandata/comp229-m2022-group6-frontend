@@ -133,7 +133,7 @@ function Edit()
             name: name,
             dateCreated: '',
             activationDate: new Date(activationDate),
-            expirationDate: new Date(expirationDate),
+            expirationDate: new Date(expirationDate).toUTCString,
             responses: Number(responses),
 
             question1: question1,
