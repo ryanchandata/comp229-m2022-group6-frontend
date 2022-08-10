@@ -152,24 +152,24 @@ export default function Edit()
             surveyService.update(data, id)
             .then((response: any)=>
             {
-                setName(response.data.name);
-                setActivationDate(response.data.activationDate);
-                setExpirationDate(response.data.expirationDate);
-                setResponses(response.data.responses);
+                setName(response.data.survey.name);
+                setActivationDate(response.data.survey.activationDate);
+                setExpirationDate(response.data.survey.expirationDate);
+                setResponses(response.data.survey.responses);
                 
-                setQuestion1(response.data.question1);
-                setOptionType1(response.data.optionType1);
-                setOptiondetails1_1(response.data.optiondetails1_1);
-                setOptiondetails1_2(response.data.optiondetails1_2);
-                setOptiondetails1_3(response.data.optiondetails1_3);
-                setOptiondetails1_4(response.data.optiondetails1_4);
+                setQuestion1(response.data.survey.question1);
+                setOptionType1(response.data.survey.optionType1);
+                setOptiondetails1_1(response.data.survey.optiondetails1_1);
+                setOptiondetails1_2(response.data.survey.optiondetails1_2);
+                setOptiondetails1_3(response.data.survey.optiondetails1_3);
+                setOptiondetails1_4(response.data.survey.optiondetails1_4);
                 
-                setQuestion2(response.data.question2);
-                setOptionType2(response.data.optionType2);
-                setOptiondetails2_1(response.data.optiondetails2_1);
-                setOptiondetails2_2(response.data.optiondetails2_2);
-                setOptiondetails2_3(response.data.optiondetails2_3);
-                setOptiondetails2_4(response.data.optiondetails2_4);
+                setQuestion2(response.data.survey.question2);
+                setOptionType2(response.data.survey.optionType2);
+                setOptiondetails2_1(response.data.survey.optiondetails2_1);
+                setOptiondetails2_2(response.data.survey.optiondetails2_2);
+                setOptiondetails2_3(response.data.survey.optiondetails2_3);
+                setOptiondetails2_4(response.data.survey.optiondetails2_4);
             })
             .catch((e: Error)=>{
                 console.log(e);
