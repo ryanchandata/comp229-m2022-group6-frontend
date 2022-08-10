@@ -186,9 +186,9 @@ export default function Edit()
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" id="Name" name="name" value = {name} onChange={ onChangeName }></input><br />
                     <label htmlFor="dateActive">Start From</label>
-                    <input type="date" className="form-control" id="dateActive" name="dateActive" value = { new Date(activationDate).toLocaleDateString([], {year: 'numeric', month: '2-digit', day: '2-digit'}) } onChange={ onChangeActivationDate }></input><br />
+                    <input type="date" className="form-control" id="dateActive" name="dateActive" value = { activationDate } onChange={ onChangeActivationDate }></input><br />
                     <label htmlFor="dateExpire">To</label>
-                    <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = { new Date(expirationDate).toLocaleDateString([], {year: 'numeric', month: '2-digit', day: '2-digit'}) } onChange={ onChangeExpirationDate }></input><br />
+                    <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = { expirationDate } onChange={ onChangeExpirationDate }></input><br />
                     
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" id="Question1" value ={question1} onChange={ onChangeQuestion1 }></input>
@@ -234,4 +234,3 @@ export default function Edit()
         </div>
     );
 }
-
