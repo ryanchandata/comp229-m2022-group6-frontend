@@ -56,7 +56,7 @@ function Survey()
         throw new Error('Function not implemented.');
     }
     
-    /*const today = Date.now();
+    const today = Date.now();
     const start = Number(activationDate);
     const end = Number(expirationDate);
 
@@ -70,7 +70,7 @@ function Survey()
         {
             return console.log("Inactive");
         }
-    }*/
+    }
     
     document.title = "My Surveys";
     
@@ -109,7 +109,7 @@ function Survey()
                                             <td className="text-center">{survey.Date(activationDate)}</td>
                                             <td className="text-center">{survey.Date(expirationDate)}</td>
                                             <td className="text-center">{Number(survey.responses)}</td>
-                                            <td className="text-center"></td>
+                                            <td className="text-center">{  }</td>
                                             <td className="text-center">
                                                 <Link to={`/edit/${survey._id}`}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>

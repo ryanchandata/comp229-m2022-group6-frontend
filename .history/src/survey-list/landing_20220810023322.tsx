@@ -48,30 +48,6 @@ function Survey()
         deleteSurvey(id);
     }
 
-    function activationDate(activationDate: any): React.ReactNode {
-        throw new Error('Function not implemented.');
-    }
-    
-    function expirationDate(expirationDate: any): React.ReactNode {
-        throw new Error('Function not implemented.');
-    }
-    
-    /*const today = Date.now();
-    const start = Number(activationDate);
-    const end = Number(expirationDate);
-
-    function isActive()
-    {      
-        if (today >= start && today <= end)
-        {
-            return console.log("Active");
-        }
-        else
-        {
-            return console.log("Inactive");
-        }
-    }*/
-    
     document.title = "My Surveys";
     
         return (
@@ -109,7 +85,7 @@ function Survey()
                                             <td className="text-center">{survey.Date(activationDate)}</td>
                                             <td className="text-center">{survey.Date(expirationDate)}</td>
                                             <td className="text-center">{Number(survey.responses)}</td>
-                                            <td className="text-center"></td>
+                                            <td className="text-center">{status}</td>
                                             <td className="text-center">
                                                 <Link to={`/edit/${survey._id}`}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
@@ -130,4 +106,13 @@ function Survey()
 }
 
 export default Survey;
+
+
+function activationDate(activationDate: any): React.ReactNode {
+    throw new Error('Function not implemented.');
+}
+
+function expirationDate(expirationDate: any): React.ReactNode {
+    throw new Error('Function not implemented.');
+}
 
