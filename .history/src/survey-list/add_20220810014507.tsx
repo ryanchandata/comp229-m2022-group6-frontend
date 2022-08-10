@@ -170,40 +170,40 @@ function Add()
                     <label htmlFor="dateExpire">To</label>
                     <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
                     
-                    <label htmlFor="question1">Question 1</label>
-                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={question1} onChange={ onChangeQuestion1 } required></input>
-                    <label htmlFor="optionType1">Selection Type:</label>
-                    <label htmlFor="optionType1_1">Radio
+                    <label htmlFor="name">Question 1</label>
+                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={name} onChange={ onChangeQuestion1 } required></input>
+                    <label htmlFor="optionType">Selection Type:</label>
+                    <label htmlFor="optionType">Radio
                     <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType1 } required></input>
                     </label>
-                    <label htmlFor="optionType1_2">Checkbox
+                    <label htmlFor="optionType">Checkbox
                     <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType1 } required></input>                
                     </label><br />
-                    <label htmlFor="option1_1">Option 1</label>
+                    <label htmlFor="option1">Option 1</label>
                     <input type="text" className="form-control" placeholder="Add option" id="options1_1" name="options1_1" value = {optiondetails1_1} onChange={ onChangeOptionDetails1_1 } required></input>
-                    <label htmlFor="option1_2">Option 2</label>
+                    <label htmlFor="option2">Option 2</label>
                     <input type="text" className="form-control" placeholder="Add option" id="options1_2" name="options1_2" value = {optiondetails1_2} onChange={ onChangeOptionDetails1_2 } required></input>
-                    <label htmlFor="option1_3">Option 3</label>
+                    <label htmlFor="option3">Option 3</label>
                     <input type="text" className="form-control" placeholder="Add option, if any" id="options1_3" name="options1_3" value = {optiondetails1_3} onChange={ onChangeOptionDetails1_3 } ></input>
-                    <label htmlFor="option1_4">Option 4</label>
+                    <label htmlFor="option4">Option 4</label>
                     <input type="text" className="form-control" placeholder="Add option, if any" id="options1_4" name="options1_4" value = {optiondetails1_4} onChange={ onChangeOptionDetails1_4 } ></input>
                 <br></br>
-                <label htmlFor="question2">Question 2</label>
+                <label htmlFor="name">Question 2</label>
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question2" value = {question2} onChange={ onChangeQuestion2 } required></input>
-                    <label htmlFor="optionType2">Selection Type:</label>
-                    <label htmlFor="optionType2_1">Radio
+                    <label htmlFor="optionType">Selection Type:</label>
+                    <label htmlFor="optionType">Radio
                     <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType2 } required></input>
                     </label>
-                    <label htmlFor="optionType2_2">Checkbox
+                    <label htmlFor="optionType">Checkbox
                     <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType2 } required></input>                
                     </label><br />
-                    <label htmlFor="option2_1">Option 1</label>
+                    <label htmlFor="option1">Option 1</label>
                     <input type="text" className="form-control" placeholder="Add option" id="options2_1" name="options2_1" value = {optiondetails2_1} onChange={ onChangeOptionDetails2_1 } required></input>
-                    <label htmlFor="option2_2">Option 2</label>
+                    <label htmlFor="option2">Option 2</label>
                     <input type="text" className="form-control" placeholder="Add option" id="options2_2" name="options2_2" value = {optiondetails2_2} onChange={ onChangeOptionDetails2_2 } required></input>
-                    <label htmlFor="option2_3">Option 3</label>
+                    <label htmlFor="option3">Option 3</label>
                     <input type="text" className="form-control" placeholder="Add option, if any" id="options2_3" name="options2_3" value = {optiondetails2_3} onChange={ onChangeOptionDetails2_3 } ></input>
-                    <label htmlFor="option2_4">Option 4</label>
+                    <label htmlFor="option4">Option 4</label>
                     <input type="text" className="form-control" placeholder="Add option, if any" id="options2_4" name="options2_4" value = {optiondetails2_4} onChange={ onChangeOptionDetails2_4 } ></input>
                 </div>
 
