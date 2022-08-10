@@ -47,6 +47,14 @@ function Survey()
         }
         deleteSurvey(id);
     }
+
+    function activationDate(activationDate: any): React.ReactNode {
+        throw new Error('Function not implemented.');
+    }
+    
+    function expirationDate(expirationDate: any): React.ReactNode {
+        throw new Error('Function not implemented.');
+    }
     
     /*const today = Date.now();
     const start = Number(activationDate);
@@ -98,8 +106,8 @@ function Survey()
                                         <tr key="{index}">
                                             <th scope="row" className='text-center'>{index + 1}</th>
                                             <td>{survey.name}</td>
-                                            <td className="text-center">{survey.activationDate.toString}</td>
-                                            <td className="text-center">{survey.expirationDate.toString}</td>
+                                            <td className="text-center">{survey.Date(activationDate.toString)}</td>
+                                            <td className="text-center">{survey.Date(expirationDate.toString)}</td>
                                             <td className="text-center">{Number(survey.responses)}</td>
                                             <td className="text-center"></td>
                                             <td className="text-center">
