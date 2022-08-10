@@ -48,6 +48,7 @@ function Survey()
         deleteSurvey(id);
     }
     
+    
     document.title = "My Surveys";
     
         return (
@@ -87,8 +88,7 @@ function Survey()
                                             <td className="text-center">{Number(survey.responses)}</td>
                                             <td className="text-center">
                                                 {
-                                                    // if condition => status "Active" or "Inactive"
-
+                                                    
                                                 }
                                             </td>
                                             <td className="text-center">

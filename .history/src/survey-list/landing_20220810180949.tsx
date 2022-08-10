@@ -48,6 +48,22 @@ function Survey()
         deleteSurvey(id);
     }
     
+    const today = Date.now();
+    const start = ;
+    const end = ;
+
+    function isActive()
+    {      
+        if (today >= start && today <= end)
+        {
+            return console.log("Active");
+        }
+        else
+        {
+            return console.log("Inactive");
+        }
+    }
+    
     document.title = "My Surveys";
     
         return (
@@ -82,15 +98,10 @@ function Survey()
                                         <tr key="{index}">
                                             <th scope="row" className='text-center'>{index + 1}</th>
                                             <td>{survey.name}</td>
-                                            <td className="text-center" id="activeDate" >{new Date (survey.activationDate).toDateString()}</td>
-                                            <td className="text-center" id="expireDate" >{new Date (survey.expirationDate).toDateString()}</td>
+                                            <td className="text-center">{new Date (survey.activationDate).toDateString()}</td>
+                                            <td className="text-center">{new Date (survey.expirationDate).toDateString()}</td>
                                             <td className="text-center">{Number(survey.responses)}</td>
-                                            <td className="text-center">
-                                                {
-                                                    // if condition => status "Active" or "Inactive"
-
-                                                }
-                                            </td>
+                                            <td className="text-center">{  }</td>
                                             <td className="text-center">
                                                 <Link to={`/edit/${survey._id}`}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
