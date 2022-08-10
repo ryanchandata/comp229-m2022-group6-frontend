@@ -131,7 +131,7 @@ function Edit()
         const data: ISurveyData = {
             _id: id,
             name: name,
-            dateCreated: '',
+            dateCreated: dateCreated,
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
             responses: Number(responses),
@@ -154,7 +154,7 @@ function Edit()
             },
             Number: function (responses: any): ReactNode {
                 throw new Error('Function not implemented.');
-            },
+            }
         }
             surveyService.update(data, id)
             .then((response: any)=>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactNode, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
@@ -26,6 +26,8 @@ function Add()
     const [ optiondetails2_3, setOptiondetails2_3 ] = useState('');
     const [ optiondetails2_4, setOptiondetails2_4 ] = useState('');
 
+    // const [ response, setResponse ] = useState('');
+
     useEffect(()=>{
         document.title = "Add";
     })
@@ -35,75 +37,21 @@ function Add()
         setName(event.target.value);
     }
 
-    function onChangeActivationDate(event: ChangeEvent<HTMLInputElement>)
+    
+    
+    /*function onResponse(event: ChangeEvent<HTMLInputElement>)
     {
-        setActivationDate(event.target.value);
-    }
-
-    function onChangeExpirationDate(event: ChangeEvent<HTMLInputElement>)
-    {
-        setExpirationDate(event.target.value);
-    }
-
-    function onChangeQuestion1(event: ChangeEvent<HTMLInputElement>)
-    {
-        setQuestion1(event.target.value);
-    }
-    function onChangeOptionType1(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptionType1(event.target.value);
-    }
-    function onChangeOptionDetails1_1(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails1_1(event.target.value);
-    }
-    function onChangeOptionDetails1_2(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails1_2(event.target.value);
-    }
-    function onChangeOptionDetails1_3(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails1_3(event.target.value);
-    }
-    function onChangeOptionDetails1_4(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails1_4(event.target.value);
-    }
-
-    function onChangeQuestion2(event: ChangeEvent<HTMLInputElement>)
-    {
-        setQuestion2(event.target.value);
-    }
-    function onChangeOptionType2(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptionType2(event.target.value);
-    }
-    function onChangeOptionDetails2_1(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails2_1(event.target.value);
-    }
-    function onChangeOptionDetails2_2(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails2_2(event.target.value);
-    }
-    function onChangeOptionDetails2_3(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails2_3(event.target.value);
-    }
-    function onChangeOptionDetails2_4(event: ChangeEvent<HTMLInputElement>)
-    {
-        setOptiondetails2_4(event.target.value);
-    }
+        setResponse(event.target.value);
+    }*/
     
     function saveSurvey(e: any)
     {
         e.preventDefault();
         const data: ISurveyData = {
-            _id: ID,
             name: name,
             dateCreated: dateCreated,
-            activationDate: new Date(activationDate),
-            expirationDate: new Date(expirationDate),
+            activationDate: new Date(activationDate).toString,
+            expirationDate: new Date(expirationDate).toString,
             responses: Number(responses),
 
             question1: question1,
@@ -118,13 +66,7 @@ function Add()
             optiondetails2_1: optiondetails2_1,
             optiondetails2_2: optiondetails2_2,
             optiondetails2_3: optiondetails2_3,
-            optiondetails2_4: optiondetails2_4,
-            Date: function (activationDate: any): ReactNode {
-                throw new Error('Function not implemented.');
-            },
-            Number: function (responses: any): ReactNode {
-                throw new Error('Function not implemented.');
-            }
+            optiondetails2_4: optiondetails2_4
         }
 
         surveyService.create(data)
@@ -165,46 +107,41 @@ function Add()
                 <div className="form-group">
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" placeholder="Survey Name" id="name" name="name" value = {name} onChange={ onChangeName } required></input><br /><br />
-                    <label htmlFor="dateActive">Start From</label>
-                    <input type="date" className="form-control" placeholder="Start Date" id="dateActive" name="dateActive" value = {activationDate} onChange={ onChangeActivationDate } required></input><br /><br />
-                    <label htmlFor="dateExpire">To</label>
-                    <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br /><br />
-                    
                     <label htmlFor="name">Question 1</label>
-                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={name} onChange={ onChangeQuestion1 } required></input>
+                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={title} onChange={ onChangeTitle } required></input>
+                    <label htmlFor="optionType">Selection Type:</label>
+                    <label htmlFor="optionType">Radio
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value={radio} onChange={ onChangeOptionType1 } required></input>
+                    </label>
+                    <label htmlFor="optionType">Checkbox
+                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value={checkbox} onChange={ onChangeOptionType2 } required></input>                
+                    </label><br />
+                    <label htmlFor="option1">Option 1</label>
+                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options1" value = {options} onChange={ onChangeOptions } required></input>
+                    <label htmlFor="option2">Option 2</label>
+                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options2" value = {options} onChange={ onChangeOptions } required></input>
+                    <label htmlFor="option3">Option 3</label>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options3" value = {options} onChange={ onChangeOptions } ></input>
+                    <label htmlFor="option4">Option 4</label>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options4" value = {options} onChange={ onChangeOptions } ></input>
+                <br></br>
+                <label htmlFor="name">Question 2</label>
+                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question2" value = {title} onChange={ onChangeTitle } required></input>
                     <label htmlFor="optionType">Selection Type:</label>
                     <label htmlFor="optionType">Radio
                     <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType1 } required></input>
                     </label>
                     <label htmlFor="optionType">Checkbox
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType1 } required></input>                
-                    </label><br />
-                    <label htmlFor="option1">Option 1</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options1" value = {optiondetails1_1} onChange={ onChangeOptionDetails1_1 } required></input>
-                    <label htmlFor="option2">Option 2</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options2" value = {optiondetails1_2} onChange={ onChangeOptionDetails1_2 } required></input>
-                    <label htmlFor="option3">Option 3</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options3" value = {optiondetails1_3} onChange={ onChangeOptionDetails1_3 } ></input>
-                    <label htmlFor="option4">Option 4</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options4" value = {optiondetails1_4} onChange={ onChangeOptionDetails1_4 } ></input>
-                <br></br>
-                <label htmlFor="name">Question 2</label>
-                    <input type="text" className="form-control" placeholder="What is your survey question?" id="question2" value = {question2} onChange={ onChangeQuestion2 } required></input>
-                    <label htmlFor="optionType">Selection Type:</label>
-                    <label htmlFor="optionType">Radio
-                    <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="radio" onChange={ onChangeOptionType2 } required></input>
-                    </label>
-                    <label htmlFor="optionType">Checkbox
                     <input type="radio" className="form-check-input" id="optionType1" name="optionType1" value="checkbox" onChange={ onChangeOptionType2 } required></input>                
                     </label><br />
                     <label htmlFor="option1">Option 1</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options5" value = {optiondetails2_1} onChange={ onChangeOptionDetails2_1 } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options1" name="options5" value = {options} onChange={ onChangeOptions } required></input>
                     <label htmlFor="option2">Option 2</label>
-                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options6" value = {optiondetails2_2} onChange={ onChangeOptionDetails2_2 } required></input>
+                    <input type="text" className="form-control" placeholder="Add option" id="options2" name="options6" value = {options} onChange={ onChangeOptions } required></input>
                     <label htmlFor="option3">Option 3</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options7" value = {optiondetails2_3} onChange={ onChangeOptionDetails2_3 } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options3" name="options7" value = {options} onChange={ onChangeOptions } ></input>
                     <label htmlFor="option4">Option 4</label>
-                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options8" value = {optiondetails2_4} onChange={ onChangeOptionDetails2_4 } ></input>
+                    <input type="text" className="form-control" placeholder="Add option, if any" id="options4" name="options8" value = {options} onChange={ onChangeOptions } ></input>
                 </div>
 
                 <div className="text-end mt-2">

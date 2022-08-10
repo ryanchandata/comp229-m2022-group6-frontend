@@ -5,8 +5,9 @@ import surveyService from '../services/survey-service';
 
 function Edit()
 {
-    const { id } = useParams();
+    const { id } = useParams;
     const [ name, setName ] = useState('');
+    const [ dateCreated, setDateCreated ] = useState('');
     const [ activationDate, setActivationDate ] = useState('');
     const [ expirationDate, setExpirationDate ] = useState('');
     const [ responses, setResponses ] = useState('');
@@ -28,7 +29,6 @@ function Edit()
     // const [ response, setResponse ] = useState('');
 
     useEffect(()=>{
-        getSurvey(id);
         document.title = "Edit";
     })
 
@@ -131,7 +131,7 @@ function Edit()
         const data: ISurveyData = {
             _id: id,
             name: name,
-            dateCreated: '',
+            dateCreated: dateCreated,
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
             responses: Number(responses),
@@ -154,7 +154,7 @@ function Edit()
             },
             Number: function (responses: any): ReactNode {
                 throw new Error('Function not implemented.');
-            },
+            }
         }
             surveyService.update(data, id)
             .then((response: any)=>
@@ -186,7 +186,7 @@ function Edit()
 
     return(
         <div className="container">
-            <h1>Editing a Surveys</h1>
+            <h1>Creating a Surveys</h1>
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
                 <div className="form-group">
@@ -235,7 +235,7 @@ function Edit()
                 </div>
 
                 <div className="text-end mt-2">
-                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-plus"></i> Edit</button>
+                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-plus"></i> Create</button>
                         <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
                             <i className="fas fa-undo"></i> Cancel</button></Link>
                         </div>

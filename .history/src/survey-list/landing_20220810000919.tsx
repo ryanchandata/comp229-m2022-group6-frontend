@@ -47,20 +47,6 @@ function Survey()
         }
         deleteSurvey(id);
     }
-        
-    const today = Date.now();
-    const start = Number(activationDate);
-    const end = Number(expirationDate);
-    var status: string;
-        
-    if (today >= start && today <= end)
-    {
-        status = 'Active';
-    }
-    else
-    {
-        status = 'Inactive';
-    }
 
     document.title = "My Surveys";
     
@@ -99,7 +85,9 @@ function Survey()
                                             <td className="text-center">{survey.Date(activationDate)}</td>
                                             <td className="text-center">{survey.Date(expirationDate)}</td>
                                             <td className="text-center">{Number(survey.responses)}</td>
-                                            <td className="text-center">{status}</td>
+                                            <td className="text-center">
+
+                                            </td>
                                             <td className="text-center">
                                                 <Link to={`/edit/${survey._id}`}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
