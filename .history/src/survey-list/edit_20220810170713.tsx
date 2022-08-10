@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
 
@@ -186,9 +187,9 @@ export default function Edit()
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" id="Name" name="name" value = {name} onChange={ onChangeName }></input><br />
                     <label htmlFor="dateActive">Start From</label>
-                    <input type="date" className="form-control" id="dateActive" name="dateActive" value = {Date.parse(activationDate)} onChange={ onChangeActivationDate }></input><br />
+                    <DatePicker value = {activationDate} onChange={ onChangeActivationDate }></DatePicker><br />
                     <label htmlFor="dateExpire">To</label>
-                    <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = {Date.parse(expirationDate)} onChange={ onChangeExpirationDate }></input><br />
+                    <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate }></input><br />
                     
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" id="Question1" value ={question1} onChange={ onChangeQuestion1 }></input>
