@@ -9,7 +9,7 @@ export default function Edit()
     const { id } = useParams();
     const [ name, setName ] = useState('');
     const [ activationDate, setActivationDate ] = useState(moment().format("YYYY-MM-DD"));
-    const [ expirationDate, setExpirationDate ] = useState(moment().format("YYYY-MM-DD"));
+    const [ expirationDate, setExpirationDate ] = useState('');
     const [ responses, setResponses ] = useState('');
 
     const [ question1, setQuestion1 ] = useState('');
