@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
 
-export default function Edit()
+export default function EditSurvey()
 {
     const { id } = useParams();
     const [ name, setName ] = useState('');
@@ -25,74 +25,76 @@ export default function Edit()
     const [ optiondetails2_3, setOptiondetails2_3 ] = useState('');
     const [ optiondetails2_4, setOptiondetails2_4 ] = useState('');
 
+    // const [ response, setResponse ] = useState('');
+
     useEffect(()=>{
         getSurvey(id);
         document.title = "Edit";
     }, [id]);
 
-    function onChangeName(e: ChangeEvent<HTMLInputElement>)
+    function onChangeName(event: ChangeEvent<HTMLInputElement>)
     {
-        setName(e.target.value);
+        setName(event.target.value);
     }
 
-    function onChangeActivationDate(e: ChangeEvent<HTMLInputElement>)
+    function onChangeActivationDate(event: ChangeEvent<HTMLInputElement>)
     {
-        setActivationDate(e.target.value);
+        setActivationDate(event.target.value);
     }
 
-    function onChangeExpirationDate(e: ChangeEvent<HTMLInputElement>)
+    function onChangeExpirationDate(event: ChangeEvent<HTMLInputElement>)
     {
-        setExpirationDate(e.target.value);
+        setExpirationDate(event.target.value);
     }
 
-    function onChangeQuestion1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeQuestion1(event: ChangeEvent<HTMLInputElement>)
     {
-        setQuestion1(e.target.value);
+        setQuestion1(event.target.value);
     }
-    function onChangeOptionType1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionType1(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptionType1(e.target.value);
+        setOptionType1(event.target.value);
     }
-    function onChangeOptionDetails1_1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_1(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_1(e.target.value);
+        setOptiondetails1_1(event.target.value);
     }
-    function onChangeOptionDetails1_2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_2(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_2(e.target.value);
+        setOptiondetails1_2(event.target.value);
     }
-    function onChangeOptionDetails1_3(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_3(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_3(e.target.value);
+        setOptiondetails1_3(event.target.value);
     }
-    function onChangeOptionDetails1_4(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_4(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_4(e.target.value);
+        setOptiondetails1_4(event.target.value);
     }
 
-    function onChangeQuestion2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeQuestion2(event: ChangeEvent<HTMLInputElement>)
     {
-        setQuestion2(e.target.value);
+        setQuestion2(event.target.value);
     }
-    function onChangeOptionType2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionType2(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptionType2(e.target.value);
+        setOptionType2(event.target.value);
     }
-    function onChangeOptionDetails2_1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_1(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_1(e.target.value);
+        setOptiondetails2_1(event.target.value);
     }
-    function onChangeOptionDetails2_2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_2(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_2(e.target.value);
+        setOptiondetails2_2(event.target.value);
     }
-    function onChangeOptionDetails2_3(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_3(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_3(e.target.value);
+        setOptiondetails2_3(event.target.value);
     }
-    function onChangeOptionDetails2_4(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_4(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_4(e.target.value);
+        setOptiondetails2_4(event.target.value);
     }
     
     function getSurvey(id: any)
