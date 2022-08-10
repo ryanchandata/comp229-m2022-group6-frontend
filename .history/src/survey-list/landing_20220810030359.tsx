@@ -56,11 +56,11 @@ function Survey()
         throw new Error('Function not implemented.');
     }
     
-    /*const today = Date.now();
+    const today = Date.now();
     const start = Number(activationDate);
     const end = Number(expirationDate);
 
-    function isActive()
+    /*function isActive()
     {      
         if (today >= start && today <= end)
         {

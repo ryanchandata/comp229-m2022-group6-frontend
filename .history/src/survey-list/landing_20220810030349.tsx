@@ -56,7 +56,7 @@ function Survey()
         throw new Error('Function not implemented.');
     }
     
-    /*const today = Date.now();
+    const today = Date.now();
     const start = Number(activationDate);
     const end = Number(expirationDate);
 
@@ -70,7 +70,7 @@ function Survey()
         {
             return console.log("Inactive");
         }
-    }*/
+    }
     
     document.title = "My Surveys";
     
