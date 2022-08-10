@@ -30,7 +30,7 @@ function Edit()
     useEffect(()=>{
         getSurvey(id);
         document.title = "Edit";
-    }, [id]);
+    })
 
     function onChangeName(event: ChangeEvent<HTMLInputElement>)
     {
