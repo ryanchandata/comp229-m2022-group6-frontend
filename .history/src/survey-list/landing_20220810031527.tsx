@@ -47,6 +47,14 @@ function Survey()
         }
         deleteSurvey(id);
     }
+
+    function activationDate(activationDate: any): React.ReactNode {
+        throw new Error('Function not implemented.');
+    }
+    
+    function expirationDate(expirationDate: any): React.ReactNode {
+        throw new Error('Function not implemented.');
+    }
     
     /*const today = Date.now();
     const start = Number(activationDate);
