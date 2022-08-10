@@ -208,7 +208,7 @@ export default function Edit()
                     <input type="text" className="form-control" id="options1_4" name="options1_4" value = {optiondetails1_4} onChange={ onChangeOptionDetails1_4 } ></input>
                 <br></br>
                 <label htmlFor="question2">Question 2</label>
-                    <input type="text" className="form-control" id="Question2" value = {question2} onChange={ onChangeQuestion2 } ></input>
+                    <input type="text" className="form-control" id="question2" value = {question2} onChange={ onChangeQuestion2 } ></input>
                     <label htmlFor="optionType2">Selection Type:</label>
                     <div onChange={onChangeOptionType2}>
                         <input type="radio" value="radio" name="optionType2" checked={optionType2 === 'radio'} /> Radio
