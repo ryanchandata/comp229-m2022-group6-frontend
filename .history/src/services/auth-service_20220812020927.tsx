@@ -37,7 +37,7 @@ class AuthService
 
     readOne(id: any)
     {
-        return http.get<IUserData>(`/account/${id}`);
+        return http.get<IUserData>(`/edit/${id}`);
     }
 }
 
