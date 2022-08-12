@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthService from '../services/auth-service';
 import UserModel from '../models/User';
 
+
 function Account()
 {
     const { id } = useParams();
@@ -91,7 +92,7 @@ function Account()
         <div className="row">
             <div className="offset-md-3 col-md-6 col-sm-12">
                 <div className="login" id="contentArea">
-                    <h1 className="display-4">{ username }</h1>
+                    <h1 className="display-4">{  }</h1>
 
                     <form onSubmit = { handleRegister } id="registerForm">
                         <p className="hint-text">Profile</p>

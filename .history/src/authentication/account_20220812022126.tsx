@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthService from '../services/auth-service';
 import UserModel from '../models/User';
 
+
 function Account()
 {
     const { id } = useParams();
