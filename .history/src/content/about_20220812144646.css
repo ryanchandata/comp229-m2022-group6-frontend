@@ -1,0 +1,36 @@
+h1 {
+  /* font-size: var(--abrilheadingSize); */
+  font-family: 'Lucida Handwriting';
+  color: #3D84A8;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+.main-page-section {
+  position: relative;
+  margin-top: 10px;
+}
+/*
+div.main-content {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+*/
+h3{
+  margin: auto;
+  width: 50%;
+  padding: 10px 0px;
+  text-align: center;
+  font-family: 'papyrus';
+}
+
+.sps > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}

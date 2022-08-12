@@ -14,13 +14,15 @@ function About()
             <div className="row main-content justify-content-md-center">
                 <div className="col-12 ">
                     <div className="row">
-                        <div className="col-md-3 col-sm-0"></div>
+
                         <div className="bg-transbox">
-                            <h2 className="heading col-md-6 col-sm-12 ">
+                        <div className="transbox">
+                            <h1 className="heading col-md-6 col-sm-12 ">
                                 We bring you with excellent experience on collecting data without any boarder.
-                            </h2>
+                            </h1>
                         </div>
-                        <div className="col-md-3 col-sm-0"></div>
+                        </div>
+
                     </div>
                 </div>
                 <h3>Meet Our Team</h3>

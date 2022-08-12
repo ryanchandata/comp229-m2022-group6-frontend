@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
-import logo from '../components/team_logo.jpg';
 import homepic1 from 'homepic1.jpg';
 import homepic2 from 'homepic2.jpg';
 import homepic3 from 'homepic3.jpg';
@@ -22,7 +21,7 @@ function Home()
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>Start your journey here in SurWe !</h3>
+                        <h2>Start your journey here in SurWe !</h2>
                         <p><Link to={"/login"} className="link"><button type="button" className="btn btn-outline-secondary"> Login </button></Link></p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -51,17 +50,7 @@ function Home()
             </Carousel>
             <br></br>
             <div className="container">
-                <div className="row sps">
-                    <div className="col-sm-12 col-lg-2 ">
-                        <img src={logo} alt="Logo" height={60} width={70} />
-                    </div>
-                    <div className="col-sm-12 col-lg-8">
-                        <h3>Active Surveys</h3>
-                    </div>
-                    <div className="col-sm-12 col-lg-2">
-                        <img src={logo} alt="Logo" height={60} width={70} />
-                    </div>
-                </div>
+                <h3>Active Surveys</h3>
                 <br />
                 <div className="row">
                 <div className="col">

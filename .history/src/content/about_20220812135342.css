@@ -1,0 +1,12 @@
+.main-page-section {
+  position: relative;
+  margin-top: 10px;
+}
+
+div.main-content {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}

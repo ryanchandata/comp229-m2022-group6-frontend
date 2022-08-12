@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
-import logo from '../components/team_logo.jpg';
 import homepic1 from 'homepic1.jpg';
 import homepic2 from 'homepic2.jpg';
 import homepic3 from 'homepic3.jpg';
@@ -51,17 +50,7 @@ function Home()
             </Carousel>
             <br></br>
             <div className="container">
-                <div className="row sps">
-                    <div className="col-sm-12 col-lg-2 ">
-                        <img src={logo} alt="Logo" height={60} width={70} />
-                    </div>
-                    <div className="col-sm-12 col-lg-8">
-                        <h3>Active Surveys</h3>
-                    </div>
-                    <div className="col-sm-12 col-lg-2">
-                        <img src={logo} alt="Logo" height={60} width={70} />
-                    </div>
-                </div>
+                <h3>Active Surveys</h3>
                 <br />
                 <div className="row">
                 <div className="col">
@@ -69,7 +58,7 @@ function Home()
                         <thead>
                             <tr>
                                 <th scope="col" className='text-center'>#</th>
-                                <th scope="col" >Survey Name</th>
+                                <th scope="col" ><img src='../components/team_logo.jpg' alt="Logo" height={60} width={70} />Survey Name</th>
                                 <th scope="col" className="text-center">End Date</th>
                                 <th scope="col" className="text-center">Take Survey</th>
                             </tr>

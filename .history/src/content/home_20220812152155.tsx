@@ -52,8 +52,8 @@ function Home()
             <br></br>
             <div className="container">
                 <div className="row sps">
-                    <div className="col-sm-12 col-lg-2 ">
-                        <img src={logo} alt="Logo" height={60} width={70} />
+                    <div className="col-sm-12 col-lg-2 margin-left=30px">
+                        <img src={logo} alt="Logo" height={60} width={70} margin-left={50} />
                     </div>
                     <div className="col-sm-12 col-lg-8">
                         <h3>Active Surveys</h3>

@@ -9,7 +9,7 @@ h1 {
 
 h2 {
   font-family: 'Lucida Handwriting';
-  color: #5b656a;
+  color: #ffffff;
   padding: 10px 0px;
   text-align: center;
 }
@@ -119,7 +119,7 @@ body {
 
 .main-page-section {
   position: relative;
-
+  margin-top: 10px;
 }
 
 .sps > div {
@@ -127,37 +127,6 @@ body {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  text-align: center;
-}
-
-.bg-transbox {
-    position: relative; 
-    height: 70vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
-    background-image: url(./content/homepic1.jpg);
-}
-/*
-.bg-transbox::before {
-    content: "";
-    background-image: url(./content/homepic1.jpg);;
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.75;  
-}
-*/
-.h2 {
-  position: relative;
-  color: #94A2A8;
-  font-size: 14rem;
-  line-height: 0.9;
   text-align: center;
 }
 

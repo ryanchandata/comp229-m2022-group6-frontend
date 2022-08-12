@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import '../App.css'
 import pic1 from '../components/team_logo.jpg';
-import bg from './homepic1.jpg';
 
 function About()
 {
@@ -15,11 +14,9 @@ function About()
                 <div className="col-12 ">
                     <div className="row">
                         <div className="col-md-3 col-sm-0"></div>
-                        <div className="bg-transbox">
-                            <h2 className="heading col-md-6 col-sm-12 ">
-                                We bring you with excellent experience on collecting data without any boarder.
-                            </h2>
-                        </div>
+                        <h2 className="heading col-md-6 col-sm-12 ">
+                        We bring you with excellent experience on collecting data without any boarder.
+                        </h2>
                         <div className="col-md-3 col-sm-0"></div>
                     </div>
                 </div>
