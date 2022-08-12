@@ -1,4 +1,5 @@
 import http from '../components/http-common';
+import IUserData from '../models/User';
 
 class AuthService
 {
@@ -32,6 +33,11 @@ class AuthService
             return JSON.parse(userString);
         }
         return false;
+    }
+
+    readOne(id: any)
+    {
+        return http.get<IUserData>(`/account/${id}`);
     }
 }
 

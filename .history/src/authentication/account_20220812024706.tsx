@@ -9,9 +9,9 @@ function Account()
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ confirmPassword, setConfirmPassword ] = useState('');
-    const [ firstName, setFirstName ] = useState('');
-    const [ lastName, setLastName ] = useState('');
-    const [ email, setEmailAddress ] = useState('');
+    const [ FirstName, setFirstName ] = useState('');
+    const [ LastName, setLastName ] = useState('');
+    const [ EmailAddress, setEmailAddress ] = useState('');
     const navigate = useNavigate(); // alias
     
     useEffect(() => {
@@ -71,9 +71,9 @@ function Account()
         {
             username: username,
             password: password,
-            FirstName: firstName,
-            LastName: lastName,
-            EmailAddress: email
+            FirstName: FirstName,
+            LastName: LastName,
+            EmailAddress: EmailAddress
         }
         
         AuthService.register(UserData.username, UserData.password, UserData.FirstName, UserData.LastName, UserData.EmailAddress)
@@ -101,13 +101,13 @@ function Account()
                             <p className="lead"><i className="fas fa-user-shield"></i> Personal Information</p>
                             <div className="col-md-6">
                             <input className="form-control" type="text" name="firstName" id="firstName" placeholder="First Name" 
-                            value= { firstName }
+                            value= { FirstName }
                             onChange = { onChangeFirstName }
                             required/>
                             </div>
                             <div className="col-md-6">
                             <input className="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" 
-                            value = { lastName }
+                            value = { LastName }
                             onChange = { onChangeLastName }
                             required/>
                             </div>
@@ -118,7 +118,7 @@ function Account()
                         <div className="row">
                             <div className="col-md-12">
                             <input type="email" className="form-control" id="emailAddress" name="emailAddress" required
-                            value= { email }
+                            value= { EmailAddress }
                             onChange = { onChangeEmailAddress }
                             placeholder="Email"/>
                             </div>

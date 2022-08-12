@@ -71,9 +71,9 @@ function Account()
         {
             username: username,
             password: password,
-            FirstName: firstName,
-            LastName: lastName,
-            EmailAddress: email
+            FirstName: FirstName,
+            LastName: LastName,
+            EmailAddress: EmailAddress
         }
         
         AuthService.register(UserData.username, UserData.password, UserData.FirstName, UserData.LastName, UserData.EmailAddress)
