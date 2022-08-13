@@ -52,15 +52,8 @@ function Home()
             <br></br>
             <div className="container">
                 <div className="row sps">
-                    <div className="col-sm-12 col-lg-2 ">
-                        <img src={logo} alt="Logo" height={60} width={70} />
-                    </div>
-                    <div className="col-sm-12 col-lg-8">
-                        <h3>Active Surveys</h3>
-                    </div>
-                    <div className="col-sm-12 col-lg-2">
-                        <img src={logo} alt="Logo" height={60} width={70} />
-                    </div>
+                    <img src={logo} alt="Logo" height={60} width={70} />
+                    <h3>Active Surveys</h3>
                 </div>
                 <br />
                 <div className="row">

@@ -51,6 +51,7 @@ function Home()
             </Carousel>
             <br></br>
             <div className="container">
+                <div className="row main-content justify-content-md-center">
                 <div className="row sps">
                     <div className="col-sm-12 col-lg-2 ">
                         <img src={logo} alt="Logo" height={60} width={70} />
@@ -61,6 +62,7 @@ function Home()
                     <div className="col-sm-12 col-lg-2">
                         <img src={logo} alt="Logo" height={60} width={70} />
                     </div>
+                </div>
                 </div>
                 <br />
                 <div className="row">
