@@ -20,6 +20,11 @@ function Home()
         readSurveys();
     }, []);
 
+    function refreshList()
+    {
+        readSurveys();
+    }
+
     function readSurveys()
     {
         surveyService.readAll()
