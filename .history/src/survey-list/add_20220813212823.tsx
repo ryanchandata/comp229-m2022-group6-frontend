@@ -110,11 +110,9 @@ function Add()
         if (today>=start && today<end)
         {
             return 'Active';
-            
         }
         else { return 'Inactive' }
-        
-    } console.log();
+    }
 
     function saveSurvey(e: any)
     {

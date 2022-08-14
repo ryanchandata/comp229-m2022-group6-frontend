@@ -106,15 +106,14 @@ function Add()
         let start = new Date (activationDate).toLocaleDateString;
         let end = new Date (expirationDate).toLocaleDateString;
         let today = Date.now().toLocaleString;
+        let status = "Active";
     
         if (today>=start && today<end)
         {
-            return 'Active';
-            
+            console.log(status);
         }
         else { return 'Inactive' }
-        
-    } console.log();
+    }
 
     function saveSurvey(e: any)
     {
@@ -189,7 +188,7 @@ function Add()
                     <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
                         Active Survey:
                         <label htmlFor="status" className="switch">
-                            <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === "Active" } /><span className="slider" data-on="Active" data-off="Inactive"></span></label>
+                            <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus }  /><span className="slider" data-on="Active" data-off="Inactive"></span></label>
                        <br/><br/>
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={question1} onChange={ onChangeQuestion1 } required></input>

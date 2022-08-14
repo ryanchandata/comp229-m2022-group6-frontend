@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import IResponseData from '../models/Response';
+import ISurveyData from '../models/Survey';
 import responseService from '../services/response-service';
 import surveyService from '../services/survey-service';
 
@@ -14,6 +15,9 @@ export default function Answer()
 
     // items for get survey
     const [ name, setName ] = useState('');
+    const [ activationDate, setActivationDate ] = useState('');
+    const [ expirationDate, setExpirationDate ] = useState('');
+    const [ status, setStatus ] = useState('');
 
     const [ question1, setQuestion1 ] = useState('');
     const [ optionType1, setOptionType1 ] = useState('');
@@ -48,7 +52,11 @@ export default function Answer()
     {
         surveyService.readOne(id)
         .then((response: any) =>{
-            setName(response.data.surveys.name);    
+            setName(response.data.surveys.name);
+            setActivationDate(response.data.surveys.activationDate);
+            setExpirationDate(response.data.surveys.expirationDate);
+            setStatus(response.data.surveys.status);
+            
             setQuestion1(response.data.surveys.question1);
             setOptionType1(response.data.surveys.optionType1);
             setOptiondetails1_1(response.data.surveys.optiondetails1_1);
@@ -96,24 +104,16 @@ export default function Answer()
             <hr />
             <form onSubmit={saveResponse} className="form" method="post">
                 <div className="form-group">
-                    <h3> {name} </h3><br />
-
-                    <label htmlFor="question1"> {question1} </label><br />
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans }/> {optiondetails1_1}<br />
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } /> {optiondetails1_2}<br />
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans} /> {optiondetails1_3}<br /> 
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans }  /> {optiondetails1_4}<br />
-                    <br />
-                    <label htmlFor="question2"> {question2} </label><br />
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } /> {optiondetails2_1}<br />
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans}  /> {optiondetails2_2}<br />
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } /> {optiondetails2_3}<br /> 
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } /> {optiondetails2_4}<br />
+                    <label htmlFor="name"> {name} </label>
+                    <label htmlFor="question1"> {question1} </label>
+                    <label htmlFor="question1"> {question2} </label>
+                   
+                   
                 </div>
 
                 <div className="text-end mt-2">
                         <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-file-pen"></i> Submit</button>
-                        <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
+                        <Link to= {"/survey"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
                             <i className="fas fa-undo"></i> Cancel</button></Link>
                         </div>
             </form>

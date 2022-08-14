@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import IResponseData from '../models/Response';
+import ISurveyData from '../models/Survey';
 import responseService from '../services/response-service';
 import surveyService from '../services/survey-service';
 
@@ -99,16 +100,16 @@ export default function Answer()
                     <h3> {name} </h3><br />
 
                     <label htmlFor="question1"> {question1} </label><br />
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans }/> {optiondetails1_1}<br />
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } /> {optiondetails1_2}<br />
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans} /> {optiondetails1_3}<br /> 
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans }  /> {optiondetails1_4}<br />
+                    <input type= { optionType1 } name="question1" /> {optiondetails1_1}<br />
+                    <input type= { optionType1 } name="question1" /> {optiondetails1_2}<br />
+                    <input type= { optionType1 } name="question1" /> {optiondetails1_3}<br /> 
+                    <input type= { optionType1 } name="question1" /> {optiondetails1_4}<br />
                     <br />
                     <label htmlFor="question2"> {question2} </label><br />
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } /> {optiondetails2_1}<br />
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans}  /> {optiondetails2_2}<br />
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } /> {optiondetails2_3}<br /> 
-                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } /> {optiondetails2_4}<br />
+                    <input type= { optionType2 } name="question2" /> {optiondetails2_1}<br />
+                    <input type= { optionType2 } name="question2" /> {optiondetails2_2}<br />
+                    <input type= { optionType2 } name="question2" /> {optiondetails2_3}<br /> 
+                    <input type= { optionType2 } name="question2" /> {optiondetails2_4}<br />
                 </div>
 
                 <div className="text-end mt-2">

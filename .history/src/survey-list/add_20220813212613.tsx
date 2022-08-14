@@ -31,6 +31,19 @@ function Add()
         document.title = "Add";
     })
 
+    function validation() {
+
+        let start = new Date (activationDate).toLocaleDateString;
+        let end = new Date (expirationDate).toLocaleDateString;
+        let today = Date.now().toLocaleString;
+    
+        if (today>=start && today<end)
+        {
+            return 'Active';
+        }
+        else { return 'Inactive' }
+    }
+
     function onChangeName(e: ChangeEvent<HTMLInputElement>)
     {
         setName(e.target.value);
@@ -101,21 +114,6 @@ function Add()
         setOptiondetails2_4(e.target.value);
     }
     
-    function validation() {
-
-        let start = new Date (activationDate).toLocaleDateString;
-        let end = new Date (expirationDate).toLocaleDateString;
-        let today = Date.now().toLocaleString;
-    
-        if (today>=start && today<end)
-        {
-            return 'Active';
-            
-        }
-        else { return 'Inactive' }
-        
-    } console.log();
-
     function saveSurvey(e: any)
     {
         e.preventDefault();
@@ -189,7 +187,7 @@ function Add()
                     <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
                         Active Survey:
                         <label htmlFor="status" className="switch">
-                            <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === "Active" } /><span className="slider" data-on="Active" data-off="Inactive"></span></label>
+                        <span className="slider" data-on="Active" data-off="Inactive"><input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === "Active" } /></span></label>
                        <br/><br/>
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={question1} onChange={ onChangeQuestion1 } required></input>

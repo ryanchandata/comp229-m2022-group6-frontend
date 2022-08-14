@@ -197,11 +197,11 @@ export default function Edit()
                     <label htmlFor="dateActive">Start From</label>
                     <input type="date" className="form-control" id="dateActive" name="dateActive" value = { new Date (activationDate).toLocaleDateString('sv-SE') } onChange={ onChangeActivationDate }></input><br />
                     <label htmlFor="dateExpire">To</label>
-                    <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = { new Date (expirationDate).toLocaleDateString('sv-SE') } onChange={ onChangeExpirationDate }></input><br /> 
-                        Survey Status
+                    <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = { new Date (expirationDate).toLocaleDateString('sv-SE') } onChange={ onChangeExpirationDate }></input><br />
+                        Active Survey:
                         <label htmlFor="status" className="switch">
-                            <input type="checkbox" value={ status } onChange={ onChangeStatus } /><span className="slider"></span></label><br />
-                    <br />
+                            <input type="checkbox" value={ status } onChange={ onChangeStatus } /><span className="slider"></span></label>
+
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" id="Question1" value ={question1} onChange={ onChangeQuestion1 }></input>
                     <label htmlFor="optionType1">Selection Type:</label>

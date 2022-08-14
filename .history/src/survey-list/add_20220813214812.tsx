@@ -106,15 +106,14 @@ function Add()
         let start = new Date (activationDate).toLocaleDateString;
         let end = new Date (expirationDate).toLocaleDateString;
         let today = Date.now().toLocaleString;
+        let status = "Inactive";
     
         if (today>=start && today<end)
         {
-            return 'Active';
-            
+            console.log(status);
         }
         else { return 'Inactive' }
-        
-    } console.log();
+    }
 
     function saveSurvey(e: any)
     {
