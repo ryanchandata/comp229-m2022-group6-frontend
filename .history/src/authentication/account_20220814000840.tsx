@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthService from '../services/auth-service';
-import IUserData from '../models/User';
+import UserModel from '../models/User';
 
 function Account()
 {
@@ -12,6 +12,7 @@ function Account()
     const [ FirstName, setFirstName ] = useState('');
     const [ LastName, setLastName ] = useState('');
     const [ EmailAddress, setEmailAddress ] = useState('');
+    const navigate = useNavigate(); // alias
     
     useEffect(() => {
         getUser(id);
@@ -71,9 +72,11 @@ function Account()
             _id: id,
             username: username,
             password: password,
+            confirmPassword: confirmPassword,
             FirstName: FirstName,
             LastName: LastName,
-            EmailAddress: EmailAddress,
+            EmailAddress:             EmailAddress: emailAddress,    
+            ,    
         }
             AuthService.update(data, id)
             .then((response: any)=>
@@ -100,7 +103,7 @@ function Account()
                 <div className="login" id="contentArea">
                     <h1 className="display-4">{ username }</h1>
 
-                    <form onSubmit = { saveAccount } id="saveAccount">
+                    <form onSubmit = { handleRegister } id="registerForm">
                         <p className="hint-text">Profile</p>
 
                         <div className="form-group">

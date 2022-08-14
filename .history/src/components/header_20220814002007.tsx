@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import logo from './team_logo.jpg';
 import AuthService from '../services/auth-service';
+import IUserData from '../models/User';
 
 console.log(logo);
 
 function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const { id } = useParams();
+  const [ users, setUsers ] = useState<Array<IUserData>>([]);
   const [ ,setValue ] = useState({});
 
     useEffect(()=>{
@@ -17,11 +20,14 @@ function Header()
     
 function toggleLogin()
   {
+    readUser();
+    
     if(isLoggedIn)
     {
+      users && users.map((user: IUserData, index: number) => {
       return(
         <><li className='nav-item'>
-          <NavLink to={`/account`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
+          <NavLink to={`/account/${users._id}`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
         </li><li className='nav-item'>
             <NavLink to={"/logout"} className='nav-link' aria-current="page"><i className="fa-solid fa-right-from-bracket fa-lg"></i> Logout</NavLink>
           </li></>
@@ -33,8 +39,20 @@ function toggleLogin()
             <NavLink to={"/login"} className="nav-link" aria-current="page" ><i className="fa-solid fa-right-to-bracket fa-lg"></i> Login</NavLink>
           </li>
       )
-     }
+    })}
+    
   }
+
+  function readUser()
+    {
+        AuthService.readOne(id)
+        .then((responses: any) =>{
+            setUsers(responses.data.users);
+        })
+        .catch((e: Error)=>{
+            console.log(e);
+        });
+    }
     
   function toggleSurveyList()
   {
@@ -50,7 +68,6 @@ function toggleLogin()
 
 
     return (
-      
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
       <NavLink to={"/"} className="navbar-brand"><img src={logo} alt="Logo" height={60} width={70} /> SurWe - Survey</NavLink>

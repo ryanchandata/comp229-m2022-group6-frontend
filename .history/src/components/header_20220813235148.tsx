@@ -2,30 +2,36 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from './team_logo.jpg';
 import AuthService from '../services/auth-service';
+import IUserData from '../models/User';
 
 console.log(logo);
 
 function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const [ users, ] = useState<Array<IUserData>>([]);
   const [ ,setValue ] = useState({});
 
     useEffect(()=>{
         setIsLoggedIn(AuthService.getCurrentUser())
         setValue({});
     }, []);
-    
+
 function toggleLogin()
   {
     if(isLoggedIn)
     {
+      users &&
+      users.map((user: IUserData, index: number)=>{
+
       return(
         <><li className='nav-item'>
-          <NavLink to={`/account`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
+          <NavLink to={`/account/${user._id}`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
         </li><li className='nav-item'>
             <NavLink to={"/logout"} className='nav-link' aria-current="page"><i className="fa-solid fa-right-from-bracket fa-lg"></i> Logout</NavLink>
           </li></>
-      );}
+      );})}
+      
     else
     {
       return(
@@ -50,7 +56,6 @@ function toggleLogin()
 
 
     return (
-      
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
       <NavLink to={"/"} className="navbar-brand"><img src={logo} alt="Logo" height={60} width={70} /> SurWe - Survey</NavLink>

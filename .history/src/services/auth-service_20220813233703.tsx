@@ -40,11 +40,6 @@ class AuthService
         return http.get<IUserData>(`/account/${id}`);
     }
 
-    update(data: IUserData, id: any)
-    {
-        return http.post<IUserData>(`/account/${id}`, data);
-    }
-
 }
 
 export default new AuthService();

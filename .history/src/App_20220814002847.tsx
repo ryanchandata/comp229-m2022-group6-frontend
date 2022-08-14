@@ -29,6 +29,14 @@ import './App.css';
 import "../node_modules/jquery/dist/jquery.min.js";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
+type HeaderProps = {
+  children: React.ReactNode;
+};
+function Header(propsL HeaderProps)
+{
+  return <div>{propsL.children}</div>
+}
+
 // App Template
 class App extends React.Component {
   

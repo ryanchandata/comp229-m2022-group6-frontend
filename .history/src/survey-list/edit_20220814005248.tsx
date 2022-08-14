@@ -198,7 +198,7 @@ export default function Edit()
                     <input type="date" className="form-control" id="dateActive" name="dateActive" value = { new Date (activationDate).toLocaleDateString('sv-SE') } onChange={ onChangeActivationDate }></input><br />
                     <label htmlFor="dateExpire">To</label>
                     <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = { new Date (expirationDate).toLocaleDateString('sv-SE') } onChange={ onChangeExpirationDate }></input><br /> 
-                        Active Survey:
+                        Survey Status
                         <label htmlFor="status" className="switch">
                             <input type="checkbox" value={ status } onChange={ onChangeStatus } /><span className="slider"></span></label><br />
                     <br />

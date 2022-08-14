@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthService from '../services/auth-service';
-import IUserData from '../models/User';
+import UserModel from '../models/User';
 
 function Account()
 {
@@ -12,6 +12,7 @@ function Account()
     const [ FirstName, setFirstName ] = useState('');
     const [ LastName, setLastName ] = useState('');
     const [ EmailAddress, setEmailAddress ] = useState('');
+    const navigate = useNavigate(); // alias
     
     useEffect(() => {
         getUser(id);
@@ -64,33 +65,26 @@ function Account()
         });
     }
 
-    function saveAccount(e: any)
+    function handleRegister(event: any)
     {
-        e.preventDefault();
-        const data: IUserData = {
-            _id: id,
+        event.preventDefault();
+        const UserData: UserModel =
+        {
             username: username,
             password: password,
             FirstName: FirstName,
             LastName: LastName,
-            EmailAddress: EmailAddress,
+            EmailAddress: EmailAddress
         }
-            AuthService.update(data, id)
-            .then((response: any)=>
-            {
-                setUsername(response.data.username);
-                setPassword(response.data.password);
-                setConfirmPassword(response.data.confirmPassword);
-                setFirstName(response.data.firstName);
-                setLastName(response.data.lastName);
-                setEmailAddress(response.data.emailAddress);
-            })
-            .catch((e: Error)=>{
-                console.log(e);
-            });
-            window.location.href="/survey";
-        }
-    
+        
+        AuthService.register(UserData.username, UserData.password, UserData.FirstName, UserData.LastName, UserData.EmailAddress)
+        .then(() =>{
+            navigate('/login');
+        }, error =>{
+            // TODO: Needs Flash Messaging
+            window.location.reload();
+        }); 
+    }
 
 
     return (
@@ -100,7 +94,7 @@ function Account()
                 <div className="login" id="contentArea">
                     <h1 className="display-4">{ username }</h1>
 
-                    <form onSubmit = { saveAccount } id="saveAccount">
+                    <form onSubmit = { handleRegister } id="registerForm">
                         <p className="hint-text">Profile</p>
 
                         <div className="form-group">

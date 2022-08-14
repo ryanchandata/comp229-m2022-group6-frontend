@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import logo from './team_logo.jpg';
 import AuthService from '../services/auth-service';
 
@@ -8,6 +8,7 @@ console.log(logo);
 function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const { id } = useParams();
   const [ ,setValue ] = useState({});
 
     useEffect(()=>{

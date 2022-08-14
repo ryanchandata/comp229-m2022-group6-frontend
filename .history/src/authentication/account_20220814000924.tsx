@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthService from '../services/auth-service';
+import UserModel from '../models/User';
 import IUserData from '../models/User';
 
 function Account()
@@ -12,6 +13,7 @@ function Account()
     const [ FirstName, setFirstName ] = useState('');
     const [ LastName, setLastName ] = useState('');
     const [ EmailAddress, setEmailAddress ] = useState('');
+    const navigate = useNavigate(); // alias
     
     useEffect(() => {
         getUser(id);

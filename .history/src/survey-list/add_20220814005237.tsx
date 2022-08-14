@@ -28,7 +28,7 @@ function Add()
     const [ optiondetails2_4, setOptiondetails2_4 ] = useState('');
 
     useEffect(()=>{
-        document.title = "Create A Survey";
+        document.title = "Create Survey";
     })
 
     function onChangeName(e: ChangeEvent<HTMLInputElement>)

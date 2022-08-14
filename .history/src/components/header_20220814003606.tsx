@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import logo from './team_logo.jpg';
 import AuthService from '../services/auth-service';
+import IUserData from '../models/User';
 
 console.log(logo);
 
 function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const { id } = useParams();
+  const [ users, setUsers ] = useState<Array<IUserData>>([]);
   const [ ,setValue ] = useState({});
 
     useEffect(()=>{
@@ -17,11 +20,12 @@ function Header()
     
 function toggleLogin()
   {
+    readUser(user: IUserData);
     if(isLoggedIn)
     {
       return(
         <><li className='nav-item'>
-          <NavLink to={`/account`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
+          <NavLink to={`/account/${user._id}`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
         </li><li className='nav-item'>
             <NavLink to={"/logout"} className='nav-link' aria-current="page"><i className="fa-solid fa-right-from-bracket fa-lg"></i> Logout</NavLink>
           </li></>
@@ -35,6 +39,17 @@ function toggleLogin()
       )
      }
   }
+
+  function readUser()
+    {
+        AuthService.readOne(id)
+        .then((responses: any) =>{
+            setUsers(responses.data.users);
+        })
+        .catch((e: Error)=>{
+            console.log(e);
+        });
+    }
     
   function toggleSurveyList()
   {
