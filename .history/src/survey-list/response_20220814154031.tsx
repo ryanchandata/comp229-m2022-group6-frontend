@@ -1,54 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import surveyService from '../services/survey-service';
-import ISurveyData from '../models/Survey';
+import IResponseData from '../models/Response';
+import responseService from '../services/response-service';
 
-function Survey()
+function Response()
 {   
-    const [ surveys, setSurveys ] = useState<Array<ISurveyData>>([]);
+    const [ response, setResponse ] = useState<Array<IResponseData>>([]);
 
     useEffect(()=> {
-        readSurveys();
+        readResponse();
     }, []);
 
-    function refreshList()
+    function readResponse()
     {
-        readSurveys();
-    }
-
-    function readSurveys()
-    {
-        surveyService.readAll()
+        responseService.readOneResponse()
         .then((responses: any) =>{
-            setSurveys(responses.data.surveys);
+            setResponse(responses.data.response);
         })
         .catch((e: Error)=>{
             console.log(e);
         });
-    }
-
-    function deleteSurvey (id: string)
-    {
-        surveyService.delete(id)
-        .then((responses: any) =>{
-            refreshList();
-        })
-        .catch((e: Error)=>{
-            console.log(e);
-        });
-    }
-
-    function confirmDelete(id: string)
-    {
-        if(!window.confirm("Are you sure?"))
-        {
-            refreshList();
-            return;
-        }
-        deleteSurvey(id);
     }
     
-    document.title = "My Surveys";
+    document.title = "Response Statistic";
     
         return (
             <div className="container">
@@ -72,7 +46,6 @@ function Survey()
                                 <th scope="col" className="text-center">Status</th>
                                 <th scope="col" className="text-center">Edit</th>
                                 <th scope="col" className="text-center">Delete</th>
-                                <th scope="col" className="text-center">Statistic</th>
                             </tr>
                         </thead>
                         <tbody id="surveyList">
@@ -94,10 +67,6 @@ function Survey()
                                             <td className="text-center">
                                                 <button onClick={()=>{confirmDelete(survey._id)}} className="btn btn-primary"><i className="fa-solid fa-circle-minus fa-lg"></i></button>
                                             </td>
-                                            <td className="text-center">
-                                                <Link to={`/response/${survey._id}`}>
-                                                    <button className="btn btn-primary"><i className="fa-solid fa-chart-column"></i></button>
-                                                </Link></td>
                                         </tr>
                                     )
                                 })
@@ -110,5 +79,5 @@ function Survey()
         )
 }
 
-export default Survey;
+export default Response;
 

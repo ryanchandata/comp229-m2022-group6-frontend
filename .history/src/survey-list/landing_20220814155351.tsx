@@ -72,7 +72,7 @@ function Survey()
                                 <th scope="col" className="text-center">Status</th>
                                 <th scope="col" className="text-center">Edit</th>
                                 <th scope="col" className="text-center">Delete</th>
-                                <th scope="col" className="text-center">Statistic</th>
+                                <th scope="col" className="text-center">Response Statistic</th>
                             </tr>
                         </thead>
                         <tbody id="surveyList">
@@ -96,7 +96,7 @@ function Survey()
                                             </td>
                                             <td className="text-center">
                                                 <Link to={`/response/${survey._id}`}>
-                                                    <button className="btn btn-primary"><i className="fa-solid fa-chart-column"></i></button>
+                                                    <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
                                                 </Link></td>
                                         </tr>
                                     )

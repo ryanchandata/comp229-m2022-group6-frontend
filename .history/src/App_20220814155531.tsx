@@ -14,7 +14,6 @@ import Add from './survey-list/add';
 import Edit from './survey-list/edit';
 import PageNotFound from './content/PageNotFound';
 import Answer from './survey-list/answer';
-import Response from './survey-list/response';
 
 // Authentication Components
 import Login from './authentication/login';
@@ -58,7 +57,7 @@ render(){
           <Route path="*" element={<PageNotFound />} />
           <Route path="/answer/:id" element={<Answer />} />
           <Route path="/account/:id" element={<RequireAuth><Account /></RequireAuth>} />
-          <Route path="/response/:id" element={<RequireAuth><Response /></RequireAuth>} />
+          <Route path="/response/:id" element={<RequireAuth><Account /></RequireAuth>} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />

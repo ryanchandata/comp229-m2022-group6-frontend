@@ -72,7 +72,7 @@ function Survey()
                                 <th scope="col" className="text-center">Status</th>
                                 <th scope="col" className="text-center">Edit</th>
                                 <th scope="col" className="text-center">Delete</th>
-                                <th scope="col" className="text-center">Statistic</th>
+                                <th scope="col" className="text-center">Response Statistic</th>
                             </tr>
                         </thead>
                         <tbody id="surveyList">
@@ -95,9 +95,8 @@ function Survey()
                                                 <button onClick={()=>{confirmDelete(survey._id)}} className="btn btn-primary"><i className="fa-solid fa-circle-minus fa-lg"></i></button>
                                             </td>
                                             <td className="text-center">
-                                                <Link to={`/response/${survey._id}`}>
-                                                    <button className="btn btn-primary"><i className="fa-solid fa-chart-column"></i></button>
-                                                </Link></td>
+                                                <button onClick={()=>{responseStatistic(survey._id)}} className="btn btn-primary"><i className="fa-solid fa-circle-minus fa-lg"></i></button>
+                                            </td>
                                         </tr>
                                     )
                                 })
