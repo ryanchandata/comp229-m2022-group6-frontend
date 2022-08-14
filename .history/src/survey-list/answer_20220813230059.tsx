@@ -99,7 +99,7 @@ export default function Answer()
                     <h3> {name} </h3><br />
 
                     <label htmlFor="question1"> {question1} </label><br />
-                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } /> {optiondetails1_1}<br />
+                    <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans }/> {optiondetails1_1}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } /> {optiondetails1_2}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } /> {optiondetails1_3}<br /> 
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } /> {optiondetails1_4}<br />
