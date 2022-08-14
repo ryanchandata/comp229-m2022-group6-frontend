@@ -5,7 +5,7 @@ export default interface ISurveyData
     dateCreated: string,
     activationDate: Date,
     expirationDate: Date,
-    status: string,
+    //status: string,
     responses: Number,
 
     question1: string,

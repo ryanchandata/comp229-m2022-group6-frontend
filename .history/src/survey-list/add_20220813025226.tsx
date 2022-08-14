@@ -10,7 +10,6 @@ function Add()
     const [ dateCreated, setDateCreated ] = useState('');
     const [ activationDate, setActivationDate ] = useState('');
     const [ expirationDate, setExpirationDate ] = useState('');
-    const [ status, setStatus ] = useState('');
     const [ responses, setResponses ] = useState('');
 
     const [ question1, setQuestion1 ] = useState('');
@@ -44,11 +43,6 @@ function Add()
     function onChangeExpirationDate(e: ChangeEvent<HTMLInputElement>)
     {
         setExpirationDate(e.target.value);
-    }
-
-    function onChangeStatus(e: ChangeEvent<HTMLInputElement>)
-    {
-        setStatus(e.target.value);
     }
 
     function onChangeQuestion1(e: ChangeEvent<HTMLInputElement>)
@@ -110,7 +104,7 @@ function Add()
             dateCreated: dateCreated,
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
-            status: status,
+            //status: status,
             responses: Number(responses),
 
             question1: question1,
@@ -137,7 +131,6 @@ function Add()
             setDateCreated(response.data.dateCreated);
             setActivationDate(response.data.activationDate);
             setExpirationDate(response.data.expirationDate);
-            setStatus(response.data.status);
             setResponses(response.data.responses);
 
             setQuestion1(response.data.question1);
@@ -160,19 +153,6 @@ function Add()
     window.location.href = "/survey";
 }
 
-function validation() {
-
-    let start = new Date (activationDate).toLocaleDateString;
-    let end = new Date (expirationDate).toLocaleDateString;
-    let today = Date.now().toLocaleString;
-
-    if (today>=start && today<end)
-    {
-        return 'Active';
-    }
-    else { return 'Inactive' }
-}
-
     return(
         <div className="container">
             <h1>Creating a Survey</h1>
@@ -185,10 +165,9 @@ function validation() {
                     <input type="date" className="form-control" placeholder="Start Date" id="dateActive" name="dateActive" value = {activationDate} onChange={ onChangeActivationDate } required></input><br />
                     <label htmlFor="dateExpire">To</label>
                     <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
-                        Active Survey:
-                        <label htmlFor="status" className="switch">
-                            <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === "Active" } /><span className="slider" data-on="Active" data-off="Inactive"></span></label>
-                       <br/><br/>
+                        <label htmlFor="status"></label>
+                            <input type="checkbox"></input>
+                        
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={question1} onChange={ onChangeQuestion1 } required></input>
                     <label htmlFor="optionType1">Selection Type:</label>

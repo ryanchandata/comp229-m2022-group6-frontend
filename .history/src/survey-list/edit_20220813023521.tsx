@@ -46,11 +46,6 @@ export default function Edit()
         setExpirationDate(e.target.value);
     }
 
-    function onChangeStatus(e: ChangeEvent<HTMLInputElement>)
-    {
-        setStatus(e.target.value);
-    }
-
     function onChangeQuestion1(e: ChangeEvent<HTMLInputElement>)
     {
         setQuestion1(e.target.value);
@@ -108,7 +103,6 @@ export default function Edit()
             setName(response.data.surveys.name);
             setActivationDate(response.data.surveys.activationDate);
             setExpirationDate(response.data.surveys.expirationDate);
-            setStatus(response.data.surveys.status);
             setResponses(response.data.surveys.responses);
             
             setQuestion1(response.data.surveys.question1);
@@ -139,7 +133,6 @@ export default function Edit()
             dateCreated: '',
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
-            status: status,
             responses: Number(responses),
 
             question1: question1,
@@ -163,7 +156,6 @@ export default function Edit()
                 setName(response.data.name);
                 setActivationDate(response.data.activationDate);
                 setExpirationDate(response.data.expirationDate);
-                setStatus(response.data.status);
                 setResponses(response.data.responses);
                 
                 setQuestion1(response.data.question1);
@@ -198,9 +190,9 @@ export default function Edit()
                     <input type="date" className="form-control" id="dateActive" name="dateActive" value = { new Date (activationDate).toLocaleDateString('sv-SE') } onChange={ onChangeActivationDate }></input><br />
                     <label htmlFor="dateExpire">To</label>
                     <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = { new Date (expirationDate).toLocaleDateString('sv-SE') } onChange={ onChangeExpirationDate }></input><br />
-                    <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
-                        <label htmlFor="status" className="switch">
-                            <input type="checkbox" value={ status } onChange={ onChangeStatus } /><span className="slider"></span></label>
+                    <label className="switch">
+                        <input type="checkbox" value={ status } onChange={ onChangeStatus }><span className="slider"></span></input>
+                    </label>
 
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" id="Question1" value ={question1} onChange={ onChangeQuestion1 }></input>

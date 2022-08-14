@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
 
-function Add()
+function Answer()
 {
     const [ ID, setID ] = useState('');
     const [ name, setName ] = useState('');
@@ -28,77 +28,77 @@ function Add()
     const [ optiondetails2_4, setOptiondetails2_4 ] = useState('');
 
     useEffect(()=>{
-        document.title = "Add";
+        document.title = "Answer";
     })
 
-    function onChangeName(e: ChangeEvent<HTMLInputElement>)
+    function onChangeName(event: ChangeEvent<HTMLInputElement>)
     {
-        setName(e.target.value);
+        setName(event.target.value);
     }
 
-    function onChangeActivationDate(e: ChangeEvent<HTMLInputElement>)
+    function onChangeActivationDate(event: ChangeEvent<HTMLInputElement>)
     {
-        setActivationDate(e.target.value);
+        setActivationDate(event.target.value);
     }
 
-    function onChangeExpirationDate(e: ChangeEvent<HTMLInputElement>)
+    function onChangeExpirationDate(event: ChangeEvent<HTMLInputElement>)
     {
-        setExpirationDate(e.target.value);
+        setExpirationDate(event.target.value);
     }
 
-    function onChangeStatus(e: ChangeEvent<HTMLInputElement>)
+    function onChangeStatus(event: ChangeEvent<HTMLInputElement>)
     {
-        setStatus(e.target.value);
+        setStatus(event.target.value);
     }
 
-    function onChangeQuestion1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeQuestion1(event: ChangeEvent<HTMLInputElement>)
     {
-        setQuestion1(e.target.value);
+        setQuestion1(event.target.value);
     }
-    function onChangeOptionType1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionType1(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptionType1(e.target.value);
+        setOptionType1(event.target.value);
     }
-    function onChangeOptionDetails1_1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_1(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_1(e.target.value);
+        setOptiondetails1_1(event.target.value);
     }
-    function onChangeOptionDetails1_2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_2(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_2(e.target.value);
+        setOptiondetails1_2(event.target.value);
     }
-    function onChangeOptionDetails1_3(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_3(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_3(e.target.value);
+        setOptiondetails1_3(event.target.value);
     }
-    function onChangeOptionDetails1_4(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails1_4(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails1_4(e.target.value);
+        setOptiondetails1_4(event.target.value);
     }
 
-    function onChangeQuestion2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeQuestion2(event: ChangeEvent<HTMLInputElement>)
     {
-        setQuestion2(e.target.value);
+        setQuestion2(event.target.value);
     }
-    function onChangeOptionType2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionType2(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptionType2(e.target.value);
+        setOptionType2(event.target.value);
     }
-    function onChangeOptionDetails2_1(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_1(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_1(e.target.value);
+        setOptiondetails2_1(event.target.value);
     }
-    function onChangeOptionDetails2_2(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_2(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_2(e.target.value);
+        setOptiondetails2_2(event.target.value);
     }
-    function onChangeOptionDetails2_3(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_3(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_3(e.target.value);
+        setOptiondetails2_3(event.target.value);
     }
-    function onChangeOptionDetails2_4(e: ChangeEvent<HTMLInputElement>)
+    function onChangeOptionDetails2_4(event: ChangeEvent<HTMLInputElement>)
     {
-        setOptiondetails2_4(e.target.value);
+        setOptiondetails2_4(event.target.value);
     }
     
     function saveSurvey(e: any)
@@ -137,7 +137,6 @@ function Add()
             setDateCreated(response.data.dateCreated);
             setActivationDate(response.data.activationDate);
             setExpirationDate(response.data.expirationDate);
-            setStatus(response.data.status);
             setResponses(response.data.responses);
 
             setQuestion1(response.data.question1);
@@ -160,35 +159,13 @@ function Add()
     window.location.href = "/survey";
 }
 
-function validation() {
-
-    let start = new Date (activationDate).toLocaleDateString;
-    let end = new Date (expirationDate).toLocaleDateString;
-    let today = Date.now().toLocaleString;
-
-    if (today>=start && today<end)
-    {
-        return 'Active';
-    }
-    else { return 'Inactive' }
-}
-
     return(
         <div className="container">
-            <h1>Creating a Survey</h1>
+            <h1>"Survey Title"</h1>
+            <p>Please take a few minutes to share your options more.</p>
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
-                <div className="form-group">
-                    <label htmlFor="name">Survey Title</label>
-                    <input type="text" className="form-control" placeholder="Survey Name" id="name" name="name" value = {name} onChange={ onChangeName } required></input><br />
-                    <label htmlFor="dateActive">Start From</label>
-                    <input type="date" className="form-control" placeholder="Start Date" id="dateActive" name="dateActive" value = {activationDate} onChange={ onChangeActivationDate } required></input><br />
-                    <label htmlFor="dateExpire">To</label>
-                    <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
-                        Active Survey:
-                        <label htmlFor="status" className="switch">
-                            <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === "Active" } /><span className="slider" data-on="Active" data-off="Inactive"></span></label>
-                       <br/><br/>
+                <div className="form-group">                    
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={question1} onChange={ onChangeQuestion1 } required></input>
                     <label htmlFor="optionType1">Selection Type:</label>
@@ -225,13 +202,12 @@ function validation() {
                 </div>
 
                 <div className="text-end mt-2">
-                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-plus"></i> Create</button>
-                        <Link to= {"/survey"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
-                            <i className="fas fa-undo"></i> Cancel</button></Link>
-                        </div>
+                    <Link to={"/home"} className="link"><button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-circle-check"></i> Submit</button></Link>
+                    <Link to={"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg"><i className="fas fa-undo"></i> Cancel</button></Link>
+                </div>
             </form>
         </div>
     );
 }
 
-export default Add;
+export default Answer;

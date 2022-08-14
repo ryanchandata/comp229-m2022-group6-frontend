@@ -182,13 +182,9 @@ body {
   border-radius: 34px;
 }
 
-.switch input {
+.switch input [type="checkbox"]{
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
   z-index: 2;
 }
 
