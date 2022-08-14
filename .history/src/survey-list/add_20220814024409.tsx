@@ -125,7 +125,7 @@ function Add()
             dateCreated: dateCreated,
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
-            status: validation(),
+            status: status,
             responses: Number(responses),
 
             question1: question1,
@@ -141,6 +141,7 @@ function Add()
             optiondetails2_2: optiondetails2_2,
             optiondetails2_3: optiondetails2_3,
             optiondetails2_4: optiondetails2_4,
+   
         }
 
         surveyService.create(data)

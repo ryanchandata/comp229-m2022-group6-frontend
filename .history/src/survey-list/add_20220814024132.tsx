@@ -141,6 +141,7 @@ function Add()
             optiondetails2_2: optiondetails2_2,
             optiondetails2_3: optiondetails2_3,
             optiondetails2_4: optiondetails2_4,
+   
         }
 
         surveyService.create(data)

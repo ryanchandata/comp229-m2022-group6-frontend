@@ -103,9 +103,9 @@ function Add()
     
     function validation() {
 
-        let start = new Date (activationDate);
-        let end = new Date (expirationDate);
-        let today = new Date();
+        let start = new Date (activationDate).toLocaleDateString;
+        let end = new Date (expirationDate).toLocaleDateString;
+        let today = Date.now().toString;
 
         if (today>=start && today<=end)
         {
@@ -125,7 +125,7 @@ function Add()
             dateCreated: dateCreated,
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
-            status: validation(),
+            status: status,
             responses: Number(responses),
 
             question1: question1,
@@ -141,6 +141,7 @@ function Add()
             optiondetails2_2: optiondetails2_2,
             optiondetails2_3: optiondetails2_3,
             optiondetails2_4: optiondetails2_4,
+   
         }
 
         surveyService.create(data)
@@ -188,7 +189,7 @@ function Add()
                     <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
                         Active Survey:
                         <label htmlFor="status" className="switch">
-                        <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === 'Active' } /><span className="slider"></span></label>
+                        <input id="status" type="checkbox" value={ validation() === 'Active'?"Active":"Inactive" } onChange={ onChangeStatus } /><span className="slider"></span></label>
                        <br/><br/>
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={question1} onChange={ onChangeQuestion1 } required></input>

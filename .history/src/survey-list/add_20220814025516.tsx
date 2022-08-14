@@ -141,6 +141,7 @@ function Add()
             optiondetails2_2: optiondetails2_2,
             optiondetails2_3: optiondetails2_3,
             optiondetails2_4: optiondetails2_4,
+   
         }
 
         surveyService.create(data)
@@ -188,7 +189,7 @@ function Add()
                     <input type="date" className="form-control" placeholder="End Date" id="dateExpire" name="dateExpire" value = {expirationDate} onChange={ onChangeExpirationDate } required></input><br />
                         Active Survey:
                         <label htmlFor="status" className="switch">
-                        <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === 'Active' } /><span className="slider"></span></label>
+                        <input id="status" type="checkbox" value={ validation() } onChange={ onChangeStatus } checked={ validation() === 'Active' } /><span className="slider"></span></label>
                        <br/><br/>
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" placeholder="What is your survey question?" id="question1" value ={question1} onChange={ onChangeQuestion1 } required></input>

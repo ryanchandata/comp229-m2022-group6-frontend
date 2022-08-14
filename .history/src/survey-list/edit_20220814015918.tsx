@@ -31,21 +31,6 @@ export default function Edit()
         document.title = "Edit The Survey";
     }, [id]);
 
-    function validation() {
-
-        let start = new Date (activationDate);
-        let end = new Date (expirationDate);
-        let today = new Date();
-
-        if (today>=start && today<=end)
-        {
-            return 'Active';
-        }
-        else { 
-            return 'Inactive';
-        }
-    } 
-
     function onChangeName(e: ChangeEvent<HTMLInputElement>)
     {
         setName(e.target.value);
@@ -154,7 +139,7 @@ export default function Edit()
             dateCreated: '',
             activationDate: new Date(activationDate),
             expirationDate: new Date(expirationDate),
-            status: validation(),
+            status: status,
             responses: Number(responses),
 
             question1: question1,
@@ -215,8 +200,8 @@ export default function Edit()
                     <input type="date" className="form-control" id="dateExpire" name="dateExpire" value = { new Date (expirationDate).toLocaleDateString('sv-SE') } onChange={ onChangeExpirationDate }></input><br /> 
                         Active Survey:
                         <label htmlFor="status" className="switch">
-                        <input id="status" type="checkbox" value={ status } onChange={ onChangeStatus } checked={ validation() === 'Active' } /><span className="slider"></span></label>
-                       <br/><br/>
+                            <input type="checkbox" value={ status } onChange={ onChangeStatus } checked={ status === 'Active' } /><span className="slider"></span></label><br />
+                    <br />
                     <label htmlFor="question1">Question 1</label>
                     <input type="text" className="form-control" id="Question1" value ={question1} onChange={ onChangeQuestion1 }></input>
                     <label htmlFor="optionType1">Selection Type:</label>
