@@ -34,6 +34,11 @@ export default function Answer()
         document.title = "Answering Survey";
     }, [id]);
 
+    function onChangeSurveyId(e: ChangeEvent<HTMLInputElement>)
+    {
+        setSurveyId(e.target.value);
+    }
+
     function onChangeQuestion1_ans(e: ChangeEvent<HTMLInputElement>)
     {
         setQuestion1_ans(e.target.value);
@@ -95,7 +100,7 @@ export default function Answer()
         <div className="container">
             <h1>Answering the Survey</h1>
             <hr />
-            <form onSubmit={saveResponse} className="form" method="post">
+            <form onSubmit={saveResponse} className="form" method="post" onChange={ onChangeSurveyId }>
                 <div className="form-group">
                     <h3> {name} </h3><br />
 

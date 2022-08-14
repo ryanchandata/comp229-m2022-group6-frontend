@@ -19,7 +19,7 @@ function Home()
 
     function readSurveys()
     {
-        surveyService.activeSurveyList()
+        surveyService.readAll()
         .then((responses: any) =>{
             setSurveys(responses.data.surveys);
         })
@@ -100,7 +100,7 @@ function Home()
                                             <td>{survey.name}</td>
                                             <td className="text-center" id="expireDate" >{new Date (survey.expirationDate).toDateString()}</td>
                                             <td className="text-center">
-                                                <Link to={`/answer/${survey._id}`}>
+                                                <Link to={"./answer"}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i> Do it now !</button>
                                                 </Link>
                                             </td>

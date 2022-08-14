@@ -31,7 +31,7 @@ class SurveyService
 
     activeSurveyList()
     {
-        return http.get<Array<ISurveyData>>("/publicSurveyList");
+        return http.get<Array<ISurveyData>>("/home");
     }
 
 }

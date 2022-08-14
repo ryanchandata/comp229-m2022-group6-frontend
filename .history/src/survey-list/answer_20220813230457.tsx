@@ -34,6 +34,11 @@ export default function Answer()
         document.title = "Answering Survey";
     }, [id]);
 
+    function onChangeSurveyId(e: ChangeEvent<HTMLInputElement>)
+    {
+        setSurveyId(e.target.value);
+    }
+
     function onChangeQuestion1_ans(e: ChangeEvent<HTMLInputElement>)
     {
         setQuestion1_ans(e.target.value);
@@ -81,7 +86,6 @@ export default function Answer()
             responseService.update(data, id)
             .then((response: any)=>
             {
-                setSurveyId(response.data.surveyId);
                 setQuestion1_ans(response.data.question1_ans);
                 setQuestion2_ans(response.data.question2_ans);
             })
@@ -113,7 +117,7 @@ export default function Answer()
                 </div>
 
                 <div className="text-end mt-2">
-                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-file-pen"></i> Submit</button>
+                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg" onClick={ onChangeSurveyId }><i className="fa-solid fa-file-pen"></i> Submit</button>
                         <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
                             <i className="fas fa-undo"></i> Cancel</button></Link>
                         </div>

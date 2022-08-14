@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import logo from '../components/team_logo.jpg';
-//import homepic1 from 'homepic1.jpg';
-//import homepic2 from 'homepic2.jpg';
-//import homepic3 from 'homepic3.jpg';
+import homepic1 from 'homepic1.jpg';
+import homepic2 from 'homepic2.jpg';
+import homepic3 from 'homepic3.jpg';
 import surveyService from '../services/survey-service';
 import ISurveyData from '../models/Survey';
 
@@ -19,7 +19,7 @@ function Home()
 
     function readSurveys()
     {
-        surveyService.activeSurveyList()
+        surveyService.readAll()
         .then((responses: any) =>{
             setSurveys(responses.data.surveys);
         })
@@ -100,7 +100,7 @@ function Home()
                                             <td>{survey.name}</td>
                                             <td className="text-center" id="expireDate" >{new Date (survey.expirationDate).toDateString()}</td>
                                             <td className="text-center">
-                                                <Link to={`/answer/${survey._id}`}>
+                                                <Link to={"./answer"}>
                                                     <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i> Do it now !</button>
                                                 </Link>
                                             </td>

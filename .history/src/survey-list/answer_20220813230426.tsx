@@ -34,6 +34,11 @@ export default function Answer()
         document.title = "Answering Survey";
     }, [id]);
 
+    function onChangeSurveyId(e: ChangeEvent<HTMLInputElement>)
+    {
+        setSurveyId(e.target.value);
+    }
+
     function onChangeQuestion1_ans(e: ChangeEvent<HTMLInputElement>)
     {
         setQuestion1_ans(e.target.value);
@@ -81,7 +86,6 @@ export default function Answer()
             responseService.update(data, id)
             .then((response: any)=>
             {
-                setSurveyId(response.data.surveyId);
                 setQuestion1_ans(response.data.question1_ans);
                 setQuestion2_ans(response.data.question2_ans);
             })

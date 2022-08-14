@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import logo from '../components/team_logo.jpg';
-//import homepic1 from 'homepic1.jpg';
-//import homepic2 from 'homepic2.jpg';
-//import homepic3 from 'homepic3.jpg';
+import homepic1 from 'homepic1.jpg';
+import homepic2 from 'homepic2.jpg';
+import homepic3 from 'homepic3.jpg';
 import surveyService from '../services/survey-service';
 import ISurveyData from '../models/Survey';
 
 function Home()
 {
     useEffect(()=>{
-        readSurveys();
         document.title = "Home Page";
     });
 
     const [ surveys, setSurveys ] = useState<Array<ISurveyData>>([]);
 
+    useEffect(()=> {
+        readSurveys();
+    }, []);
+
+    function refreshList()
+    {
+        readSurveys();
+    }
+
     function readSurveys()
     {
-        surveyService.activeSurveyList()
+        surveyService.readAll()
         .then((responses: any) =>{
             setSurveys(responses.data.surveys);
         })
@@ -90,23 +98,17 @@ function Home()
                                 <th scope="col" className="text-center">Take Survey</th>
                             </tr>
                         </thead>
-                        <tbody id="activeSurveyList">
-                            {
-                                surveys &&
-                                surveys.map((survey: ISurveyData, index: number)=>{
-                                    return (
-                                        <tr key="{index}">
-                                            <th scope="row" className='text-center'>{index + 1}</th>
-                                            <td>{survey.name}</td>
-                                            <td className="text-center" id="expireDate" >{new Date (survey.expirationDate).toDateString()}</td>
-                                            <td className="text-center">
-                                                <Link to={`/answer/${survey._id}`}>
-                                                    <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i> Do it now !</button>
-                                                </Link>
-                                            </td>
-                                        </tr>
-                                    )
-                                })}
+                        <tbody>
+                            <tr key="{index}">
+                                <th scope="row" className='text-center'></th>
+                                <td></td>
+                                <td className="text-center"></td>
+                                <td className="text-center">
+                                    <Link to={"./answer"}>
+                                        <button className="btn btn-primary"><i className="fa-solid fa-pen-to-square fa-lg"></i> Do it now !</button>
+                                    </Link>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
