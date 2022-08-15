@@ -235,6 +235,7 @@ input:checked + .slider:before
 
 .col-sm-12{
   background-color: #ffffff;
+  color: #ffffff;
 }
 
 .navbar .about .social-media {
