@@ -35,15 +35,21 @@ class AuthService
         }
         return false;
     }
+     
+    update(id: string, username: string, password: string, emailAddress: string)
+    {
+        return http.post(`/userEdit/${id}`, { id, username, password, emailAddress }, AuthHeader());
+    }
+    
+    /*
+    update(data: IUserData, id: any)
+    {
+        return http.post<IUserData>(`/userEdit/${id}`, data, AuthHeader());
+    }*/
 
     readOne(id: any)
     {
         return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
-    }
-    
-    update(data: IUserData, id: any)
-    {
-        return http.post<IUserData>(`/userEdit/${id}`, data, AuthHeader());
     }
 }
 

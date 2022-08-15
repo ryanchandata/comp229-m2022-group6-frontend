@@ -36,14 +36,20 @@ class AuthService
         return false;
     }
 
-    readOne(id: any)
+    public update(_id: string, username: string, password: string, firstName: string, lastName: string, emailAddress: string)
     {
-        return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
+        return http.post(`/userEdit/${_id}`, { _id, username, password, firstName, lastName, emailAddress });
     }
     
+    /*
     update(data: IUserData, id: any)
     {
         return http.post<IUserData>(`/userEdit/${id}`, data, AuthHeader());
+    }*/
+
+    readOne(id: any)
+    {
+        return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
     }
 }
 

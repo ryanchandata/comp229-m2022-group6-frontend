@@ -1,7 +1,8 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AuthService from '../services/auth-service';
-import IUserData from '../models/User';
+//import IUserData from '../models/User';
+import UserModel from '../models/User';
 
 function Account()
 {
@@ -56,7 +57,7 @@ function Account()
     function saveAccount(e: any)
     {
         e.preventDefault();
-        const data: IUserData = {
+        const UserData: UserModel = {
             _id: id,
             username: username,
             password: password,
@@ -64,14 +65,14 @@ function Account()
             LastName: LastName,
             EmailAddress: EmailAddress,
         }
-            AuthService.update(data, id)
+            AuthService.update(UserData._id, UserData.username, UserData.password, UserData.FirstName, UserData.LastName, UserData.EmailAddress)
             .then((response: any)=>
             {
                 setUsername(response.data.username);
                 setPassword(response.data.password);
-                setFirstName(response.data.firstName);
-                setLastName(response.data.lastName);
-                setEmailAddress(response.data.emailAddress);
+                setFirstName(response.data.FirstName);
+                setLastName(response.data.LastName);
+                setEmailAddress(response.data.EmailAddress);
             })
             .catch((e: Error)=>{
                 console.log(e);

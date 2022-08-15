@@ -36,14 +36,14 @@ class AuthService
         return false;
     }
 
-    readOne(id: any)
-    {
-        return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
-    }
-    
     update(data: IUserData, id: any)
     {
         return http.post<IUserData>(`/userEdit/${id}`, data, AuthHeader());
+    }
+
+    readOne(id: any)
+    {
+        return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
     }
 }
 

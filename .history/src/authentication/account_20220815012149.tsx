@@ -10,9 +10,9 @@ function Account()
     const [ password, setPassword ] = useState('');
     const [ confirmPassword, setConfirmPassword ] = useState('');
     const [ DisplayName, setDisplayName ] = useState('');
-    const [ FirstName, setFirstName ] = useState('');
-    const [ LastName, setLastName ] = useState('');
-    const [ EmailAddress, setEmailAddress ] = useState('');
+    const [ firstName, setFirstName ] = useState('');
+    const [ lastName, setLastName ] = useState('');
+    const [ emailAddress, setEmailAddress ] = useState('');
     
     useEffect(() => {
         getUser(id);
@@ -60,18 +60,18 @@ function Account()
             _id: id,
             username: username,
             password: password,
-            FirstName: FirstName,
-            LastName: LastName,
-            EmailAddress: EmailAddress,
+            FirstName: firstName,
+            LastName: lastName,
+            EmailAddress: emailAddress,
         }
             AuthService.update(data, id)
             .then((response: any)=>
             {
                 setUsername(response.data.username);
                 setPassword(response.data.password);
-                setFirstName(response.data.firstName);
-                setLastName(response.data.lastName);
-                setEmailAddress(response.data.emailAddress);
+                setFirstName(response.data.FirstName);
+                setLastName(response.data.LastName);
+                setEmailAddress(response.data.EmailAddress);
             })
             .catch((e: Error)=>{
                 console.log(e);
@@ -109,7 +109,7 @@ function Account()
                         <div className="row">
                             <div className="col-md-12">
                             <input type="email" className="form-control" id="emailAddress" name="emailAddress" required
-                            value= { EmailAddress }
+                            value= { emailAddress }
                             onChange = { onChangeEmailAddress }
                             placeholder="Email"/>
                             </div>

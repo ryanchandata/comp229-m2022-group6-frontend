@@ -60,8 +60,6 @@ function Account()
             _id: id,
             username: username,
             password: password,
-            FirstName: FirstName,
-            LastName: LastName,
             EmailAddress: EmailAddress,
         }
             AuthService.update(data, id)
@@ -69,9 +67,7 @@ function Account()
             {
                 setUsername(response.data.username);
                 setPassword(response.data.password);
-                setFirstName(response.data.firstName);
-                setLastName(response.data.lastName);
-                setEmailAddress(response.data.emailAddress);
+                setEmailAddress(response.data.EmailAddress);
             })
             .catch((e: Error)=>{
                 console.log(e);
