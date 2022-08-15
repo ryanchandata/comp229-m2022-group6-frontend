@@ -191,10 +191,8 @@ function Response()
                     </table>
                     </div>
                     </div>
-                    <div className="text-end mt-2">
                     <Link to= {"/survey"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
-                        <i className="fas fa-undo"></i> Back</button></Link>
-                    </div>
+                            <i className="fas fa-undo"></i> Cancel</button></Link>
                 </div>
                 
         )

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import responseService from '../services/response-service';
 import surveyService from '../services/survey-service';
 //import IResponseData from '../models/Response';
@@ -83,55 +83,6 @@ function Response()
             return null;
         }
     }
-    function showOrHideAns1Opt4()
-    {
-        if (optiondetails1_4 !== "")
-        {
-            return (
-                <tr key="{index}">
-                    <th scope="row" className='text-center'>Option 4</th>
-                    <td className="text-center" id="option1_4" >{ optiondetails1_4 }</td>
-                    <td className="text-center" id="option1_4_count" ></td>
-                </tr>
-           );
-        }
-        else { 
-            return null;
-        }
-    }
-
-    function showOrHideAns2Opt3()
-    {
-        if (optiondetails2_3 !== "")
-        {
-            return (
-                <tr key="{index}">
-                    <th scope="row" className='text-center'>Option 3</th>
-                    <td className="text-center" id="option2_3" >{ optiondetails2_3 }</td>
-                    <td className="text-center" id="option2_3_count" ></td>
-                </tr>
-           );
-        }
-        else { 
-            return null;
-        }
-    }
-    function showOrHideAns2Opt4()
-    {
-        if (optiondetails2_4 !== "")
-        {
-            return (
-                <tr key="{index}">
-                    <th scope="row" className='text-center'>Option 4</th>
-                    <td className="text-center" id="option2_4" >{ optiondetails2_4 }</td>
-                    <td className="text-center" id="option2_4_count" ></td>
-                </tr>
-           );
-        }
-        else { 
-            return null;
-        }
-    }
 
         return (
             <div className="container">
@@ -159,7 +110,11 @@ function Response()
                                     <td className="text-center" id="option1_2_count" ></td>
                                 </tr>
                                 { showOrHideAns1Opt3() }
-                                { showOrHideAns1Opt4() }
+                                <tr key="{index}">
+                                    <th scope="row" className='text-center'>Option 4</th>
+                                    <td className="text-center" id="option1_4" >{ optiondetails1_4 }</td>
+                                    <td className="text-center" id="option1_4_count" ></td>
+                                </tr>
                         </tbody>
                     </table>
                     </div>
@@ -185,18 +140,21 @@ function Response()
                                     <td className="text-center" id="option2_2" >{ optiondetails2_2 }</td>
                                     <td className="text-center" id="option2_2_count" ></td>
                                 </tr>
-                                { showOrHideAns2Opt3() }
-                                { showOrHideAns2Opt4() }
+                                <tr key="{index}">
+                                    <th scope="row" className='text-center'>Option 3</th>
+                                    <td className="text-center" id="option2_3" >{ optiondetails2_3 }</td>
+                                    <td className="text-center" id="option2_3_count" ></td>
+                                </tr>
+                                <tr key="{index}">
+                                    <th scope="row" className='text-center'>Option 4</th>
+                                    <td className="text-center" id="option2_4" >{ optiondetails2_4 }</td>
+                                    <td className="text-center" id="option2_4_count" ></td>
+                                </tr>
                         </tbody>
                     </table>
                     </div>
                     </div>
-                    <div className="text-end mt-2">
-                    <Link to= {"/survey"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
-                        <i className="fas fa-undo"></i> Back</button></Link>
-                    </div>
                 </div>
-                
         )
 }
 

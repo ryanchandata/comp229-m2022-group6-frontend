@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import responseService from '../services/response-service';
 import surveyService from '../services/survey-service';
 //import IResponseData from '../models/Response';
@@ -191,12 +191,7 @@ function Response()
                     </table>
                     </div>
                     </div>
-                    <div className="text-end mt-2">
-                    <Link to= {"/survey"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
-                        <i className="fas fa-undo"></i> Back</button></Link>
-                    </div>
                 </div>
-                
         )
 }
 
