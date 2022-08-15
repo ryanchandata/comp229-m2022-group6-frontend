@@ -12,7 +12,7 @@ function Footer()
       return date.getFullYear();
     }
     return(
-      <nav className="navbar flex-bottom ">
+      <nav className="navbar flex-bottom bg-light">
         <div className="container-fluid">
           <div className="row" >
             <div className="col-sm-12">

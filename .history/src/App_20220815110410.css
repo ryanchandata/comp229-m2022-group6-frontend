@@ -223,7 +223,7 @@ input:checked + .slider:before
 .navbar .about {
   margin: 0 auto;
   margin-top: 5px;
-  max-width: 100%;
+  max-width: 1170px;
   text-align: center; 
 }
 
@@ -233,8 +233,8 @@ input:checked + .slider:before
   margin-top: 10px; 
 }
 
-.col-sm-12{
-  background-color: #ffffff;
+.row {
+background-color: #94A2A8;
 }
 
 .navbar .about .social-media {

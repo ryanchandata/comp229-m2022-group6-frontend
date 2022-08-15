@@ -223,7 +223,7 @@ input:checked + .slider:before
 .navbar .about {
   margin: 0 auto;
   margin-top: 5px;
-  max-width: 100%;
+  max-width: 1170px;
   text-align: center; 
 }
 

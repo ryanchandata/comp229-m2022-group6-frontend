@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import logo from './team_logo.png';
+import logo from './team_logo.jpg';
 import AuthService from '../services/auth-service';
 
 console.log(logo);
@@ -57,7 +57,7 @@ function toggleLogin()
 
     return (
       
-        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
       <NavLink to={"/"} className="navbar-brand"><img src={logo} alt="Logo" height={55} width={70} background-color="#ffffff"/><div className="coname"> SurWe - Survey</div></NavLink>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

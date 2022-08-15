@@ -92,7 +92,6 @@ body {
       list-style: none;
       text-align: right;
       padding: 20px 0 20px;
-      position: fixed;
   }
   
   .nav > li {
@@ -132,7 +131,7 @@ body {
 }
 
 .bg-transbox {
-    position: static; 
+    position: relative; 
     height: 70vh;
     width: 100%;
     display: flex;
@@ -140,12 +139,20 @@ body {
     justify-content: center;
     z-index: -1;
     background-image: url(./content/homepic1.jpg);
-    background-size: cover;
-    background-repeat: repeat-x;
-    background-attachment: fixed;
-    opacity: 0.7;
 }
-
+/*
+.bg-transbox::before {
+    content: "";
+    background-image: url(./content/homepic1.jpg);;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;  
+}
+*/
 .h2 {
   position: relative;
   color: #94A2A8;
@@ -223,7 +230,7 @@ input:checked + .slider:before
 .navbar .about {
   margin: 0 auto;
   margin-top: 5px;
-  max-width: 100%;
+  max-width: 1170px;
   text-align: center; 
 }
 
@@ -231,10 +238,6 @@ input:checked + .slider:before
   font-size: 13px;
   color: #94A2A8;
   margin-top: 10px; 
-}
-
-.col-sm-12{
-  background-color: #ffffff;
 }
 
 .navbar .about .social-media {
@@ -259,7 +262,6 @@ input:checked + .slider:before
 
 .navbar .footer-info-single {
   margin: 15px 40px; 
-  color: #94A2A8;
 }
 
 .navbar .footer-info-single .title {
@@ -285,17 +287,11 @@ input:checked + .slider:before
   color: #94A2A8; 
 }
 
+
 /* - - - - - - - Scroll Button - - - - - - - */
 .scrollbutton{
-  color: #7CB3CF;
-  cursor: pointer;
-  position: fixed; 
-  left: 95%;
-  width: 10%;
-  height: 20px;
-  z-index: 1;
-  font-size: 2rem;
-  bottom: 28px;
-  }
+  margin-bottom: 5px;
+  margin-left: 800px;
   
-  /* - - - - - - - XXX - - - - - - - */
+  color: #7CB3CF;
+}

@@ -12,12 +12,13 @@ function Footer()
       return date.getFullYear();
     }
     return(
-      <nav className="navbar flex-bottom ">
+      <nav className="navbar flex-bottom bg-light">
         <div className="container-fluid">
-          <div className="row" >
+          <div className="row">
             <div className="col-sm-12">
               <div className="about">
-                <p>We strive provide analysis tools to help every dreamer at the beginning of their projects.</p> 
+                <img src={logo} className="img-responsive center-block" alt="Logo" height={60} width={70} />
+                <p>We strive provide analysis tools to help every dreamer at the beginning of their projects.</p>
 
                   <div className="social-media">
                       <a ><i className="fa-brands fa-facebook"></i></a>

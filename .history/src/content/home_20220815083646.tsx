@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
-import ScrollButton from '../components/scrollbutton';
 import logo from '../components/team_logo.jpg';
 //import homepic1 from 'homepic1.jpg';
 //import homepic2 from 'homepic2.jpg';
@@ -15,6 +14,10 @@ function Home()
         readSurveys();
         document.title = "Home Page";
     });
+
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, []);
 
     const [ surveys, setSurveys ] = useState<Array<ISurveyData>>([]);
 
@@ -111,6 +114,25 @@ function Home()
                         </tbody>
                     </table>
                 </div>
+                        <div style={{height: '155rem'}} />
+                        <button
+                            onClick={() => {
+                            window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                            }}
+                            style={{
+                            position: 'fixed',
+                            padding: '1rem 2rem',
+                            fontSize: '20px',
+                            bottom: '40px',
+                            right: '40px',
+                            backgroundColor: '#0C9',
+                            color: '#fff',
+                            textAlign: 'center',
+                            }}
+                        >
+                            Scroll to top
+                        </button>
+                            
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
-import ScrollButton from '../components/scrollbutton';
 import logo from '../components/team_logo.jpg';
 //import homepic1 from 'homepic1.jpg';
 //import homepic2 from 'homepic2.jpg';
@@ -28,7 +27,7 @@ function Home()
             console.log(e);
         });
     }
-
+    
     return(
        <div>
             <Carousel>
