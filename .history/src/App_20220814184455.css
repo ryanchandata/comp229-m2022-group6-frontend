@@ -213,3 +213,9 @@ input:checked + .slider:before
 {
   transform: translateX(15px);
 }
+
+/* style for answer page */
+input[type=checkbox].null, input[type=radio].null
+{
+  opacity: 0;
+}

@@ -91,9 +91,9 @@ export default function Answer()
             window.location.href="/home";
         }   
         
-    function showOrHideAns1Opt3() {
+    function showOrHide() {
     
-        if (optiondetails1_3 !== "")
+        if (optiondetails1_3 != null)
         {
             return (
             <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_3 } /> 
@@ -104,9 +104,9 @@ export default function Answer()
         }
     } 
 
-    function showOrHideAns1Opt4() {
+    function showOrHideAns1Option4() {
     
-        if (optiondetails1_4 !== "")
+        if (optiondetails1_4 != null)
         {
             return (
             <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_4 } /> 
@@ -117,9 +117,9 @@ export default function Answer()
         }
     } 
 
-    function showOrHideAns2Opt3() {
+    function showOrHideAns2Option3() {
     
-        if (optiondetails2_3 !== "")
+        if (optiondetails2_3 != null)
         {
             return (
             <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_3 } /> 
@@ -130,9 +130,9 @@ export default function Answer()
         }
     } 
 
-    function showOrHideAns2Opt4() {
+    function showOrHideAns2Option4() {
     
-        if (optiondetails2_4 !== "")
+        if (optiondetails2_4 != null)
         {
             return (
             <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_4 } /> 
@@ -141,7 +141,7 @@ export default function Answer()
         else { 
             return null;
         }
-    } 
+    }
 
     return(
         <div className="container">
@@ -154,15 +154,15 @@ export default function Answer()
                     <label htmlFor="question1" > {question1} </label><br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_1 } /> {optiondetails1_1}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_2 } /> {optiondetails1_2}<br />
-                    { showOrHideAns1Opt3() } {optiondetails1_3}<br />
-                    { showOrHideAns1Opt4() } {optiondetails1_4}<br />
+                    { showOrHide() } {optiondetails1_3}<br />
+                    { showOrHideAns1Option4() } {optiondetails1_4}<br />
                      <br />
                     <label htmlFor="question2" > {question2} </label><br />
                     <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_1 } /> {optiondetails2_1}<br />
                     <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_2 } /> {optiondetails2_2}<br />
-                    { showOrHideAns2Opt3() } {optiondetails2_3}<br />
-                    { showOrHideAns2Opt4() } {optiondetails2_4}<br />
-                    </div>
+                    { showOrHideAns2Option3() } {optiondetails2_3}<br />
+                    { showOrHideAns2Option4() } {optiondetails2_4}<br />
+                </div>
 
                 <div className="text-end mt-2">
                         <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-file-pen"></i> Submit</button>

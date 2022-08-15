@@ -91,51 +91,12 @@ export default function Answer()
             window.location.href="/home";
         }   
         
-    function showOrHideAns1Opt3() {
+    function showOrHideAnsOpt3() {
     
-        if (optiondetails1_3 !== "")
+        if (optiondetails1_3 != null)
         {
             return (
             <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_3 } /> 
-            );
-        }
-        else { 
-            return null;
-        }
-    } 
-
-    function showOrHideAns1Opt4() {
-    
-        if (optiondetails1_4 !== "")
-        {
-            return (
-            <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_4 } /> 
-            );
-        }
-        else { 
-            return null;
-        }
-    } 
-
-    function showOrHideAns2Opt3() {
-    
-        if (optiondetails2_3 !== "")
-        {
-            return (
-            <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_3 } /> 
-            );
-        }
-        else { 
-            return null;
-        }
-    } 
-
-    function showOrHideAns2Opt4() {
-    
-        if (optiondetails2_4 !== "")
-        {
-            return (
-            <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_4 } /> 
             );
         }
         else { 
@@ -154,15 +115,14 @@ export default function Answer()
                     <label htmlFor="question1" > {question1} </label><br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_1 } /> {optiondetails1_1}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_2 } /> {optiondetails1_2}<br />
-                    { showOrHideAns1Opt3() } {optiondetails1_3}<br />
-                    { showOrHideAns1Opt4() } {optiondetails1_4}<br />
+                    { showOrHideAnsOpt3() } {optiondetails1_3}<br />
                      <br />
                     <label htmlFor="question2" > {question2} </label><br />
                     <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_1 } /> {optiondetails2_1}<br />
                     <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_2 } /> {optiondetails2_2}<br />
-                    { showOrHideAns2Opt3() } {optiondetails2_3}<br />
-                    { showOrHideAns2Opt4() } {optiondetails2_4}<br />
-                    </div>
+                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_3 } /> {optiondetails2_3}<br /> 
+                    <input type= { optionType2 } name="question2" onChange={ onChangeQuestion2_ans } value={ optiondetails2_4 } /> {optiondetails2_4}<br />
+                </div>
 
                 <div className="text-end mt-2">
                         <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-file-pen"></i> Submit</button>

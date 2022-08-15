@@ -213,3 +213,7 @@ input:checked + .slider:before
 {
   transform: translateX(15px);
 }
+
+.form-group-answer input[type="checkbox"], input[type="radio"] {
+  display: none;
+}
