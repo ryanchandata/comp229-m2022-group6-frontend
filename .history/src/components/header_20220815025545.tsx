@@ -20,6 +20,7 @@ function getUserId()
 {
   return localStorage.getItem("user");
 } 
+    
 
 function toggleLogin()
   {
@@ -59,11 +60,7 @@ function toggleLogin()
       
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
-<<<<<<< HEAD
-      <NavLink to={"/"} className="navbar-brand"><img src={logo} alt="Logo" height={55} width={70} /> SurWe - Survey</NavLink>
-=======
       <NavLink to={"/"} className="navbar-brand"><img src={logo} alt="Logo" height={55} width={70} /><div className="coname"> SurWe - Survey</div></NavLink>
->>>>>>> 8b8e30bcc228693cd54783f89727802e28cccdcf
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>

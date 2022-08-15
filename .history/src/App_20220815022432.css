@@ -62,7 +62,9 @@ body {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
   }
-      
+  
+  
+  
   .login
   {
       padding: 2rem 1rem;
@@ -106,13 +108,11 @@ body {
   }
   
   .coname {
-      color: #559EC2;
-      font-family: 'Book Antiqua';
-      float: right;
-      padding-left: 10px;
-      padding-top: 17px;
-      font-size: 19px;
-      
+      color: #000000;
+      float: left;
+      padding-left: 25px;
+      font-size: 16px;
+      font-weight: bold;
   }
 
   /* - - - - - - - About Page - - - - - - - */
@@ -217,19 +217,19 @@ input:checked + .slider:before
 /* - - - - - - - Footer - - - - - - - */
 .copyright {
   text-align: center;
-  padding-top: 1px;
+  padding-top: 24px;
   opacity: 0.8;
-  margin-bottom: 10px; 
-  font-size: 13px;
+  margin-bottom: 0; 
+  font-size: 15px;
 }
 
-.navbar {
-  height: 11vh;
+navbar {
+  background: rgb(33, 30, 30);
 }
 
 .navbar .about {
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 40px;
   max-width: 1170px;
   text-align: center; 
 }
@@ -237,7 +237,7 @@ input:checked + .slider:before
 .navbar .about p {
   font-size: 13px;
   color: #94A2A8;
-  margin-top: 10px; 
+  margin-top: 30px; 
 }
 
 .navbar .about .social-media {
@@ -261,7 +261,7 @@ input:checked + .slider:before
 }
 
 .navbar .footer-info-single {
-  margin: 15px 40px; 
+  margin: 20px 40px; 
 }
 
 .navbar .footer-info-single .title {

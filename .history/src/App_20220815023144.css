@@ -62,7 +62,9 @@ body {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
   }
-      
+  
+  
+  
   .login
   {
       padding: 2rem 1rem;
@@ -106,13 +108,11 @@ body {
   }
   
   .coname {
-      color: #559EC2;
-      font-family: 'Book Antiqua';
-      float: right;
-      padding-left: 10px;
-      padding-top: 17px;
-      font-size: 19px;
-      
+      color: #000000;
+      float: left;
+      padding-left: 25px;
+      font-size: 16px;
+      font-weight: bold;
   }
 
   /* - - - - - - - About Page - - - - - - - */
@@ -219,12 +219,12 @@ input:checked + .slider:before
   text-align: center;
   padding-top: 1px;
   opacity: 0.8;
-  margin-bottom: 10px; 
+  margin-bottom: 1px; 
   font-size: 13px;
 }
 
 .navbar {
-  height: 11vh;
+  height: 13vh;
 }
 
 .navbar .about {
