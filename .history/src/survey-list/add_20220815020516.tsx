@@ -2,12 +2,16 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
+import AuthService from '../services/auth-service';
 
 function Add()
-{    
+{
+    // get userId
+    const [ user_Id, setId ] = useState('')
+    
     // items for creating a new survey
     const [ ID, setID ] = useState('');
-    const [ username, setUsername ] = useState('');
+    const [ userId, setUserId ] = useState('');
     const [ name, setName ] = useState('');
     const [ dateCreated, setDateCreated ] = useState('');
     const [ activationDate, setActivationDate ] = useState('');
@@ -118,17 +122,17 @@ function Add()
         }
     } 
 
-    function getUserName()
+    function getUserId()
     {
-        return localStorage.getItem("user")?.split(":")[5]?.split(",")[0]?.replace(/["}"]+/g,'') as string;
+        return localStorage.getItem("user");
     } 
-    
+
     function saveSurvey(e: any)
     {
         e.preventDefault();
         const data: ISurveyData = {
             _id: ID,
-            username: getUserName(),
+            userId: ((getUserId()?.split(":")[4])?.split(",")[0])?.replace(/[""]+/g,''),
             name: name,
             dateCreated: dateCreated,
             activationDate: new Date(activationDate),
@@ -155,7 +159,7 @@ function Add()
         .then((response: any)=>
         {
             setID(response.data.id);
-            setUsername(response.data.username);
+            setUserId(response.data.userId);
             setName(response.data.name);
             setDateCreated(response.data.dateCreated);
             setActivationDate(response.data.activationDate);
@@ -188,8 +192,7 @@ function Add()
             <h1>Creating a Survey</h1>
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
-                <div className="form-group">
-                    Created by: <input type="text" value={ username } placeholder={ getUserName() } disabled /> <br /><br />
+                <div className="form-group">{ userId }
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" placeholder="Survey Name" id="name" name="name" value = {name} onChange={ onChangeName } required></input><br />
                     <label htmlFor="dateActive">Start From</label>

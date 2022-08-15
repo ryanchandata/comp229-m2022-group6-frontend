@@ -6,7 +6,7 @@ import surveyService from '../services/survey-service';
 export default function Edit()
 {
     const { id } = useParams();
-    const [ username, setUsername ] = useState('');
+    const [ userId, setUserId ] = useState('');
     const [ name, setName ] = useState('');
     const [ activationDate, setActivationDate ] = useState('');
     const [ expirationDate, setExpirationDate ] = useState('');
@@ -121,7 +121,7 @@ export default function Edit()
     {
         surveyService.readOne(id)
         .then((response: any) =>{
-            setUsername(response.data.surveys.username);
+            setUserId(response.data.surveys.userId);
             setName(response.data.surveys.name);
             setActivationDate(response.data.surveys.activationDate);
             setExpirationDate(response.data.surveys.expirationDate);
@@ -152,7 +152,7 @@ export default function Edit()
         e.preventDefault();
         const data: ISurveyData = {
             _id: id,
-            username: username,
+            userId: userId,
             name: name,
             dateCreated: '',
             activationDate: new Date(activationDate),
@@ -178,7 +178,6 @@ export default function Edit()
             surveyService.update(data, id)
             .then((response: any)=>
             {
-                setUsername(response.data.username);
                 setName(response.data.name);
                 setActivationDate(response.data.activationDate);
                 setExpirationDate(response.data.expirationDate);
@@ -211,7 +210,6 @@ export default function Edit()
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
                 <div className="form-group">
-                    <input type="text" className="form-control" id="userId" name="userId" value = {username} disabled></input><br />
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" id="Name" name="name" value = {name} onChange={ onChangeName }></input><br />
                     <label htmlFor="dateActive">Start From</label>

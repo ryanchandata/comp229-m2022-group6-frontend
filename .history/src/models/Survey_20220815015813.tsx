@@ -1,7 +1,7 @@
 export default interface ISurveyData
 {
     _id?: any | null;
-    username: string,
+    userId: string,
     name: string,
     dateCreated: string,
     activationDate: Date,

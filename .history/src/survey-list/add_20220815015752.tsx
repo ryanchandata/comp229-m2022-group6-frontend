@@ -2,12 +2,16 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ISurveyData from '../models/Survey';
 import surveyService from '../services/survey-service';
+import AuthService from '../services/auth-service';
 
 function Add()
-{    
+{
+    // get userId
+    const [ user_Id, setId ] = useState('')
+    
     // items for creating a new survey
     const [ ID, setID ] = useState('');
-    const [ username, setUsername ] = useState('');
+    const [ userId, setUserId ] = useState('');
     const [ name, setName ] = useState('');
     const [ dateCreated, setDateCreated ] = useState('');
     const [ activationDate, setActivationDate ] = useState('');
@@ -30,8 +34,9 @@ function Add()
     const [ optiondetails2_4, setOptiondetails2_4 ] = useState('');
 
     useEffect(()=>{
+        getUser(ID);
         document.title = "Create A Survey";
-    }, [])
+    }, [ID])
 
     function onChangeName(e: ChangeEvent<HTMLInputElement>)
     {
@@ -118,17 +123,28 @@ function Add()
         }
     } 
 
-    function getUserName()
+    function getUserId()
     {
-        return localStorage.getItem("user")?.split(":")[5]?.split(",")[0]?.replace(/["}"]+/g,'') as string;
-    } 
-    
+        return user_Id;
+    }
+
+    function getUser(id: any)
+    {
+        AuthService.readOne(id)
+        .then((response: any) =>{
+            setId(response.data.users._id);
+        })
+        .catch((e: Error)=>{
+            console.log(e);
+        });
+    }
+
     function saveSurvey(e: any)
     {
         e.preventDefault();
         const data: ISurveyData = {
+            userId: getUserId(),
             _id: ID,
-            username: getUserName(),
             name: name,
             dateCreated: dateCreated,
             activationDate: new Date(activationDate),
@@ -154,8 +170,8 @@ function Add()
         surveyService.create(data)
         .then((response: any)=>
         {
+            setUserId(response.data.userId);
             setID(response.data.id);
-            setUsername(response.data.username);
             setName(response.data.name);
             setDateCreated(response.data.dateCreated);
             setActivationDate(response.data.activationDate);
@@ -188,8 +204,7 @@ function Add()
             <h1>Creating a Survey</h1>
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
-                <div className="form-group">
-                    Created by: <input type="text" value={ username } placeholder={ getUserName() } disabled /> <br /><br />
+                <div className="form-group">{ userId }
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" placeholder="Survey Name" id="name" name="name" value = {name} onChange={ onChangeName } required></input><br />
                     <label htmlFor="dateActive">Start From</label>

@@ -120,7 +120,7 @@ function Add()
 
     function getUserName()
     {
-        return localStorage.getItem("user")?.split(":")[5]?.split(",")[0]?.replace(/["}"]+/g,'') as string;
+        return localStorage.getItem("user");
     } 
     
     function saveSurvey(e: any)
@@ -128,7 +128,7 @@ function Add()
         e.preventDefault();
         const data: ISurveyData = {
             _id: ID,
-            username: getUserName(),
+            username: username,
             name: name,
             dateCreated: dateCreated,
             activationDate: new Date(activationDate),
@@ -189,7 +189,7 @@ function Add()
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
                 <div className="form-group">
-                    Created by: <input type="text" value={ username } placeholder={ getUserName() } disabled /> <br /><br />
+                    Created by: <input>{ ((getUserName()?.split(":")[5])?.split(",")[0])?.replace(/["}"]+/g,'') } </input><br /><br />
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" placeholder="Survey Name" id="name" name="name" value = {name} onChange={ onChangeName } required></input><br />
                     <label htmlFor="dateActive">Start From</label>

@@ -189,7 +189,7 @@ function Add()
             <hr />
             <form onSubmit={saveSurvey} className="form" method="post">
                 <div className="form-group">
-                    Created by: <input type="text" value={ username } placeholder={ getUserName() } disabled /> <br /><br />
+                    Created by: <input type="text" value={ getUserName() } disabled /> <br /><br />
                     <label htmlFor="name">Survey Title</label>
                     <input type="text" className="form-control" placeholder="Survey Name" id="name" name="name" value = {name} onChange={ onChangeName } required></input><br />
                     <label htmlFor="dateActive">Start From</label>
