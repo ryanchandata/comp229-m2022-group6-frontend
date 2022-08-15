@@ -48,7 +48,7 @@ export default function Answer()
     {
         surveyService.readOne(id)
         .then((response: any) =>{
-            setId(response.data.surveys._id); 
+            setId(response.data.surveys.id); 
             setName(response.data.surveys.name);    
             setQuestion1(response.data.surveys.question1);
             setOptionType1(response.data.surveys.optionType1);
@@ -155,7 +155,7 @@ export default function Answer()
             <hr />
             <form onSubmit={saveResponse} className="form" method="post">
                 <div className="form-group-answer">
-                    <h3> { name } { surveyId } </h3><br />
+                    <h3> { name } { survey_Id } </h3><br />
                     <label htmlFor="question1" > {question1} </label><br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_1 } /> {optiondetails1_1}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_2 } /> {optiondetails1_2}<br />

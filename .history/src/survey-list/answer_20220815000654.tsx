@@ -48,7 +48,7 @@ export default function Answer()
     {
         surveyService.readOne(id)
         .then((response: any) =>{
-            setId(response.data.surveys._id); 
+            setId(response.data.surveys.id); 
             setName(response.data.surveys.name);    
             setQuestion1(response.data.surveys.question1);
             setOptionType1(response.data.surveys.optionType1);
@@ -69,17 +69,12 @@ export default function Answer()
         });
     }
 
-    function getSurveyId()
-    {
-        return survey_Id;
-    }
-
     function saveResponse(e: any)
     {
         e.preventDefault();
         const data: IResponseData = {
             _id: id,
-            surveyId: getSurveyId(),
+            surveyId: surveyId,
             question1_ans: question1_ans,
             question2_ans: question2_ans,
            
@@ -149,13 +144,20 @@ export default function Answer()
         }
     } 
 
+    function updateSurveyId()
+    {
+        let surveyId = survey_Id;
+        return surveyId;
+    }
+
     return(
         <div className="container">
             <h1>Answering the Survey</h1>
             <hr />
             <form onSubmit={saveResponse} className="form" method="post">
                 <div className="form-group-answer">
-                    <h3> { name } { surveyId } </h3><br />
+                    <h3> { name } </h3><br />
+                    { updateSurveyId }
                     <label htmlFor="question1" > {question1} </label><br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_1 } /> {optiondetails1_1}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_2 } /> {optiondetails1_2}<br />

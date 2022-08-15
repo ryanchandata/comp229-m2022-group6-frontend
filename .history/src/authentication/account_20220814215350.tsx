@@ -9,7 +9,6 @@ function Account()
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ confirmPassword, setConfirmPassword ] = useState('');
-    const [ DisplayName, setDisplayName ] = useState('');
     const [ FirstName, setFirstName ] = useState('');
     const [ LastName, setLastName ] = useState('');
     const [ EmailAddress, setEmailAddress ] = useState('');
@@ -55,7 +54,8 @@ function Account()
         AuthService.readOne(id)
         .then((response: any) =>{
             setUsername(response.data.users.username);
-            setDisplayName(response.data.users.DisplayName);
+            setFirstName(response.data.users.FirstName);
+            setLastName(response.data.users.LastName);
             setEmailAddress(response.data.users.EmailAddress);
         })
         .catch((e: Error)=>{
@@ -88,6 +88,8 @@ function Account()
             });
             window.location.href="/survey";
         }
+    
+
 
     return (
         <div className="container">
@@ -97,22 +99,22 @@ function Account()
                     <h1 className="display-4">{ username }'s Profile</h1>
 
                     <form onSubmit = { saveAccount } id="saveAccount">
-                        <p className="message">* First Name and Last Name cannot be changed</p>
+                        <p className="hint-text">Profile</p>
 
                         <div className="form-group">
                         <div className="row">
                             <p className="lead"><i className="fas fa-user-shield"></i> Personal Information</p>
                             <div className="col-md-6">
                             <input className="form-control" type="text" name="firstName" id="firstName" placeholder="First Name" 
-                            value= { DisplayName.split(" ")[0] }
+                            value= { FirstName }
                             onChange = { onChangeFirstName }
-                            disabled/>
+                            required/>
                             </div>
                             <div className="col-md-6">
                             <input className="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" 
-                            value = { DisplayName.split(" ")[1] }
+                            value = { LastName }
                             onChange = { onChangeLastName }
-                            disabled/>
+                            required/>
                             </div>
                         </div>
                         </div>

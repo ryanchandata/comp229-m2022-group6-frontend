@@ -18,9 +18,9 @@ function Header()
 
 function getUserId()
 {
-  return localStorage.getItem("user");
-} 
-    
+  localStorage.getItem("id");
+  console.log(localStorage);
+}
 
 function toggleLogin()
   {
@@ -28,7 +28,7 @@ function toggleLogin()
     {
       return(
         <><li className='nav-item'>
-          <NavLink to={`/account/${ ((getUserId()?.split(":")[4])?.split(",")[0])?.replace(/[""]+/g,'') }`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
+          <NavLink to={`/account/${ getUserId() }`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
         </li><li className='nav-item'>
             <NavLink to={"/logout"} className='nav-link' aria-current="page"><i className="fa-solid fa-right-from-bracket fa-lg"></i> Logout</NavLink>
           </li></>

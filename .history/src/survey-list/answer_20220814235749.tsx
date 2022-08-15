@@ -3,18 +3,18 @@ import { Link, useParams } from 'react-router-dom';
 import IResponseData from '../models/Response';
 import responseService from '../services/response-service';
 import surveyService from '../services/survey-service';
+import Survey from './landing';
 
 export default function Answer()
 {
     // items for post response
     const { id } = useParams();
-    const [ surveyId, setSurveyId ] = useState('');
     const [ question1_ans, setQuestion1_ans ] = useState('');
     const [ question2_ans, setQuestion2_ans ] = useState('');
 
     // items for get survey
-    const [ survey_Id, setId ] = useState('')
     const [ name, setName ] = useState('');
+    const [ surveyId, setSurveyId ] = useState('');
     const [ question1, setQuestion1 ] = useState('');
     const [ optionType1, setOptionType1 ] = useState('');
     const [ optiondetails1_1, setOptiondetails1_1 ] = useState('');
@@ -48,7 +48,7 @@ export default function Answer()
     {
         surveyService.readOne(id)
         .then((response: any) =>{
-            setId(response.data.surveys._id); 
+            setSurveyId(response.data.surveys.id); 
             setName(response.data.surveys.name);    
             setQuestion1(response.data.surveys.question1);
             setOptionType1(response.data.surveys.optionType1);
@@ -69,17 +69,12 @@ export default function Answer()
         });
     }
 
-    function getSurveyId()
-    {
-        return survey_Id;
-    }
-
     function saveResponse(e: any)
     {
         e.preventDefault();
         const data: IResponseData = {
             _id: id,
-            surveyId: getSurveyId(),
+            surveyId: surveyId,
             question1_ans: question1_ans,
             question2_ans: question2_ans,
            
@@ -155,7 +150,8 @@ export default function Answer()
             <hr />
             <form onSubmit={saveResponse} className="form" method="post">
                 <div className="form-group-answer">
-                    <h3> { name } { surveyId } </h3><br />
+                    <h3> { name } </h3><br />
+                    
                     <label htmlFor="question1" > {question1} </label><br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_1 } /> {optiondetails1_1}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_2 } /> {optiondetails1_2}<br />

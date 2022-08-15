@@ -13,8 +13,8 @@ export default function Answer()
     const [ question2_ans, setQuestion2_ans ] = useState('');
 
     // items for get survey
-    const [ survey_Id, setId ] = useState('')
     const [ name, setName ] = useState('');
+
     const [ question1, setQuestion1 ] = useState('');
     const [ optionType1, setOptionType1 ] = useState('');
     const [ optiondetails1_1, setOptiondetails1_1 ] = useState('');
@@ -48,7 +48,6 @@ export default function Answer()
     {
         surveyService.readOne(id)
         .then((response: any) =>{
-            setId(response.data.surveys._id); 
             setName(response.data.surveys.name);    
             setQuestion1(response.data.surveys.question1);
             setOptionType1(response.data.surveys.optionType1);
@@ -69,17 +68,12 @@ export default function Answer()
         });
     }
 
-    function getSurveyId()
-    {
-        return survey_Id;
-    }
-
     function saveResponse(e: any)
     {
         e.preventDefault();
         const data: IResponseData = {
             _id: id,
-            surveyId: getSurveyId(),
+            surveyId: surveyId,
             question1_ans: question1_ans,
             question2_ans: question2_ans,
            
@@ -155,7 +149,8 @@ export default function Answer()
             <hr />
             <form onSubmit={saveResponse} className="form" method="post">
                 <div className="form-group-answer">
-                    <h3> { name } { surveyId } </h3><br />
+                    <h3> { name } </h3><br />
+
                     <label htmlFor="question1" > {question1} </label><br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_1 } /> {optiondetails1_1}<br />
                     <input type= { optionType1 } name="question1" onChange={ onChangeQuestion1_ans } value={ optiondetails1_2 } /> {optiondetails1_2}<br />
@@ -170,7 +165,7 @@ export default function Answer()
                     </div>
 
                 <div className="text-end mt-2">
-                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg" ><i className="fa-solid fa-file-pen"></i> Submit</button>
+                        <button id="submitButton" type="submit" className="btn btn-primary btn-lg"><i className="fa-solid fa-file-pen"></i> Submit</button>
                         <Link to= {"/home"} className="link"><button id="cancelButton" type="reset" className="btn btn-warning btn-lg">
                             <i className="fas fa-undo"></i> Cancel</button></Link>
                         </div>

@@ -97,7 +97,7 @@ function Account()
                     <h1 className="display-4">{ username }'s Profile</h1>
 
                     <form onSubmit = { saveAccount } id="saveAccount">
-                        <p className="message">* First Name and Last Name cannot be changed</p>
+                        <p className="hint-text">Profile</p>
 
                         <div className="form-group">
                         <div className="row">

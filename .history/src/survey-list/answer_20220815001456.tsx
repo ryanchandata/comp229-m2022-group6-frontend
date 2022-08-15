@@ -48,7 +48,7 @@ export default function Answer()
     {
         surveyService.readOne(id)
         .then((response: any) =>{
-            setId(response.data.surveys._id); 
+            setId(response.data.surveys.id); 
             setName(response.data.surveys.name);    
             setQuestion1(response.data.surveys.question1);
             setOptionType1(response.data.surveys.optionType1);

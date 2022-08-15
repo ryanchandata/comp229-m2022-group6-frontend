@@ -6,12 +6,12 @@ class ResponseService
 {
     readOne(id: any)
     {
-        return http.get<ISurveyData>(`/responseAddPage/${id}`);
+        return http.get<ISurveyData>(`/answer/${id}`);
     }
     
     update(data: IResponseData, id: any)
     {
-        return http.post<IResponseData>(`/responseAddPage/${id}`, data);
+        return http.post<IResponseData>(`/answer/${id}`, data);
     }
 
     readOneResponse(id: any)
