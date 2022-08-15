@@ -287,17 +287,12 @@ input:checked + .slider:before
   color: #94A2A8; 
 }
 
+
 /* - - - - - - - Scroll Button - - - - - - - */
 .scrollbutton{
-  color: #7CB3CF;
-  cursor: pointer;
-  position: fixed; 
-  left: 95%;
-  width: 10%;
-  height: 20px;
-  z-index: 1;
-  font-size: 2rem;
-  bottom: 28px;
-  }
+  margin-bottom: 5px;
+  float: center;
   
-  /* - - - - - - - XXX - - - - - - - */
+  
+  color: #7CB3CF;
+}

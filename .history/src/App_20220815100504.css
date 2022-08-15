@@ -287,6 +287,7 @@ input:checked + .slider:before
   color: #94A2A8; 
 }
 
+
 /* - - - - - - - Scroll Button - - - - - - - */
 .scrollbutton{
   color: #7CB3CF;
@@ -300,4 +301,3 @@ input:checked + .slider:before
   bottom: 28px;
   }
   
-  /* - - - - - - - XXX - - - - - - - */

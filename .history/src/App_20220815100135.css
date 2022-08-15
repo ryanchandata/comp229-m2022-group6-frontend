@@ -287,17 +287,25 @@ input:checked + .slider:before
   color: #94A2A8; 
 }
 
+
 /* - - - - - - - Scroll Button - - - - - - - */
 .scrollbutton{
   color: #7CB3CF;
   cursor: pointer;
   position: fixed; 
-  left: 95%;
-  width: 10%;
-  height: 20px;
-  z-index: 1;
-  font-size: 2rem;
+  left: 50%;
+  width: 80%;
+height: 20px;
+z-index: 1;
+font-size: 2rem;
   bottom: 28px;
   }
-  
-  /* - - - - - - - XXX - - - - - - - */
+
+position: fixed; 
+   width: 80%;
+   left: 50%;
+   bottom: 40px;
+   height: 20px;
+   font-size: 3rem;
+   z-index: 1;
+   

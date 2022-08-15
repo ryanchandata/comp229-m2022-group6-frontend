@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
-import ScrollButton from '../components/scrollbutton';
 import logo from '../components/team_logo.jpg';
 //import homepic1 from 'homepic1.jpg';
 //import homepic2 from 'homepic2.jpg';
@@ -29,6 +28,28 @@ function Home()
         });
     }
 
+    const App = () => {
+        // The back-to-top button is hidden at the beginning
+        const [showButton, setShowButton] = useState(false);
+
+        useEffect(() => {
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 300) {
+                    setShowButton(true);
+                } else {
+                    setShowButton(false);
+                }
+            });
+        }, []);
+
+        // This function will scroll the window to the top 
+        const scrollToTop = () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // for smoothly scrolling
+            });
+        };
+    }
     return(
        <div>
             <Carousel>
@@ -112,6 +133,13 @@ function Home()
                     </table>
                 </div>
                 </div>
+
+                {showButton && (
+        <button onClick={scrollToTop} className="back-to-top">
+          &#8679;
+        </button>
+      )}
+      {/* &#8679; is used to create the upward arrow */}
             </div>
         </div>
     )
