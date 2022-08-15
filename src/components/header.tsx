@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import logo from './team_logo.jpg';
+import logo from './team_logo.png';
 import AuthService from '../services/auth-service';
 
 console.log(logo);
