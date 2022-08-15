@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from './team_logo.jpg';
 import AuthService from '../services/auth-service';
 
@@ -9,17 +9,15 @@ function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ ,setValue ] = useState({});
-  const [ userId, setUserId ] = useState('');
   const { id } = useParams();
 
     useEffect(()=>{
-        setIsLoggedIn(AuthService.getCurrentUser());
+        setIsLoggedIn(AuthService.getCurrentUser())
         setValue({});
-        //getUser();
-    }, [id]); 
-
-    /*
-    function getUser()
+        getUser(id);
+    }, [id]);
+    
+    function getUser(id: any)
     {
         AuthService.getUserId()
         .then((response: any) =>{
@@ -28,7 +26,7 @@ function Header()
         .catch((e: Error)=>{
             console.log(e);
         });
-    }    */
+    }    
     
 function toggleLogin()
   {
@@ -36,7 +34,7 @@ function toggleLogin()
     {
       return(
         <><li className='nav-item'>
-          <NavLink to={`/account/${ userId }`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
+          <NavLink to={`/account/${ users._id }`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
         </li><li className='nav-item'>
             <NavLink to={"/logout"} className='nav-link' aria-current="page"><i className="fa-solid fa-right-from-bracket fa-lg"></i> Logout</NavLink>
           </li></>

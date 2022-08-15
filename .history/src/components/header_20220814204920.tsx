@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from './team_logo.jpg';
 import AuthService from '../services/auth-service';
+import IUserData from '../models/User';
 
 console.log(logo);
 
@@ -9,26 +10,23 @@ function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ ,setValue ] = useState({});
-  const [ userId, setUserId ] = useState('');
-  const { id } = useParams();
+  const [ users, setUser ] = useState<Array<IUserData>>([]);
 
     useEffect(()=>{
-        setIsLoggedIn(AuthService.getCurrentUser());
+        setIsLoggedIn(AuthService.getCurrentUser())
         setValue({});
-        //getUser();
-    }, [id]); 
+    }, []);
 
-    /*
-    function getUser()
-    {
-        AuthService.getUserId()
-        .then((response: any) =>{
-            setUserId(response.data.users.id);
-        })
-        .catch((e: Error)=>{
-            console.log(e);
-        });
-    }    */
+function getUser()
+{
+  AuthService.readOne(id)
+  .then((responses: any) =>{
+    setUser(responses.data.users);
+  })
+  .catch((e: Error)=>{
+    console.log(e);
+  });
+}
     
 function toggleLogin()
   {
@@ -36,7 +34,7 @@ function toggleLogin()
     {
       return(
         <><li className='nav-item'>
-          <NavLink to={`/account/${ userId }`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
+          <NavLink to={`/account/${user._id}`} className='nav-link' aria-current="page"><i className="fa-solid fa-user fa-lg"></i> Account </NavLink>
         </li><li className='nav-item'>
             <NavLink to={"/logout"} className='nav-link' aria-current="page"><i className="fa-solid fa-right-from-bracket fa-lg"></i> Logout</NavLink>
           </li></>

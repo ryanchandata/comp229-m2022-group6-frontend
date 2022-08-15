@@ -13,13 +13,12 @@ function Header()
   const { id } = useParams();
 
     useEffect(()=>{
-        setIsLoggedIn(AuthService.getCurrentUser());
+        setIsLoggedIn(AuthService.getCurrentUser())
         setValue({});
-        //getUser();
+        getUser(id);
     }, [id]); 
 
-    /*
-    function getUser()
+    function getUser(id: any)
     {
         AuthService.getUserId()
         .then((response: any) =>{
@@ -28,7 +27,7 @@ function Header()
         .catch((e: Error)=>{
             console.log(e);
         });
-    }    */
+    }    
     
 function toggleLogin()
   {

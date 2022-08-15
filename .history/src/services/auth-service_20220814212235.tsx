@@ -1,6 +1,5 @@
 import http from '../components/http-common';
 import IUserData from '../models/User';
-import AuthHeader from './auth-header';
 
 class AuthService
 {
@@ -38,7 +37,7 @@ class AuthService
 
     update(data: IUserData, id: any)
     {
-        return http.post<IUserData>(`/account/${id}`, data, AuthHeader());
+        return http.post<IUserData>(`/account/${id}`, data);
     }
     
     getUserId()
@@ -52,10 +51,6 @@ class AuthService
 
     }   
 
-    readOne(id: any)
-    {
-        return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
-    }
 }
 
 export default new AuthService();

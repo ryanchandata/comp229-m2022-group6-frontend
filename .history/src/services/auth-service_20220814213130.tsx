@@ -38,7 +38,7 @@ class AuthService
 
     update(data: IUserData, id: any)
     {
-        return http.post<IUserData>(`/account/${id}`, data, AuthHeader());
+        return http.post<IUserData>(`/account/${id}`, data);
     }
     
     getUserId()
@@ -54,7 +54,7 @@ class AuthService
 
     readOne(id: any)
     {
-        return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
+        return http.get<IUserData>(`/account/${id}`, AuthHeader());
     }
 }
 

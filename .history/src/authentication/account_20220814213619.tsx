@@ -11,7 +11,7 @@ function Account()
     const [ confirmPassword, setConfirmPassword ] = useState('');
     const [ FirstName, setFirstName ] = useState('');
     const [ LastName, setLastName ] = useState('');
-    const [ EmailAddress, setEmailAddress ] = useState('');
+    const [ emailAddress, setEmailAddress ] = useState('');
     
     useEffect(() => {
         getUser(id);
@@ -48,7 +48,6 @@ function Account()
         setEmailAddress(event.target.value);
     }
 
-
     function getUser(id: any)
     {
         AuthService.readOne(id)
@@ -74,7 +73,7 @@ function Account()
             password: password,
             FirstName: FirstName,
             LastName: LastName,
-            EmailAddress: EmailAddress,
+            EmailAddress: emailAddress,
         }
             AuthService.update(data, id)
             .then((response: any)=>
@@ -99,7 +98,7 @@ function Account()
         <div className="row">
             <div className="offset-md-3 col-md-6 col-sm-12">
                 <div className="login" id="contentArea">
-                    <h1 className="display-4">{ username }'s Profile</h1>
+                    <h1 className="display-4">{ username }</h1>
 
                     <form onSubmit = { saveAccount } id="saveAccount">
                         <p className="hint-text">Profile</p>
@@ -126,7 +125,7 @@ function Account()
                         <div className="row">
                             <div className="col-md-12">
                             <input type="email" className="form-control" id="emailAddress" name="emailAddress" required
-                            value= { EmailAddress }
+                            value= { emailAddress }
                             onChange = { onChangeEmailAddress }
                             placeholder="Email"/>
                             </div>

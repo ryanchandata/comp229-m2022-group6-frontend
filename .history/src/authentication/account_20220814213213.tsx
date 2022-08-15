@@ -48,6 +48,7 @@ function Account()
         setEmailAddress(event.target.value);
     }
 
+    
 
     function getUser(id: any)
     {
@@ -99,7 +100,7 @@ function Account()
         <div className="row">
             <div className="offset-md-3 col-md-6 col-sm-12">
                 <div className="login" id="contentArea">
-                    <h1 className="display-4">{ username }'s Profile</h1>
+                    <h1 className="display-4">{ username }</h1>
 
                     <form onSubmit = { saveAccount } id="saveAccount">
                         <p className="hint-text">Profile</p>

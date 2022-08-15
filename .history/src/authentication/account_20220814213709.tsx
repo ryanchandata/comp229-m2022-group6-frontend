@@ -9,7 +9,7 @@ function Account()
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ confirmPassword, setConfirmPassword ] = useState('');
-    const [ FirstName, setFirstName ] = useState('');
+    const [ firstName, setFirstName ] = useState('');
     const [ LastName, setLastName ] = useState('');
     const [ EmailAddress, setEmailAddress ] = useState('');
     
@@ -48,7 +48,6 @@ function Account()
         setEmailAddress(event.target.value);
     }
 
-
     function getUser(id: any)
     {
         AuthService.readOne(id)
@@ -72,7 +71,7 @@ function Account()
             _id: id,
             username: username,
             password: password,
-            FirstName: FirstName,
+            FirstName: firstName,
             LastName: LastName,
             EmailAddress: EmailAddress,
         }
@@ -99,7 +98,7 @@ function Account()
         <div className="row">
             <div className="offset-md-3 col-md-6 col-sm-12">
                 <div className="login" id="contentArea">
-                    <h1 className="display-4">{ username }'s Profile</h1>
+                    <h1 className="display-4">{ username }</h1>
 
                     <form onSubmit = { saveAccount } id="saveAccount">
                         <p className="hint-text">Profile</p>
@@ -109,7 +108,7 @@ function Account()
                             <p className="lead"><i className="fas fa-user-shield"></i> Personal Information</p>
                             <div className="col-md-6">
                             <input className="form-control" type="text" name="firstName" id="firstName" placeholder="First Name" 
-                            value= { FirstName }
+                            value= { firstName }
                             onChange = { onChangeFirstName }
                             required/>
                             </div>

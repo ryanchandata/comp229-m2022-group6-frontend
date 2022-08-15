@@ -1,6 +1,5 @@
 import http from '../components/http-common';
 import IUserData from '../models/User';
-import AuthHeader from './auth-header';
 
 class AuthService
 {
@@ -38,24 +37,9 @@ class AuthService
 
     update(data: IUserData, id: any)
     {
-        return http.post<IUserData>(`/account/${id}`, data, AuthHeader());
+        return http.post<IUserData>(`/account/${id}`, data);
     }
-    
-    getUserId()
-    {
-        const userIdString = localStorage.getItem("id") as string;
-        if (userIdString)
-        {
-            return JSON.parse(userIdString);
-        }
-        return false;
 
-    }   
-
-    readOne(id: any)
-    {
-        return http.get<IUserData>(`/userEdit/${id}`, AuthHeader());
-    }
 }
 
 export default new AuthService();

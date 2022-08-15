@@ -9,26 +9,12 @@ function Header()
 {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ ,setValue ] = useState({});
-  const [ userId, setUserId ] = useState('');
-  const { id } = useParams();
+  const [ userId, ] = useState('');
 
     useEffect(()=>{
-        setIsLoggedIn(AuthService.getCurrentUser());
+        setIsLoggedIn(AuthService.getCurrentUser())
         setValue({});
-        //getUser();
-    }, [id]); 
-
-    /*
-    function getUser()
-    {
-        AuthService.getUserId()
-        .then((response: any) =>{
-            setUserId(response.data.users.id);
-        })
-        .catch((e: Error)=>{
-            console.log(e);
-        });
-    }    */
+    }, []); 
     
 function toggleLogin()
   {

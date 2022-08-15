@@ -15,10 +15,9 @@ function Header()
     useEffect(()=>{
         setIsLoggedIn(AuthService.getCurrentUser());
         setValue({});
-        //getUser();
+        getUser();
     }, [id]); 
 
-    /*
     function getUser()
     {
         AuthService.getUserId()
@@ -28,7 +27,7 @@ function Header()
         .catch((e: Error)=>{
             console.log(e);
         });
-    }    */
+    }    
     
 function toggleLogin()
   {
