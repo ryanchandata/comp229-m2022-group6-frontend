@@ -67,7 +67,8 @@ function Home()
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <p></p>
+            <br></br>
+            <div className="container">
                 <div className="row sps">
                     <div className="col-sm-12 col-lg-2 ">
                         <img src={logo} alt="Logo" height={60} width={70} />
@@ -112,7 +113,7 @@ function Home()
                     </table>
                 </div>
                 </div>
-                                
+            </div>
         </div>
     )
 }
