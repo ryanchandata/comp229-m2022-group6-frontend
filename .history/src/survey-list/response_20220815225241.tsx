@@ -18,14 +18,10 @@ function Response()
 
     useEffect(()=> {
         getSurvey(id);
+        readStatAns1();
+        readStatAns2();
         document.title = "Statistic";
-    }, [id]);
-
-    useEffect(()=> {
-        readStatAns1()
-        readStatAns2()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [id, readStatAns1, readStatAns2]);
 
     
     function getSurvey(id: any)
@@ -33,6 +29,7 @@ function Response()
         surveyService.readOne(id)
         .then((response: any) =>{
             setName(response.data.surveys.name);
+
             setQuestion1(response.data.surveys.question1);
             setQuestion2(response.data.surveys.question2);
         })

@@ -23,7 +23,6 @@ function Response()
 
     useEffect(()=> {
         readStatAns1()
-        readStatAns2()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
