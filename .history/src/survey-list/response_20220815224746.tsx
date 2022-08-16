@@ -18,13 +18,11 @@ function Response()
 
     useEffect(()=> {
         getSurvey(id);
-        document.title = "Statistic";
-    }, [id]);
+        readStatAns1();
+        readStatAns2();
 
-    useEffect(()=> {
-        readStatAns1()
-        readStatAns2()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        //getResponse(id);
+        document.title = "Statistic";
     }, []);
 
     
@@ -33,6 +31,7 @@ function Response()
         surveyService.readOne(id)
         .then((response: any) =>{
             setName(response.data.surveys.name);
+
             setQuestion1(response.data.surveys.question1);
             setQuestion2(response.data.surveys.question2);
         })
@@ -41,7 +40,6 @@ function Response()
         });
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     function readStatAns1()
     {
         responseService.readOneResponseAns1(id)
@@ -53,7 +51,6 @@ function Response()
         });
     }
     
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     function readStatAns2()
     {
         responseService.readOneResponseAns2(id)
