@@ -11,7 +11,7 @@ function Contact()
     const sendEmail = (e: any) => {
         e.preventDefault();
     
-        emailjs.sendForm('service_znqq1jh', 'Lv6OR8n8J91mn-CAE', e.target, 'Lv6OR8n8J91mn-CAE')
+        emailjs.sendForm('service_znqq1jh', 'Lv6OR8n8J91mn-CAE', 'Lv6OR8n8J91mn-CAE')
           .then((result) => {
               console.log(result.text);
           }, (error) => {

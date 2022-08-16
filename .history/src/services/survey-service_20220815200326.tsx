@@ -21,7 +21,7 @@ class SurveyService
 
     readOneAns(id: any)
     {
-        return http.get<ISurveyData>(`/responseAddPage/${id}`);
+        return http.get<ISurveyData>(`/edit/${id}`);
     }
 
     update(data: ISurveyData, id: any)
