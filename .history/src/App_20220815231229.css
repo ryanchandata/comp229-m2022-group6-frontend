@@ -1,0 +1,308 @@
+/* Custom CSS goes here */
+h1 {
+  /* font-size: var(--abrilheadingSize); */
+  font-family: 'Rockwell';
+  color: #3D84A8;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Lucida Handwriting';
+  color: #5b656a;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+h3{
+  margin: auto;
+  width: 50%;
+  padding: 10px 0px;
+  text-align: center;
+  font-family: 'Copperplate Gothic Light';
+}
+
+  /* - - - - - - - Others - - - - - - - */
+
+body {
+    padding-bottom: 70px;
+  }
+  
+  .input-group-addon:first-child
+  {
+      border-right: 0;
+  }
+  
+  .input-group-addon
+  {
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1;
+      text-align: center;
+      border: 1px solid darkgrey;
+      border-radius: 4px; 
+  }
+  
+  .input-group-addon .fa
+  {
+      font-size: 18px;
+  }
+  
+  .input-group .form-control
+  {
+      position:relative;
+      z-index: 2;
+      float:left;
+      margin-bottom: 0;
+  }
+  
+  .input-group .form-control:last-child
+  {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+      
+  .login
+  {
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      background-color: lightgrey;
+      border-radius: .3rem;
+  }
+  
+  .login input
+  {
+      background-color: white;
+      border-color: darkgrey;
+      border-radius: .4em;
+      width: 100%;
+  }
+  
+  .edit-task
+  {
+      position: relative;
+      top: -31px;
+      display: none;
+  }
+  
+  .nav {
+      background-color: #ffffff;
+      color: #000000;
+      list-style: none;
+      text-align: right;
+      padding: 20px 0 20px;
+      position: fixed;
+  }
+  
+  .nav > li {
+      margin-left: 100px;
+      padding: 12px 0 0 5px;
+      font-size: 12px;
+  }
+  
+  .nav > li > a {
+      text-decoration: none;
+      color: #000000;
+  }
+  
+  .coname {
+      color: #559EC2;
+      font-family: 'Book Antiqua';
+      float: right;
+      padding-left: 10px;
+      padding-top: 17px;
+      font-size: 19px;
+      
+  }
+
+  /* - - - - - - - About Page - - - - - - - */
+
+.main-page-section {
+  position: relative;
+
+}
+
+.sps > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.bg-transbox {
+    position: static; 
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    background-image: url(./content/homepic1.jpg);
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    opacity: 0.7;
+}
+
+.h2 {
+  position: relative;
+  color: #94A2A8;
+  font-size: 14rem;
+  line-height: 0.9;
+  text-align: center;
+}
+
+/* - - - - - - - Style for switch button - - - - - - - */
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 25px;
+  margin: 0 10px;
+}
+
+.slider{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  z-index: 2;
+}
+
+.slider:before{
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+input:checked + .slider
+{
+  background-color: #38e902;
+}
+
+input:checked + .slider:before
+{
+  transform: translateX(15px);
+}
+
+/* - - - - - - - Footer - - - - - - - */
+.copyright {
+  text-align: center;
+  padding-top: 1px;
+  opacity: 0.8;
+  margin-bottom: 10px; 
+  font-size: 13px;
+}
+
+.navbar {
+  height: 11vh;
+}
+
+.navbar .about {
+  margin: 0 auto;
+  margin-top: 5px;
+  max-width: 100%;
+  text-align: center; 
+}
+
+.navbar .about p {
+  font-size: 13px;
+  color: #94A2A8;
+  margin-top: 10px; 
+}
+
+.col-sm-12{
+  background-color: #ffffff;
+}
+
+.navbar .about .social-media {
+  margin-top: 15px; 
+}
+
+.navbar .about .social-media a {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  font-size: 16px;
+  border: 1px solid #f0f3f4; 
+}
+
+.navbar .about .social-media a:hover {
+  background: #7CB3CF;
+  color: #ffffff;
+  border-color: #7CB3CF; 
+}
+
+.navbar .footer-info-single {
+  margin: 15px 40px; 
+  color: #94A2A8;
+}
+
+.navbar .footer-info-single .title {
+  color: #94A2A8;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding-left: 15px; 
+}
+
+.navbar .footer-info-single .title a {
+  display: block;
+  color: #94A2A8;
+  padding: 3px 0; 
+}
+
+.navbar .footer-info-single .title a:hover {
+  color: #559EC2; 
+}
+
+.navbar  .footer-info-single p {
+  font-size: 13px;
+  line-height: 20px;
+  color: #94A2A8; 
+}
+
+/* - - - - - - - Scroll Button - - - - - - - */
+.scrollbutton{
+  color: #7CB3CF;
+  cursor: pointer;
+  position: fixed; 
+  left: 95%;
+  width: 10%;
+  height: 20px;
+  z-index: 1;
+  font-size: 2rem;
+  bottom: 28px;
+  }
+  
+  /* - - - - - - - Body - - - - - - - */
+  div.container
+{
+    margin-top: 10%;
+    margin-bottom: 5%;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}

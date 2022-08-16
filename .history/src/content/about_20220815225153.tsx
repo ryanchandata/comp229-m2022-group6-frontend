@@ -29,28 +29,28 @@ function About()
                 <h3>Meet Our Team</h3>
                 <div className="row sps">
                     <div className="col-sm-12 col-lg-3">
-                        <img src={propic1} alt="" width="300" height="390"></img><br></br>
+                        <img src={propic1} alt="" width="300" height="380"></img><br></br>
                         <div>
                             <h4>Po Fai Chan</h4>
                             <p>Project Manage</p>
                         </div>
                         </div>
                     <div className="col-sm-12 col-lg-3">
-                        <img src={propic2} alt="" width="300" height="390"></img><br></br>
+                        <img src={propic2} alt="" width="300" height="380"></img><br></br>
                         <div>
                             <h4>Kin Fung Lee</h4>
                             <p>Web Designer</p>
                         </div>
                     </div>
                     <div className="col-sm-12 col-lg-3">
-                        <img src={propic3} alt="" width="300" height="390"></img><br></br>
+                        <img src={propic3} alt="" width="300" height="380"></img><br></br>
                         <div>
                             <h4>Yuen Ting Leung</h4>
                             <p>Lead Software Engineer</p>
                         </div>
                     </div>
                     <div className="col-sm-12 col-lg-3">
-                         <img src={propic4} alt="" width="300" height="390"></img><br></br>
+                         <img src={propic4} alt="" width="300" height="380"></img><br></br>
                         <div>
                             <h4>Hiu Tung Tong</h4>
                             <p>UI Programmer</p>
