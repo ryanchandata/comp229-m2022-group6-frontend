@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import IStatistic1 from '../models/Statistic';
-import IStatistic2 from '../models/Statistic';
 import responseService from '../services/response-service';
 import surveyService from '../services/survey-service';
 //import IResponseData from '../models/Response';
@@ -10,17 +8,14 @@ function Response()
 {   
     // items for survey
     const [ name, setName ] = useState('');
-    const [ question1, setQuestion1 ] = useState('');
-    const [ question2, setQuestion2 ] = useState('');
-    const { id } = useParams();
 
-    /*
+    const [ question1, setQuestion1 ] = useState('');
     const [ optiondetails1_1, setOptiondetails1_1 ] = useState('');
     const [ optiondetails1_2, setOptiondetails1_2 ] = useState('');
     const [ optiondetails1_3, setOptiondetails1_3 ] = useState('');
     const [ optiondetails1_4, setOptiondetails1_4 ] = useState('');
 
-    
+    const [ question2, setQuestion2 ] = useState('');
     const [ optiondetails2_1, setOptiondetails2_1 ] = useState('');
     const [ optiondetails2_2, setOptiondetails2_2 ] = useState('');
     const [ optiondetails2_3, setOptiondetails2_3 ] = useState('');
@@ -29,18 +24,14 @@ function Response()
     // items for response
     const [ question1_ans, setQuestion1_ans ] = useState('');
     const [ question2_ans, setQuestion2_ans ] = useState('');
-    
-*/
+    const { id } = useParams();
+
     useEffect(()=> {
         getSurvey(id);
-        readStatAns1();
-        readStatAns2();
-
-        //getResponse(id);
+        getResponse(id);
         document.title = "Statistic";
-    });
+    }, [id]);
 
-    
     function getSurvey(id: any)
     {
         surveyService.readOne(id)
@@ -48,53 +39,44 @@ function Response()
             setName(response.data.surveys.name);
 
             setQuestion1(response.data.surveys.question1);
-            setQuestion2(response.data.surveys.question2);
-            /*
             setOptiondetails1_1(response.data.surveys.optiondetails1_1);
             setOptiondetails1_2(response.data.surveys.optiondetails1_2);
             setOptiondetails1_3(response.data.surveys.optiondetails1_3);
             setOptiondetails1_4(response.data.surveys.optiondetails1_4);
 
-            
+            setQuestion2(response.data.surveys.question2);
             setOptiondetails2_1(response.data.surveys.optiondetails2_1);
             setOptiondetails2_2(response.data.surveys.optiondetails2_2);
             setOptiondetails2_3(response.data.surveys.optiondetails2_3);
             setOptiondetails2_4(response.data.surveys.optiondetails2_4);
-              */
         })
         .catch((e: Error)=>{
             console.log(e);
         });
     }
-  
-    const [ statistic1, setStat1 ] = useState<Array<IStatistic1>>([]);
-    const [ statistic2, setStat2 ] = useState<Array<IStatistic2>>([]);
 
-    function readStatAns1()
+    function getResponseAns1(id: any)
     {
         responseService.readOneResponseAns1(id)
         .then((responses: any) =>{
-            setStat1(responses.data.statistic1);
+            setQuestion1_ans(responses.data.question1_ans);
         })
         .catch((e: Error)=>{
             console.log(e);
         });
     }
-    
-    
-    function readStatAns2()
+
+    function getResponseAns2(id: any)
     {
         responseService.readOneResponseAns2(id)
         .then((responses: any) =>{
-            setStat2(responses.data.statistic2);
+            setQuestion2_ans(responses.data.question2_ans);
         })
         .catch((e: Error)=>{
             console.log(e);
         });
     }
 
-
-    /*
     function showOrHideAns1Opt3()
     {
         if (optiondetails1_3 !== "")
@@ -159,7 +141,7 @@ function Response()
         else { 
             return null;
         }
-    }*/
+    }
 
         return (
             <div className="container">
@@ -170,24 +152,13 @@ function Response()
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col" className='text-center'></th>
                                 <th scope="col" className="text-center">{ question1 }</th>
                                 <th scope="col" className="text-center">Count</th>
                             </tr>
                         </thead>
-                        
                         <tbody id="surveyList">
-                            {   statistic1 &&
-                                statistic1.map((statistic1: IStatistic1, index: number) => {
-                                return(
-                                     <tr key="{index}">
-                                     <th scope="row" className='text-center'>{statistic1._id}</th>
-                                     <th scope="row" className='text-center'>{Number(statistic1.count)}</th>
-                                     </tr>
-                                     );
-                            })}
-                            </tbody>
-                            </table>
-                                    {/*
+                                <tr key="{index}">
                                     <th scope="row" className='text-center'>Option 1</th>
                                     <td className="text-center" id="option1_1" >{ optiondetails1_1 }</td>
                                     <td className="text-center" id="option1_1_count" ></td>
@@ -198,10 +169,9 @@ function Response()
                                     <td className="text-center" id="option1_2_count" ></td>
                                 </tr>
                                 { showOrHideAns1Opt3() }
-                                { showOrHideAns1Opt4() }   */}
-                        
-     
-                    
+                                { showOrHideAns1Opt4() }
+                        </tbody>
+                    </table>
                     </div>
                     </div>
                     <div className="row">
@@ -209,11 +179,11 @@ function Response()
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col" className='text-center'></th>
                                 <th scope="col" className="text-center">{ question2 }</th>
                                 <th scope="col" className="text-center">Count</th>
                             </tr>
                         </thead>
-                        {/*
                         <tbody id="surveyList">
                                 <tr key="{index}">
                                     <th scope="row" className='text-center'>Option 1</th>
@@ -227,18 +197,7 @@ function Response()
                                 </tr>
                                 { showOrHideAns2Opt3() }
                                 { showOrHideAns2Opt4() }
-                        </tbody>*/}
-                        <tbody id="surveyList">
-                            {   statistic2 &&
-                                statistic2.map((statistic2: IStatistic2, index: number) => {
-                                return(
-                                     <tr key="{index}">
-                                     <th scope="row" className='text-center'>{statistic2._id}</th>
-                                     <th scope="row" className='text-center'>{Number(statistic2.count)}</th>
-                                     </tr>
-                                     );
-                            })}
-                            </tbody>
+                        </tbody>
                     </table>
                     </div>
                     </div>

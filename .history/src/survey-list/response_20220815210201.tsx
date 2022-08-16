@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import IStatistic1 from '../models/Statistic';
-import IStatistic2 from '../models/Statistic';
 import responseService from '../services/response-service';
 import surveyService from '../services/survey-service';
 //import IResponseData from '../models/Response';
@@ -33,12 +31,9 @@ function Response()
 */
     useEffect(()=> {
         getSurvey(id);
-        readStatAns1();
-        readStatAns2();
-
         //getResponse(id);
         document.title = "Statistic";
-    });
+    }, [id]);
 
     
     function getSurvey(id: any)
@@ -67,31 +62,19 @@ function Response()
         });
     }
   
-    const [ statistic1, setStat1 ] = useState<Array<IStatistic1>>([]);
-    const [ statistic2, setStat2 ] = useState<Array<IStatistic2>>([]);
+    const [ statistic, setStat ] = useState<Array<IStatistic>>([]);
 
     function readStatAns1()
     {
-        responseService.readOneResponseAns1(id)
+        responseService.readOneResponseAns1()
         .then((responses: any) =>{
-            setStat1(responses.data.statistic1);
+            setStat(responses.data.statistic);
         })
         .catch((e: Error)=>{
             console.log(e);
         });
     }
     
-    
-    function readStatAns2()
-    {
-        responseService.readOneResponseAns2(id)
-        .then((responses: any) =>{
-            setStat2(responses.data.statistic2);
-        })
-        .catch((e: Error)=>{
-            console.log(e);
-        });
-    }
 
 
     /*
@@ -170,18 +153,18 @@ function Response()
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col" className='text-center'></th>
                                 <th scope="col" className="text-center">{ question1 }</th>
                                 <th scope="col" className="text-center">Count</th>
                             </tr>
                         </thead>
                         
                         <tbody id="surveyList">
-                            {   statistic1 &&
-                                statistic1.map((statistic1: IStatistic1, index: number) => {
+                            {statistic.map(statistic => {
                                 return(
                                      <tr key="{index}">
-                                     <th scope="row" className='text-center'>{statistic1._id}</th>
-                                     <th scope="row" className='text-center'>{Number(statistic1.count)}</th>
+                                     <th scope="row" className='text-center'>{statistic._id}</th>
+                                     <th scope="row" className='text-center'>{statistic.count}</th>
                                      </tr>
                                      );
                             })}
@@ -209,6 +192,7 @@ function Response()
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col" className='text-center'></th>
                                 <th scope="col" className="text-center">{ question2 }</th>
                                 <th scope="col" className="text-center">Count</th>
                             </tr>
@@ -228,17 +212,6 @@ function Response()
                                 { showOrHideAns2Opt3() }
                                 { showOrHideAns2Opt4() }
                         </tbody>*/}
-                        <tbody id="surveyList">
-                            {   statistic2 &&
-                                statistic2.map((statistic2: IStatistic2, index: number) => {
-                                return(
-                                     <tr key="{index}">
-                                     <th scope="row" className='text-center'>{statistic2._id}</th>
-                                     <th scope="row" className='text-center'>{Number(statistic2.count)}</th>
-                                     </tr>
-                                     );
-                            })}
-                            </tbody>
                     </table>
                     </div>
                     </div>

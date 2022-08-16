@@ -170,6 +170,7 @@ function Response()
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col" className='text-center'></th>
                                 <th scope="col" className="text-center">{ question1 }</th>
                                 <th scope="col" className="text-center">Count</th>
                             </tr>
@@ -209,6 +210,7 @@ function Response()
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col" className='text-center'></th>
                                 <th scope="col" className="text-center">{ question2 }</th>
                                 <th scope="col" className="text-center">Count</th>
                             </tr>
