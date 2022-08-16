@@ -120,7 +120,7 @@ body {
     height: 88vh;
   }
   
-  .row1{
+  .row{
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -227,7 +227,6 @@ input:checked + .slider:before
 
 .navbar {
   height: 11vh;
-  background-color: #ffffff;
 }
 
 .navbar .about {

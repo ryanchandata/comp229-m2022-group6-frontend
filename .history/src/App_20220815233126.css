@@ -227,7 +227,6 @@ input:checked + .slider:before
 
 .navbar {
   height: 11vh;
-  background-color: #ffffff;
 }
 
 .navbar .about {

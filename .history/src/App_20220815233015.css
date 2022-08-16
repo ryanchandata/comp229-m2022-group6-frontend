@@ -121,8 +121,8 @@ body {
   }
   
   .row1{
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   /* - - - - - - - About Page - - - - - - - */
@@ -227,7 +227,6 @@ input:checked + .slider:before
 
 .navbar {
   height: 11vh;
-  background-color: #ffffff;
 }
 
 .navbar .about {

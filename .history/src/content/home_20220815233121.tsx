@@ -68,7 +68,7 @@ function Home()
                 </Carousel.Item>
             </Carousel>
             <p></p>
-                <div className="row sps">
+                <div className="row1 sps">
                     <div className="col-sm-12 col-lg-2 ">
                         <img src={logo} alt="Logo" height={60} width={70} />
                     </div>

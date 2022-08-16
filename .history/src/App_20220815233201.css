@@ -119,11 +119,7 @@ body {
   .d-block{
     height: 88vh;
   }
-  
-  .row1{
-    padding-left: 50px;
-    padding-right: 50px;
-  }
+
 
   /* - - - - - - - About Page - - - - - - - */
 
@@ -227,7 +223,6 @@ input:checked + .slider:before
 
 .navbar {
   height: 11vh;
-  background-color: #ffffff;
 }
 
 .navbar .about {
