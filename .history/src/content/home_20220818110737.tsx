@@ -85,10 +85,10 @@ function Home()
                     <table className="table table-bordered table-striped table-hover justify-content-center">
                         <thead>
                             <tr>
-                                <th scope="col" className="text-center col-sm-12 col-lg-1 ">#</th>
+                                <th scope="col" className="text-center col-sm-12 col-lg-2 ">#</th>
                                 <th scope="col" className="text-center col-sm-12 col-lg-5 ">Survey Name</th>
                                 <th scope="col" className="text-center col-sm-12 col-lg-3 ">End Date</th>
-                                <th scope="col" className="text-center col-sm-12 col-lg-3 ">Take Survey</th>
+                                <th scope="col" className="text-center col-sm-12 col-lg-2 ">Take Survey</th>
                             </tr>
                         </thead>
                         <tbody id="activeSurveyList">

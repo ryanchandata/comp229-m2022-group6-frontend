@@ -73,9 +73,9 @@ function Response()
                 <div className="col">
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
-                            <tr>
-                                <th scope="col" className="text-center col-sm-6 col-lg-5 ">{ question1 }</th>
-                                <th scope="col" className="text-center col-sm-6 col-lg-1">Count</th>
+                            <tr className="style=width:70%">
+                                <th scope="col" className="text-center">{ question1 }</th>
+                                <th scope="col" className="text-center">Count</th>
                             </tr>
                         </thead>
                         
@@ -83,9 +83,9 @@ function Response()
                             {   response1 &&
                                 response1.map((response1: IStatistic1) => {
                                 return(
-                                     <tr key="{index}" >
-                                     <th scope="row" className="text-center col-sm-6 col-lg-5" >{response1._id}</th>
-                                     <th scope="row" className="text-center col-sm-6 col-lg-1">{Number(response1.count)}</th>
+                                     <tr key="{index}" className="style=width:30%">
+                                     <th scope="row" className='text-center'>{response1._id}</th>
+                                     <th scope="row" className='text-center'>{Number(response1.count)}</th>
                                      </tr>
                                      );
                             })}
@@ -97,18 +97,18 @@ function Response()
                 <div className="col">
                     <table className="table table-bordered table-striped table-hover">
                         <thead>
-                            <tr>
-                                <th scope="col" className="text-center col-sm-6 col-lg-5">{ question2 }</th>
-                                <th scope="col" className="text-center col-sm-6 col-lg-1">Count</th>
+                            <tr className="col-sm-6 col-lg-4 ">
+                                <th scope="col" className="text-center">{ question2 }</th>
+                                <th scope="col" className="text-center">Count</th>
                             </tr>
                         </thead>
                         <tbody id="surveyList">
                             {   response2 &&
                                 response2.map((response2: IStatistic2) => {
                                 return(
-                                     <tr key="{index}">
-                                     <th scope="row" className="text-center col-sm-6 col-lg-5">{response2._id}</th>
-                                     <th scope="row" className="text-center col-sm-6 col-lg-1">{Number(response2.count)}</th>
+                                     <tr key="{index}" className="col-sm-6 col-lg-2 ">
+                                     <th scope="row" className='text-center'>{response2._id}</th>
+                                     <th scope="row" className='text-center'>{Number(response2.count)}</th>
                                      </tr>
                                      );
                             })}
