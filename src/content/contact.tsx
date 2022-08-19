@@ -26,7 +26,7 @@ function Contact()
                 <div id="messageArea" className="alert alert-success"></div>
                 */}
                 <div className="row justify-content-lg-center g-3">
-                <form className="col-lg-6 col-md-10 col-sm-10" onSubmit={sendEmail}>
+                <form action="https://formsubmit.co/ryan@ryanchan.info" method="POST" className="col-lg-6 col-md-10 col-sm-10" onSubmit={sendEmail}>
 
                     <div className="input-group mb-3">
                     <span className="input-group-text">Full Name</span>
