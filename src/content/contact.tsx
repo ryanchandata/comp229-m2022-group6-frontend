@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
+
 
 function Contact()
 {
@@ -8,17 +8,7 @@ function Contact()
         document.title = "Contact Us";
     });
 
-    const sendEmail = (e: any) => {
-        e.preventDefault();
-    
-        emailjs.sendForm('service_znqq1jh', 'Lv6OR8n8J91mn-CAE', e.target, 'Lv6OR8n8J91mn-CAE')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
-        };
-    
+   
     return(
         <div className="container">
             <h1>Contact Us</h1>
@@ -26,7 +16,7 @@ function Contact()
                 <div id="messageArea" className="alert alert-success"></div>
                 */}
                 <div className="row justify-content-lg-center g-3">
-                <form action="https://formsubmit.co/ryan@ryanchan.info" method="POST" className="col-lg-6 col-md-10 col-sm-10" onSubmit={sendEmail}>
+                <form action="https://formsubmit.co/ryan@ryanchan.info" method="POST" className="col-lg-6 col-md-10 col-sm-10" >
 
                     <div className="input-group mb-3">
                     <span className="input-group-text">Full Name</span>
